@@ -13,4 +13,16 @@
     	<servlet-name>Tiles</servlet-name>
     	<url-pattern>*.tiles</url-pattern>
 	</servlet-mapping>
+	
+	<!-- 회원탈퇴 -->
+	<servlet>
+	    <servlet-name>MemberController</servlet-name>
+	    <servlet-class>co.shop.controller.MemberController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	    <servlet-name>MemberController</servlet-name>
+	    <url-pattern>/memberDelete.do</url-pattern>
+	</servlet-mapping>
+	
+	
 </web-app>

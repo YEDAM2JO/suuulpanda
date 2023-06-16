@@ -260,7 +260,8 @@
     background: #000;
     color: #fff;
 }
-    	
+
+    
     </style>
 </head>
 <body>
@@ -313,7 +314,7 @@
                 		<c:set var="state" value="${b.boardRepleState }"/>
                 		<td>${state }</td>
                 		<c:if test="${state eq 'N' }">
-                			<td><button type="button" onclick="location.href='managerReple.do?id=${b.boardId}'">답글달기</button></td>
+                			<td><button type="button" onclick="location.href='managerReple.do?id=${b.boardId}'">댓글달기</button></td>
                 		</c:if>
                 		<c:if test="${state ne 'N' }">
                 			<td>답변완료</td>

@@ -4,6 +4,7 @@
 	<!-- 전체 상품 조회 -->
 	<select id="getAllProducts" resultType="co.shop.product.service.ProductVO">
 		SELECT * FROM product
+		ORDER BY product_date DESC
 	</select>
 	
 	<!-- 상품 상세 조회 -->
@@ -18,6 +19,9 @@
 		VALUES(#{productId}, #{productName}, #{productKind}, #{productImg}, #{productImgPath}, #{productPrice}, sysdate,
 			#{productTaste}, #{productSparkling}, #{productABV}, 'N', null, null)
 	</insert>
+	
+	
+	
 	<update id="productUpdate" 
 	parameterType="co.shop.product.service.ProductVO">
 	UPDATE PRODUCT 
@@ -32,21 +36,50 @@
 		WHERE PRODUCT_ID = #{productId}
 	</delete>
 	
+	
+	
 	<!-- 와인 페이지 -->
 	<select id="getWineProducts" resultType="co.shop.product.service.ProductVO">
     	SELECT * FROM product
     	WHERE product_kind = '와인'
+    	ORDER BY product_date DESC
 	</select>
 	
 	<!-- 전통주 페이지 -->
 	<select id="getTraditionalProducts" resultType="co.shop.product.service.ProductVO">
     	SELECT * FROM product
     	WHERE product_kind = '전통주'
+    	ORDER BY product_date DESC
 	</select>
 	
 	<!-- 맥주 페이지 -->
 	<select id="getBeerProducts" resultType="co.shop.product.service.ProductVO">
     	SELECT * FROM product
     	WHERE product_kind = '맥주'
+    	ORDER BY product_date DESC
+	</select>
+	
+	<!-- 검색 -->
+<select id="searchProductsName" resultType="co.shop.product.service.ProductVO">
+  SELECT * FROM product
+  WHERE product_name LIKE '%' || #{keyword} || '%'
+</select>
+
+	<!-- 정렬하기 -->
+	<select id="getSortProduct" resultType="co.shop.product.service.ProductVO">
+    SELECT * FROM product
+    <if test="sortOption != null">
+        <choose>
+            <when test="sortOption.equals('latest')">
+                ORDER BY product_date DESC
+            </when>
+            <when test="sortOption.equals('high')">
+                ORDER BY product_price DESC
+            </when>
+            <when test="sortOption.equals('low')">
+                ORDER BY product_price ASC
+            </when>
+        </choose>
+    </if>
 	</select>
 </mapper>

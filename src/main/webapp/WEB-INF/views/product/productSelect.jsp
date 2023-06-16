@@ -21,7 +21,8 @@
 </head>
 <body>
 	<tiles:insertAttribute name="header" />
-
+	
+	<!-- 상품 상세보기 페이지 -->
 	<section class="bg-light">
 		<div class="container pb-5">
 			<div class="row">
@@ -81,32 +82,6 @@
 									</p>
 								</li>
 							</ul>
-							<!-- 
-                            <form action="" method="GET">
-                                <input type="hidden" name="product-title" value="Activewear">
-                                <div class="row">
-                                    <div class="col-auto">
-                                        <ul class="list-inline pb-3">
-                                            <li class="list-inline-item text-right">
-                                                Quantity
-                                                <input type="hidden" name="product-quanity" id="product-quanity" value="1">
-                                            </li>
-                                            <li class="list-inline-item"><span class="btn btn-success" id="btn-minus">-</span></li>
-                                            <li class="list-inline-item"><span class="badge bg-secondary" id="var-value">1</span></li>
-                                            <li class="list-inline-item"><span class="btn btn-success" id="btn-plus">+</span></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="row pb-3">
-                                    <div class="col d-grid">
-                                        <button type="submit" class="btn btn-success btn-lg" name="submit" value="buy">Buy</button>
-                                    </div>
-                                    <div class="col d-grid">
-                                        <button type="submit" class="btn btn-success btn-lg" name="submit" value="addtocard">Add To Cart</button>
-                                    </div>
-                                </div>
-                            </form>
-							-->
 
 							<%-- Buy 및 Add To Cart 버튼 > 로그인 상태에 따라 표시 --%>
 							<c:choose>
@@ -118,17 +93,22 @@
 									</button>
 								</c:when>
 								<c:otherwise>
-									<form action="cartList.do" method="post">
+									<form id="frmmmm" action="cartInsert.do" method="post">
 										<input type="hidden" name="productId" value="${product.productId}">
+										<input type="hidden" name="productName" value="${product.productName}">
+										<input type="hidden" name="productFee" value="${product.productPrice}">
+										<input type="hidden" id="productCount" name="productCount" value="">
+										
+									</form>
 										<div class="row">
 											<div class="col-auto">
 												<ul class="list-inline pb-3">
 													<li class="list-inline-item text-right">
 													Quantity
 													<input type="hidden" name="product-quanity" id="product-quanity" value="1"></li>
-													<li class="list-inline-item"><span class="btn btn-success" id="btn-minus">-</span></li>
+													<li class="list-inline-item"><span class="btn btn-success" id="btn-minus" onclick="minus()">-</span></li>
 													<li class="list-inline-item"><span class="badge bg-secondary" id="var-value">1</span></li>
-													<li class="list-inline-item"><span class="btn btn-success" id="btn-plus">+</span></li>
+													<li class="list-inline-item"><span class="btn btn-success" id="btn-plus" onclick="plus()">+</span></li>
 												</ul>
 											</div>
 										</div>
@@ -139,12 +119,12 @@
 												</button>
 											</div>
 											<div class="col d-grid">
-												<button type="submit" class="btn btn-success btn-lg" name="submit" value="addtocart">
+												<button type="button" class="btn btn-success btn-lg" onclick="addCart()" id = "adct" name="adct" value="addtocart">
 												Add To Cart
 												</button>
 											</div>
 										</div>
-									</form>
+									
 								</c:otherwise>
 							</c:choose>
 						</div>
@@ -153,10 +133,40 @@
 			</div>
 		</div>
 	</section>
-	
-	
 
 	<tiles:insertAttribute name="footer" />
-
+	<script>
+		function addCart(){
+			let productCount = document.getElementById("productCount");
+			let span = document.getElementById("var-value");
+			productCount.value = span.textContent;
+			
+			let frm = document.getElementById("frmmmm");
+			frm.submit();
+			
+		}
+		
+		function minus(){
+			let span = document.getElementById("var-value");
+			
+			
+			if(Number(span.textContent)<=1){
+				alert("더이상 내릴 수 없습니다.");
+			} else {
+				num = Number(span.textContent) -1;
+			}
+			span.textContent = num;
+		}
+		
+		function plus(){
+			let span = document.getElementById("var-value");
+			
+			num = Number(span.textContent) +1;
+			span.textContent = num;
+		}
+		
+		
+	</script>
+	
 </body>
 </html>

@@ -33,6 +33,11 @@
                 <h1 class="h2 pb-4">Categories</h1>
                 <ul class="list-unstyled templatemo-accordion">
                     <li class="pb-3">
+                        <a class="collapsed d-flex justify-content-between h3 text-decoration-none" href="productList.do">
+                            전체 상품
+                        </a>
+                    </li>
+                    <li class="pb-3">
                         <a class="collapsed d-flex justify-content-between h3 text-decoration-none" href="productWine.do">
                             와인
                         </a>
@@ -55,13 +60,7 @@
                     <div class="col-md-6">
                         <ul class="list-inline shop-top-menu pb-3 pt-1">
                             <li class="list-inline-item">
-                                <a class="h3 text-dark text-decoration-none mr-3" href="#">와인</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a class="h3 text-dark text-decoration-none mr-3" href="#">전통주</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a class="h3 text-dark text-decoration-none" href="#">맥주</a>
+                                <p>맥주</p>
                             </li>
                         </ul>
                     </div>
@@ -81,7 +80,7 @@
                         <div class="card mb-4 product-wap rounded-0">
                             <div class="card rounded-0">
                                 <a href="productSelect.do?productId=${p.productId}">
-                                	<img style="height: 370px; width: 302px;" src="${pageContext.request.contextPath}/upload/${p.productImg}" alt="상품이미지">
+                                	<img style="height: 370px; width: 303px;" src="${pageContext.request.contextPath}/upload/${p.productImg}" alt="상품이미지">
                                 </a>
                             </div>
                             <div class="card-body">

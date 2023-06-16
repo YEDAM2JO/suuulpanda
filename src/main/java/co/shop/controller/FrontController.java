@@ -23,18 +23,34 @@ import co.shop.board.command.BoardUpdate;
 import co.shop.board.command.BoardWrite;
 import co.shop.board.command.ManagerBoard;
 import co.shop.board.command.ManagerReple;
+import co.shop.board.command.AjaxSetReple;
+import co.shop.cart.command.AjaxCartDelete;
+import co.shop.cart.command.AjaxCountMinus;
+import co.shop.cart.command.AjaxCountPlus;
+import co.shop.cart.command.CartInsert;
 import co.shop.cart.command.CartList;
 import co.shop.cart.command.cart;
 import co.shop.common.Command;
 import co.shop.main.command.MainCommand;
 import co.shop.member.command.AjaxCheckId;
+import co.shop.member.command.AjaxMemberDelete;
+import co.shop.member.command.MemberUpdate;
 import co.shop.member.command.AjaxSearchPw;
 import co.shop.member.command.ForgetId;
 import co.shop.member.command.ForgetPw;
 import co.shop.member.command.Login;
 import co.shop.member.command.Logout;
+import co.shop.member.command.ManagerUpdateMember;
 import co.shop.member.command.MemberInsert;
 import co.shop.member.command.MemberLogin;
+import co.shop.product.command.ProductModify;
+import co.shop.product.command.ProductSelect;
+import co.shop.product.command.ProductTraditional;
+import co.shop.product.command.ProductWine;
+import co.shop.product.command.SearchProduct;
+import co.shop.reple.command.AjaxRepleDelete;
+
+
 import co.shop.product.command.Product;
 import co.shop.product.command.ProductBeer;
 import co.shop.product.command.ProductInsert;
@@ -116,6 +132,10 @@ public class FrontController extends HttpServlet {
 		map.put("/productWine.do", new ProductWine()); //상품 리스트 -와인
 		map.put("/productTraditional.do", new ProductTraditional()); //상품 리스트 -전통주
 		map.put("/productBeer.do", new ProductBeer()); //상품 리스트 -맥주
+
+		map.put("/searchProduct.do", new SearchProduct());
+
+
 		map.put("/ajaxRepleDelete.do", new AjaxRepleDelete());
 		
 		//관리자 페이지
@@ -125,6 +145,17 @@ public class FrontController extends HttpServlet {
 		map.put("/userEditInfo.do", new UserEditInfo());
 		map.put("/memberUpdate.do", new UserInfoUpdate());
 
+		
+		//관리자 페이지(이슬)
+		map.put("/managerUpdateMember.do", new ManagerUpdateMember());
+		map.put("/ajaxMemberDelete.do", new AjaxMemberDelete());
+		map.put("/memberUpdate.do", new MemberUpdate());
+		
+		//카트
+		map.put("/ajaxCountMinus.do", new AjaxCountMinus());
+		map.put("/ajaxCountPlus.do", new AjaxCountPlus());
+		map.put("/ajaxCartDelete.do", new AjaxCartDelete());
+		map.put("/cartInsert.do", new CartInsert());
 
 	}
 

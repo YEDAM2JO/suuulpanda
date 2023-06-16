@@ -4,26 +4,36 @@
 <mapper namespace="co.shop.cart.service.CartMapper">
 	<select id="cartSelectList" resultType="co.shop.cart.service.CartVO">
 		SELECT * FROM CART
+		WHERE member_id = #{memberId}
 	</select>
 	
 	
 	<select id="cartSelect" resultType ="co.shop.cart.service.CartVO">
-		SELECT * FROM CART
-		WHERE MEMBER_ID =#{MEMBER_ID}
-		
+		SELECT * FROM cart
+		WHERE member_id = #{memberId}
+		AND product_id = #{productId}
 	</select>
 	
 	<insert id="cartInsert">
-		INSERT INTO CART
-		VALUES(#{productName}, #{productCount}, #{productPrice}, #{productFee})
+		<selectKey keyProperty="cartId" resultType = "int" order="BEFORE">
+			select NVL(max(cart_id),0) +1 as cartId FROM cart	
+		</selectKey>
+		INSERT INTO cart
+		VALUES(#{cartId},#{memberId},#{productId}, #{productName}, #{productCount}, #{productFee})
 	</insert>
 	
 	<update id="cartUpdate">
-	
+		UPDATE cart SET product_count = product_count + #{productCount} WHERE cart_id = #{cartId}
+	</update>
+	<update id="cartMinus">
+		UPDATE cart SET product_count = product_count-1 WHERE cart_id = #{cartId}
+	</update>
+	<update id="cartPlus">
+		UPDATE cart SET product_count = product_count+1 WHERE cart_id = #{cartId}
 	</update>
 	
 	<delete id="cartDelete">
-	
+		DELETE FROM cart WHERE cart_id = #{cartId}
 	</delete>
 	
 	

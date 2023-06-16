@@ -9,7 +9,8 @@ import lombok.Setter;
 public class CartVO {
 	private int cartId;
 	private String memberId;
-	private int productId;
+	private String productId;
+	private String productName;
 	private int productCount;
-	private int proudctFee;
+	private int productFee;
 }

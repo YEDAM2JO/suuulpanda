@@ -23,16 +23,16 @@
 	
 	<update id = "memberUpdate" parameterType = "co.shop.member.service.MemberVO"> <!-- 구현체가 이거 -->
 		UPDATE member
-		<set>
-		<!-- if문 -> test에는 실려오는 VO객체명 그대로 쓴다. 값이 실려오면 동일한 값이든 아니든 그값으로 변경해라 -->
-			<if test="memberName != null">MEMBER_NAME = #{memberName}, </if>
-			<if test="memberTel != null">MEMBER_TEL = #{memberTel}, </if>
-			<if test="memberAddr != null">MEMBER_ADDR = #{memberAddr}, </if>
-			<if test="memberPw != null">MEMBER_PW = #{memberPw} </if>
-		</set>
+		SET
+			MEMBER_NAME = #{memberName}, 
+			MEMBER_TEL = #{memberTel}, 
+			MEMBER_ADDR = #{memberAddr}, 
+			MEMBER_PW = #{memberPw} 
+		
 		WHERE member_id = #{memberId}
 	</update>
 	
+
 	<!-- 회원 탈퇴 -->
 	<delete id="memberDelete" parameterType="co.shop.member.service.MemberVO">
 	  DELETE FROM member

@@ -6,6 +6,7 @@
 		SELECT * FROM product
 		ORDER BY product_date DESC
 	</select>
+
 	
 	<!-- 상품 상세 조회 -->
 	<select id="productSelect" resultType="co.shop.product.service.ProductVO">

@@ -56,6 +56,7 @@ import co.shop.product.command.ProductBeer;
 import co.shop.product.command.ProductInsert;
 import co.shop.product.command.ProductInsertForm;
 import co.shop.product.command.ProductList;
+import co.shop.product.command.ProductList1;
 import co.shop.product.command.ProductModify;
 import co.shop.product.command.ProductSelect;
 import co.shop.product.command.ProductTraditional;
@@ -144,6 +145,7 @@ public class FrontController extends HttpServlet {
 		map.put("/ajaxSetReple.do", new AjaxSetReple());
 		map.put("/userEditInfo.do", new UserEditInfo());
 		map.put("/memberUpdate.do", new UserInfoUpdate());
+		map.put("/productList1.do", new ProductList1()); //관리자의 전체상품 리스트
 
 		
 		//관리자 페이지(이슬)
@@ -167,7 +169,6 @@ public class FrontController extends HttpServlet {
 		String uri= request.getRequestURI();
 		String contextPath = request.getContextPath();
 		String page = uri.substring(contextPath.length());
-		
 		Command command = map.get(page);
 		String viewPage = command.exec(request, response);
 		

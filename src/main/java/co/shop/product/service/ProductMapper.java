@@ -10,7 +10,9 @@ public interface ProductMapper {
 	int productUpdate(ProductVO vo);
 	int productDelete(ProductVO vo);
 	
-    List<ProductVO> getWineProducts();
-    List<ProductVO> getTraditionalProducts();
-    List<ProductVO> getBeerProducts();
+    List<ProductVO> getWineProducts(); //와인 페이지
+    List<ProductVO> getTraditionalProducts(); //전통주 페이지
+    List<ProductVO> getBeerProducts(); //맥주 페이지
+    List<ProductVO> getSortProduct(String sortOption);
+    
 }

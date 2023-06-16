@@ -67,5 +67,10 @@ public class ProductServiceImpl implements ProductService {
 		return map.getBeerProducts();
 	}
 
+	@Override
+	public List<ProductVO> getSortProduct(String sortOption) {
+		// TODO Auto-generated method stub
+		return map.getSortProduct(sortOption);
+	}
 
 }

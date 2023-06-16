@@ -88,6 +88,17 @@
 				.then(response => response.text());
 
 		}
+		
+		function callFunction(str){
+			let frm = document.getElementById("frm");
+			if(str=='E'){
+				frm.action = "boardEdit.do"; //액션 = 동작되는 것. 폼객체가 가지고 있는 action속성에 noticeEdit을 담아라
+			} else {
+				frm.action = "boardDelete.do";
+			}
+			
+			frm.submit(); //이폼이 전송
+		}
 	</script>
 
 

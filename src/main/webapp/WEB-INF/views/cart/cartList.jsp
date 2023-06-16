@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 
 <html>
@@ -45,7 +47,7 @@
 </head>
 
 <body>
-<tiles:insertAttribute name="header"/>
+
     <section class="cart">
     
         <div class="cart__information">
@@ -63,25 +65,25 @@
 		<thead>
 	    <tr>
 	        <th width="50" class="cart__list__checkbox"> <!-- Reduce width to 50px -->
-	            <input type="checkbox" class="individual_cart_checkbox input_size_">
+	            <input type="checkbox" class="individual_cart_checkbox input_size_" onclick="checkAll()">
 	        </th>
-	        <th width="150">상품정보</th>
-	        <th width="150">옵션</th>
-	        <th width="150">상품금액</th>
-	        <th width="150">배송비</th>
+	        <th width="150">상품명</th>
+	        <th width="150">개수</th>
+	        <th width="150">단가</th>
 	    </tr>
 		</thead>
 			
 		<tbody>
 			<tr class="cart__list__detail">
-				<c:forEach items="${product}" var="p">
+			<c:set var = "sum" value = "0" />
+				<c:forEach items="${carts}" var="c">
 					<tr>
-						<td align="center" class="cart__list__checkbox"></td>
-						<td align="center">${p.productName}</td>
-						<td align="center">${p.productCount}</td>
-						<td align="center">${p.productPrice}</td>
-						<td align="center">${p.productFee}</td>
+						<td width="150" align="center" class="cartCheckbox"><input type="checkbox" value="${c.cartId }">&nbsp;</td>
+						<td width="150" align="center">${c.productName}</td>
+						<td width="150" align="center"><input type='button' onclick='minus(${c.cartId}, ${c.productFee }, event)' value='-'/><input value="${c.productCount}"><input type='button' onclick='plus(${c.cartId}, ${c.productFee }, event)' value='+'/></td>
+						<td width="150" align="center">${c.productFee}</td>
 					</tr>
+					<c:set var= "sum" value="${sum + c.productCount * c.productFee}"/>
 				</c:forEach>
 			</tr>
 		</tbody>
@@ -89,12 +91,12 @@
 		<tfoot>
 			<tr>
 				<td>
-					<input type="checkbox">
-					<button class="cart__list__optionbtn">선택상품 삭제</button>
+					
+					<button class="cart__list__optionbtn" onclick="deleteItem()">선택상품 삭제</button>
 				</td>
 				<td>
 					<div class="cart__list__total">
-						<p>총 주문 금액: 상품1 + 상품2 금액</p>
+						총 주문 금액: <p id="sum2"><c:out value="${sum}"/> </p>
 					</div>
 				</td>
 			</tr>
@@ -105,11 +107,87 @@
 </div>
 
     <div class="cart__mainbtns">
-        <a href="product.do"><button class="cart__bigorderbtn left">쇼핑 계속하기</button></a>
+        <a href="cartList.do"><button class="cart__bigorderbtn left">쇼핑 계속하기</button></a>
         <a href="주문하기"><button class="cart__bigorderbtn right">주문하기</button></a>
     </div>   
     </section>
-    
-<tiles:insertAttribute name="footer"/>
+    <script>
+    	function minus(id, price, event){
+    		if(event.target.nextSibling.value <= 1){
+    			alert("더이상 내릴 수 없습니다.");
+    		} else {
+    			//앞단(수량, 총가격)
+    			let num = parseInt(event.target.nextSibling.value)-1;
+    			event.target.nextSibling.value = num;
+    			let sum2 = document.getElementById("sum2");
+    			num = parseInt(sum2.textContent);
+    			num = num-price;
+    			
+    			sum2.textContent = num;
+    			
+    			//뒷단
+    			let url = "ajaxCountMinus.do?id=" + id;
+    			
+    			fetch(url)
+    				.then(response => reseponse.text());
+    		}
+    		
+    	}
+    	
+    	function plus(id, price, event){
+    		//앞단(수량, 총가격)
+    		let num = parseInt(event.target.previousSibling.value)+1;
+    		event.target.previousSibling.value = num;
+    		let sum2 = document.getElementById("sum2");
+			num = parseInt(sum2.textContent);
+			num = num+price;
+			
+			sum2.textContent = num;
+	
+    		//뒷단
+    		let url = "ajaxCountPlus.do?id=" + id;
+    		
+    		fetch(url)
+    			.then(response => response.text());
+    	}
+    	
+    	 function deleteItem(){
+             let ckb = document.querySelectorAll('input[type=checkbox]:checked');
+          
+             //기본 반복문
+             for(let i = ckb.length-1; i>=0; i--){
+                 let id = ckb[i].value;
+                 let url = "ajaxCartDelete.do?id=" + id;
+                 
+                 fetch(url)
+                 	.then(response => response.text())
+                  	.then(text=>htmlProcess(text));
+           
+             }
+             for(let i = ckb.length-1; i>=0; i--){
+                 
+                 ckb[i].parentNode.remove();
+             }
+             
+            
+         }
+    	 
+    	 function checkAll(){
+    		 let ckb = document.querySelectorAll('input[type=checkbox]');
+    		 
+    		 for(let i = 0; i<ckb.length; i++){
+             	if(ckb[i].checked){
+             		ckb[i].checked = false;
+             	} else if(!ckb[i].checked) {
+             		ckb[i].checked = true;
+             	}
+             }
+    	 }
+    	 
+    	 function htmlProcess(data){
+    		 
+    	 }
+    </script>
+
 </body>
 </html>

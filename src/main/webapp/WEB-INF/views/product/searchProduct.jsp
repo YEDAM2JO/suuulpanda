@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,11 +21,9 @@
 <link rel="stylesheet" href="assets/css/cart.css">
 </head>
 <body>
-	
-	<tiles:insertAttribute name="header"/>
+    
 	<!-- Start Content -->
-	
-    <div class="container py-5">
+	    <div class="container py-5">
         <div class="row">
 
             <div class="col-lg-3">
@@ -60,9 +57,8 @@
                     <div class="col-md-6">
                         <ul class="list-inline shop-top-menu pb-3 pt-1">
                             <li class="list-inline-item">
-                                <p>전통주</p>
+                                <p>전체상품</p>
                             </li>
-
                         </ul>
                     </div>
                     <div class="col-md-6 pb-4">
@@ -75,32 +71,46 @@
                         </div>
                     </div>
                 </div>
+                <form action="searchProduct.do" method="GET">
+        <input type="text" name="product_name" />
+        <input type="submit" value="Search" />
+    </form>
                 <div class="row">
-                <c:forEach items="${products }" var="p">
-                    <div class="col-md-4">
-                        <div class="card mb-4 product-wap rounded-0">
-                            <div class="card rounded-0">
-                                <a href="productSelect.do?productId=${p.productId}">
-                                	<img style="height: 370px; width: 303px;" src="${pageContext.request.contextPath}/upload/${p.productImg}" alt="상품이미지">
-                                </a>
-                            </div>
-                            <div class="card-body">
-                                <a href="#" class="h3 text-decoration-none">${p.productName }</a>
-                                <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
-                                    <li>${p.productKind }</li>
-                                    <li class="pt-2">
-                                        <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
-                                        <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
-                                        <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
-                                        <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
-                                        <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
-                                    </li>
-                                </ul>
-                                <p class="text-center mb-0">가격 : <fmt:formatNumber value="${p.productPrice}" pattern="#,###원" /></p>
-                            </div>
-                        </div>
+	
+    <%-- 전달받은 검색어를 변수에 저장 --%>
+    <% String productName = request.getParameter("product_name"); %>
+    
+    <%-- 검색어를 출력 --%>
+    <p>Search Keyword: <%= productName %></p>
+    
+    <%-- 검색 결과를 받아와 출력 --%>
+    <div class="row">
+        <%-- 제품 리스트를 순회하며 출력 --%>
+        <c:forEach items="${searchResults}" var="p">
+            <div class="col-md-4">
+                <div class="card mb-4 product-wap rounded-0">
+                    <div class="card rounded-0">
+                        <a href="productSelect.do?productId=${p.productId}">
+                            <img style="height: 370px; width: 303px;" src="${pageContext.request.contextPath}/upload/${p.productImg}" alt="상품이미지">
+                        </a>
                     </div>
-                    </c:forEach>
+                    <div class="card-body">
+                        <a href="#" class="h3 text-decoration-none">${p.productName}</a>
+                        <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
+                            <li>${p.productKind}</li>
+                            <li class="pt-2">
+                                <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
+                                <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
+                                <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
+                                <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
+                                <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
+                            </li>
+                        </ul>
+                        <p class="text-center mb-0">가격: <fmt:formatNumber value="${p.productPrice}" pattern="#,###원" /></p>
+                    </div>
+                </div>
+            </div>
+        </c:forEach>
                 </div>
                 <div div="row">
                     <ul class="pagination pagination-lg justify-content-end">
@@ -119,11 +129,10 @@
 
         </div>
     </div>
-    <!-- End Content -->
+    <%-- 검색 결과가 없는 경우에 대한 처리 --%>
 
-    
-    <tiles:insertAttribute name="footer"/>
-	
-	
+	<!-- End Content -->
+
+
 </body>
 </html>

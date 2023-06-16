@@ -347,7 +347,9 @@
                 <a href="boardList.do?page=${realEnd }" class="bt last">>></a>
             </div>
             <div class="bt_wrap">
+            <c:if test="${not empty id }">
                 <a href="boardWrite.do" class="on">등록</a>
+            </c:if>
                 <!--<a href="#">수정</a>-->
             </div>
         </div>

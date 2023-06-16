@@ -10,14 +10,14 @@ import co.shop.cart.service.CartVO;
 import co.shop.common.DataSource;
 
 public class CartServiceImpl implements CartService {
-	private SqlSession sqlSession = DataSource.getInstance().openSession(true);
-	private CartMapper map = sqlSession.getMapper(CartMapper.class);
+	SqlSession sqlSession = DataSource.getInstance().openSession(true);
+	CartMapper map = sqlSession.getMapper(CartMapper.class);
 	
 	
 	@Override
-	public List<CartVO> cartSelectList() {
+	public List<CartVO> cartSelectList(CartVO vo) {
 		// TODO Auto-generated method stub
-		return map.cartSelectList();
+		return map.cartSelectList(vo);
 	}
 
 	@Override
@@ -42,6 +42,18 @@ public class CartServiceImpl implements CartService {
 	public int cartDelete(CartVO vo) {
 		// TODO Auto-generated method stub
 		return map.cartDelete(vo);
+	}
+
+	@Override
+	public int cartMinus(CartVO vo) {
+		// TODO Auto-generated method stub
+		return map.cartMinus(vo);
+	}
+
+	@Override
+	public int cartPlus(CartVO vo) {
+		// TODO Auto-generated method stub
+		return map.cartPlus(vo);
 	}
 
 }

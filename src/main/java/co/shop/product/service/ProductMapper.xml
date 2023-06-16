@@ -5,6 +5,7 @@
 	<select id="getAllProducts" resultType="co.shop.product.service.ProductVO">
 		SELECT * FROM product
 	</select>
+
 	
 	<!-- 상품 상세 조회 -->
 	<select id="productSelect" resultType="co.shop.product.service.ProductVO">

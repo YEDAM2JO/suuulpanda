@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.shop.product.service.ProductMapper">
+	<!-- 전체 상품 조회 -->
+	<select id="getAllProducts" resultType="co.shop.product.service.ProductVO">
+		SELECT * FROM product
+	</select>
+	
+	<!-- 상품 상세 조회 -->
+	<select id="productSelect" resultType="co.shop.product.service.ProductVO">
+		SELECT * FROM product
+		WHERE product_id = #{productId}
+	</select>
+	
+	<!-- 상품 등록 -->
+	<insert id="productInsert" parameterType="co.shop.product.service.ProductVO">
+		INSERT INTO product
+		VALUES(#{productId}, #{productName}, #{productKind}, #{productImg}, #{productImgPath}, #{productPrice}, sysdate,
+			#{productTaste}, #{productSparkling}, #{productABV}, 'N', null, null)
+	</insert>
+	<update id="productUpdate" 
+	parameterType="co.shop.product.service.ProductVO">
+	UPDATE PRODUCT 
+		<set>
+		
+		</set>
+		WHERE PRODUCT_ID = #{productId}
+		
+	</update>
+	<delete id="productDelete">
+	DELETE FROM PRODUCT
+		WHERE PRODUCT_ID = #{productId}
+	</delete>
+	
+	<!-- 와인 페이지 -->
+	<select id="getWineProducts" resultType="co.shop.product.service.ProductVO">
+    	SELECT * FROM product
+    	WHERE product_kind = '와인'
+	</select>
+	
+	<!-- 전통주 페이지 -->
+	<select id="getTraditionalProducts" resultType="co.shop.product.service.ProductVO">
+    	SELECT * FROM product
+    	WHERE product_kind = '전통주'
+	</select>
+	
+	<!-- 맥주 페이지 -->
+	<select id="getBeerProducts" resultType="co.shop.product.service.ProductVO">
+    	SELECT * FROM product
+    	WHERE product_kind = '맥주'
+	</select>
+</mapper>

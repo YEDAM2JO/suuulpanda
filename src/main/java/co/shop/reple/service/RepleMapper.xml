@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.shop.reple.service.RepleMapper">
+	<select id="repleSelectList" resultType="co.shop.reple.service.RepleVO">
+		SELECT * FROM reple
+		WHERE board_id = #{boardId}
+		ORDER BY reple_date
+	</select>
+	<insert id="repleInsert">
+		<selectKey keyProperty="repleId" resultType ="int" order="BEFORE">
+			select NVL(max(reple_id),0) +1 as repleId FROM reple
+		</selectKey>
+		INSERT INTO reple
+		VALUES(#{repleId},#{boardId}, #{repleContent}, sysdate)
+	</insert>
+	<delete id="repleDelete">
+		DELETE FROM reple WHERE reple_id = #{repleId}
+	</delete>
+</mapper>

@@ -24,7 +24,7 @@ public class UserEditInfo implements Command {
 		vo.setMemberAddr(request.getParameter("memberAddr"));
 		vo.setMemberPw(request.getParameter("memberPw"));
 		
-		ms.memberSelect(vo);
+		vo = ms.memberSelect(vo);
 
 		// 회원 정보 수정 후, 필요한 처리 수행
 		request.setAttribute("member", vo);

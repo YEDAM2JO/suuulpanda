@@ -5,12 +5,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import co.shop.common.Command;
 
-public class UserInfoDelete implements Command {
+public class UserInfoDeletePass implements Command {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-		return "user/userInfoDelete";
+		//일단 수행되면 main으로 가게 test
+		return "user/userInfoDeletePass";
 	}
 
 }

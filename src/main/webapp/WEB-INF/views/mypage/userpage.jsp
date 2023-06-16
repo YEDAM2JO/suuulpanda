@@ -38,12 +38,14 @@
 <body>
 <tiles:insertAttribute name="header"/>
 
+
+
 	<section>
 	<br>
 	<div class="container">
 	<a  href="userorderlist.do"><img src="assets/img/002.png"></a> <!-- 고객 주문 내역 -->
 	<a  href="userEditInfo.do"><img src="assets/img/003.png"></a> <!-- 고객 회원 정보 수정 -->
-	<a  href="userInfoDelete.do"><img src="assets/img/001.png"></a> <!-- 회원 탈퇴 -->
+	<a  href="userInfoDeletePass.do"><img src="assets/img/001.png"></a> <!-- 회원 탈퇴 -->
 </div><br><br>
 	
 <div align ="center">

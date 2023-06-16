@@ -32,6 +32,7 @@ public class UserInfoUpdate implements Command {
 		// 회원 정보 수정 후, 필요한 처리 수행
 		request.setAttribute("member", voo);
 		
+		
 	
 		return "user/userEditInfo";
 		

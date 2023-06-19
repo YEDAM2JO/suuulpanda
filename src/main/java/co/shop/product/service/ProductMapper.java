@@ -6,6 +6,7 @@ public interface ProductMapper {
 	List<ProductVO> getAllProducts(); // 전체상품조회
 	ProductVO productSelect(ProductVO vo); //상세조회
 	List<ProductVO> searchProductsName(String productName); // 상품이름검색
+	String productIdSelect(ProductVO vo);
 	Integer productInsert(ProductVO vo);
 	int productUpdate(ProductVO vo);
 	int productDelete(ProductVO vo);

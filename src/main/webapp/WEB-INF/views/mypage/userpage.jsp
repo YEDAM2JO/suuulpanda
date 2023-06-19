@@ -52,8 +52,8 @@
   <div class="col-sm-6">
     <div class="card">
       <div class="card-body">
-        <p class="card-title">총 주문 건수 : n건</p>
-        <p class="card-text">총 주문 금액 : n원</p>
+        <p class="card-title">총 주문 건수 : ${orderNum } 건</p>
+        <p class="card-text">총 주문 금액 : ${orderMoney }원</p>
         
       </div>
     </div>

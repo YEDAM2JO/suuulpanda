@@ -35,6 +35,10 @@ import co.shop.main.command.MainCommand;
 import co.shop.member.command.AjaxCheckId;
 import co.shop.member.command.AjaxMemberDelete;
 import co.shop.member.command.MemberUpdate;
+import co.shop.order.command.AjaxOrderInsert;
+import co.shop.order.command.BuyProduct;
+import co.shop.order.command.OrderPage;
+import co.shop.orderDetail.command.AjaxOrderDetailInsert;
 import co.shop.member.command.AjaxSearchPw;
 import co.shop.member.command.ForgetId;
 import co.shop.member.command.ForgetPw;
@@ -49,8 +53,7 @@ import co.shop.product.command.ProductTraditional;
 import co.shop.product.command.ProductWine;
 import co.shop.product.command.SearchProduct;
 import co.shop.reple.command.AjaxRepleDelete;
-
-
+import co.shop.review.command.ReviewInsert;
 import co.shop.product.command.Product;
 import co.shop.product.command.ProductBeer;
 import co.shop.product.command.ProductInsert;
@@ -67,6 +70,7 @@ import co.shop.social.command.NaverCallback;
 import co.shop.social.command.NaverLogin;
 import co.shop.social.command.SocialLogin;
 import co.shop.user.command.ManagerPage;
+import co.shop.user.command.OrderSelect;
 import co.shop.user.command.UserPage;
 import co.shop.userpage.command.UserEditInfo;
 import co.shop.userpage.command.UserInfoDeletePass;
@@ -158,7 +162,17 @@ public class FrontController extends HttpServlet {
 		map.put("/ajaxCountPlus.do", new AjaxCountPlus());
 		map.put("/ajaxCartDelete.do", new AjaxCartDelete());
 		map.put("/cartInsert.do", new CartInsert());
-
+		
+		//order(이슬)
+		map.put("/ajaxOrderInsert.do", new AjaxOrderInsert());
+		map.put("/ajaxOrderDetailInsert.do", new AjaxOrderDetailInsert());
+		map.put("/orderPage.do", new OrderPage());
+		map.put("/orderSelect.do", new OrderSelect());
+		map.put("/buyProduct.do", new BuyProduct());
+		
+		//리뷰
+		
+		map.put("/reviewInsert.do", new ReviewInsert());
 	}
 
 	/**
@@ -172,7 +186,7 @@ public class FrontController extends HttpServlet {
 		Command command = map.get(page);
 		String viewPage = command.exec(request, response);
 		
-		if(!viewPage.equals("boardList.do?page=1") && !viewPage.endsWith(".do") && !viewPage.contains("naver") && !viewPage.contains("socialLogin.do")) {
+		if(!viewPage.startsWith("orderSelect.do?orderId=") && !viewPage.equals("boardList.do?page=1") && !viewPage.endsWith(".do") && !viewPage.contains("naver") && !viewPage.contains("socialLogin.do")) {
 			if(viewPage.startsWith("Ajax:")) {
 				response.setContentType("text/html; charset = UTF-8");
 				response.getWriter().append(viewPage.substring(5));

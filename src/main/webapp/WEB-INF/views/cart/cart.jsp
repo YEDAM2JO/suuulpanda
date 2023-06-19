@@ -43,7 +43,7 @@
 			<tbody>
 				<c:forEach items = "${product}" var = "p">
 					<tr>
-					<!-- 조인해서 위에 항목으로 바꿔야될듯 일단 이건 예시 -->
+					
 						<td align="center">${p.productName} </td>
 						<td align="center">${p.productCount} </td> <!-- 수량 -->
 						<td align="center">${p.productPrice}</td>

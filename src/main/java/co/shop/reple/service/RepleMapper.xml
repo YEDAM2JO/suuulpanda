@@ -16,4 +16,7 @@
 	<delete id="repleDelete">
 		DELETE FROM reple WHERE reple_id = #{repleId}
 	</delete>
+	<delete id="allDelete">
+		DELETE FROM reple WHERE board_id = #{boardId}
+	</delete>
 </mapper>

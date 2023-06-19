@@ -30,5 +30,11 @@ public class RepleServiceImpl implements RepleService{
 		// TODO Auto-generated method stub
 		return map.repleDelete(vo);
 	}
+
+	@Override
+	public int allDelete(RepleVO vo) {
+		// TODO Auto-generated method stub
+		return map.allDelete(vo);
+	}
 	
 }

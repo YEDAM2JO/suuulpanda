@@ -132,17 +132,19 @@
 	<hr>
 	<p>댓글</p>
 	<div id="repleSection">
+	<table border="1">
 		<c:forEach items="${reples}" var="r">
-			<tr border="1">
+			<tr>
 				<td>${r.repleContent }</td>
 				<td>${r.repleDate }</td>
-				<c:set var="id" value="${id}" />
+				<td>
 				<c:if test="${id eq 'manager'}">
 					<button type="button" onclick="repleDelete(${r.repleId}, event)">삭제</button>
 				</c:if>
+				</td>
 			</tr>
-			<br>
 		</c:forEach>
+		</table>
 	</div>
 	<textarea rows="3" cols="40" id="repleContent" name="repleContent" placeholder="내용을 입력해주세요." autofocus></textarea><br>
 	<div align="center">
@@ -171,24 +173,30 @@
 		}
 
 		function htmlProcess(data) {
-			let p = document.createElement("p");
-			p.textContent = data;
-
 			let content = document.getElementById("repleContent");
+			let p = document.createElement("p");
+			p.textContent = content.value;
+
 			content.value = "";
 
 			let div = document.getElementById("repleSection");
 			div.appendChild(p);
-
+			
+			let delbtn = document.createElement("button");
+			delbtn.innerHTML = "삭제";
+            delbtn.onclick=function(event){repleDelete(data, event)};
 			let br = document.createElement("br");
+			div.appendChild(delbtn);
 			div.appendChild(br);
 		}
 
-		function repleDelete(id, event) {
-			event.target.parentNode.remove();
+		function repleDelete(id, event) {			
 			let url = "ajaxRepleDelete.do?id=" + id + "&boardId=" + ${board.boardId };
 			fetch(url)
-				.then(response => response.text());
+				.then(response => response.text())
+				.then(res  => {
+					event.target.parentNode.remove();
+				});
 		}
 	</script>
 </body>

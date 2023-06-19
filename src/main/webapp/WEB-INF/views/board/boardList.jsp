@@ -300,23 +300,25 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>2</td>
-                    <th>
-                      <a href="#!">[공지사항] 개인정보 처리방침 변경안내처리방침</a>
-                      <p>테스트</p>
-                    </th>
-                    <td>관리자</td>
-                    <td>2017.07.13</td>
-                    <td>1021</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <th><a href="#!">공지사항 안내입니다. 이용해주셔서 감사합니다</a></th>
-                    <td>관리자</td>
-                    <td>2017.06.15</td>
-                    <td>764</td>
-                </tr>
+                
+		       <c:forEach items="${boards }" var="b" varStatus="status">
+    <c:choose>
+        <c:when test="${b.memberId == 'manager'}">
+            <tr onmouseover='this.style.background="#9fff80";'
+                onmouseleave='this.style.background="#FFFFFF";' onclick="boardChois(${b.boardId},'${b.memberId }','${b.boardSecret}')">
+                <td>${b.boardId }</td>
+                 <td><h5 style="text-decoration: underline;">${b.boardTitle }</h5></td>
+                <td>${b.memberId }</td>
+                <td>${b.boardDate }</td>
+                <td>${b.boardHit }</td>
+            </tr>
+        </c:when>
+        <c:otherwise>
+            <!-- 'manager'가 아닌 회원의 글은 이 부분에서 처리 -->
+        </c:otherwise>
+    </c:choose>
+</c:forEach>
+                
                 <c:forEach items="${boards }" var="b">
                 	<tr onmouseover='this.style.background="#9fff80";'
 						onmouseleave='this.style.background="#FFFFFF";' onclick="boardChois(${b.boardId},'${b.memberId }','${b.boardSecret}')">

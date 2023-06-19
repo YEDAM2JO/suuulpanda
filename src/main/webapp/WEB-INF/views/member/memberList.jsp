@@ -6,20 +6,15 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/templatemo.css">
-    <link rel="stylesheet" href="assets/css/custom.css">
-    
-        <!-- Load fonts style after rendering the layout styles -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
-    <link rel="stylesheet" href="assets/css/fontawesome.min.css">
-	<style>
-		input[type=text]{
-			display: inline-block;
-			width:300px;
-			border: none;
-		}
-	</style>
+
+<style>
+	input[type=text]{
+		display: inline-block;
+		width:300px;
+		border: none;
+	}
+</style>
+	
 </head>
 <body>
 	<div align = "center">
@@ -61,6 +56,7 @@
 		<a href="#">소셜 회원 관리</a>
 	</div>
 	</div>
+	
 	<script>
 		function update(id, pw, name, addr, tel){
 			if(id == 'manager'){
@@ -92,5 +88,6 @@
 		}
 		
 	</script>
+	
 </body>
 </html>

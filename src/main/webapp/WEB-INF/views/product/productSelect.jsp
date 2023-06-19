@@ -130,10 +130,17 @@
 											<button type="submit" class="btn btn-success btn-lg"
 												name="submit" value="buy">Buy</button>
 										</div>
-										<div class="col d-grid">
-											<button type="button" class="btn btn-success btn-lg"
-												onclick="addCart()" id="adct" name="adct" value="addtocart">
-												Add To Cart</button>
+										<div class="row pb-3">
+											<div class="col d-grid">
+												<button type="button" class="btn btn-success btn-lg" name="buy" value="buy" onclick="buyProduct()">
+												Buy
+												</button>
+											</div>
+											<div class="col d-grid">
+												<button type="button" class="btn btn-success btn-lg" onclick="addCart()" id = "adct" name="adct" value="addtocart">
+												Add To Cart
+												</button>
+											</div>
 										</div>
 									</div>
 
@@ -143,6 +150,38 @@
 					</div>
 				</div>
 			</div>
+			<div>
+			<form id="tpsub" action="buyProduct.do" method="post">
+				<input type="hidden" id="totalPrice2" name="totalPrice2" value="">
+				<input type="hidden" id="productName2" name="productName2" value="">
+				<input type="hidden" id="productCount2" name="productCount2" value="">
+			</form>
+			</div>
+		</div>
+		<div id="reviewArea">
+			<table border="1">
+				<tr>
+					<th>작성자</th>
+					<th>점수</th>
+					<td>내용</td>
+					<th>작성일자</th>
+				</tr>
+			<c:forEach items="${reviews }" var="r">
+				<tr>
+					<td>${r.memberId }</td>
+					<td><c:forEach var="rating" begin="1" end="5">
+							<c:if test="${r.reviewScore >= rating }">
+							★
+							</c:if>
+							<c:if test="${r.reviewScore < rating }">
+							☆
+							</c:if>
+					</c:forEach></td>
+					<td>${r.reviewContent }</td>
+					<td>${r.reviewDate }</td>
+				</tr>
+			</c:forEach>
+		</table>
 		</div>
 	</section>
 
@@ -175,6 +214,27 @@
 			num = Number(span.textContent) + 1;
 			span.textContent = num;
 		}
+
+		
+		function buyProduct(){
+			let num = document.getElementById("var-value").textContent;
+			
+			let num2 = num * ${product.productPrice};
+			
+			let totalPrice = document.getElementById("totalPrice2");
+			totalPrice.value = num2;
+			
+			let productName = document.getElementById("productName2");
+			productName.value = "${product.productName}";
+			
+			let productCount = document.getElementById("productCount2");
+			productCount.value = Number(num);
+			
+			let frm = document.getElementById("tpsub");
+			
+			frm.submit();
+		}
+
 	</script>
 
 </body>

@@ -6,4 +6,5 @@ public interface RepleService {
 	List<RepleVO> repleSelectList(RepleVO vo);
 	int repleInsert(RepleVO vo);
 	int repleDelete(RepleVO vo);
+	int allDelete(RepleVO vo);
 }

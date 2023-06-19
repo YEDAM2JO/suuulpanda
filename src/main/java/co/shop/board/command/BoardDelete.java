@@ -23,7 +23,7 @@ public class BoardDelete implements Command {
 		RepleService rs = new RepleServiceImpl();
 		RepleVO voo = new RepleVO();
 		voo.setBoardId(Integer.valueOf(request.getParameter("boardId")));
-		rs.repleDelete(voo);
+		rs.allDelete(voo);
 		
 		return "boardList.do?page=1";
 	}

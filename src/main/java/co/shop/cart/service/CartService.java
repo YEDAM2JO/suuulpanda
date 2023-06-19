@@ -11,5 +11,5 @@ public interface CartService {
 	int cartMinus(CartVO vo);
 	int cartPlus(CartVO vo);
 	int cartDelete(CartVO vo);
-	
+	int cartMemberDelete(CartVO vo);
 }

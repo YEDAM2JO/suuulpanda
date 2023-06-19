@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.shop.order.service.OrderMapper">
+<select id="orderSelectAll" resultType="co.shop.order.service.OrderVO">
+	SELECT * FROM ordert
+	WHERE order_date = #{orderDate}
+</select>
+<select id="orderSelectList" resultType="co.shop.order.service.OrderVO">
+	SELECT * FROM ordert
+	WHERE member_id = #{memberId}
+	ORDER BY order_date
+</select>
+<select id="orderSelect">
+	SELECT max(order_id) FROM ordert
+</select>
+<select id="orderMemberNumber">
+	SELECT NVL(count(order_id),0) FROM ordert WHERE member_id = #{memberId} 
+</select>
+<select id="orderMemberMoney">
+	SELECT NVL(sum(order_total_price),0) FROM ordert WHERE member_id = #{memberId}
+</select>
+<insert id="orderInsert">
+	<selectKey keyProperty="orderId" resultType = "int" order="BEFORE">
+			select NVL(max(order_id),0) +1 as orderId FROM ordert
+	</selectKey>
+	INSERT INTO ordert VALUES(#{orderId}, #{memberId}, sysdate, #{orderTotalPrice})
+</insert>
+</mapper>

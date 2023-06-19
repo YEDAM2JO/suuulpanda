@@ -21,6 +21,11 @@
 		WHERE product_id = #{productId}
 	</select>
 	
+	<select id="productIdSelect">
+		SELECT product_id FROM product
+		WHERE product_name = #{productName}
+	</select>
+	
 	<!-- 상품 등록 -->
 	<insert id="productInsert" parameterType="co.shop.product.service.ProductVO">
 		INSERT INTO product
@@ -120,4 +125,5 @@
         </choose>
     </if>
 	</select>
+
 </mapper>

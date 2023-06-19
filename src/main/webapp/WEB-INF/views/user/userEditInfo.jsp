@@ -5,13 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="apple-touch-icon" href="assets/img/apple-icon.png">
-<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
-<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-<link rel="stylesheet" href="assets/css/templatemo.css">
-<link rel="stylesheet" href="assets/css/custom.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
-<link rel="stylesheet" href="assets/css/fontawesome.min.css">
+
 
 <title>회원 정보 수정</title>
 
@@ -80,13 +74,13 @@
                 <td>주소</td>
               	<td>
 					<i class='bx bxs-addr'></i>
-					<input type="text" id="sample6_postcode" name="sample6_postcode" placeholder="우편번호" style="margin-bottom: 5px;">
+					<input type="text" id="sample6_postcode" name="sample6_postcode" placeholder="우편번호" value="${member.memberAddr1 }" style="margin-bottom: 5px;">
 					
 					<span class='button'>
 					<button type="button" id="checkId" value="No" onclick="sample6_execDaumPostcode()" style="margin-bottom: 5px;">우편번호찾기</button>
 					</span><br> 
 					
-					<input type="text" id="sample6_address" name="sample6_address" placeholder="주소" style="margin-bottom: 5px;"><br>
+					<input type="text" id="sample6_address" name="sample6_address" placeholder="주소" value="${member.memberAddr2 }" style="margin-bottom: 5px;"><br>
 					<input type="text" id="sample6_detailAddress" name="sample6_detailAddress" placeholder="상세주소" style="margin-bottom: 5px;"><br>
 					<input type="text" id="sample6_extraAddress" name="sample6_extraAddress" placeholder="참고항목" style="margin-bottom: 5px;"></td>
 				
@@ -96,7 +90,8 @@
             <tr>
                 <td>비밀번호</td>
                 <td align="center">
-                    <input type="password" id="memberPw" name="memberPw" value="${member.memberPw}">
+                    <input type="password" id="memberPw" name="memberPw" >
+                    <input type="password" id="memberPw">
                 </td>
             </tr>
             

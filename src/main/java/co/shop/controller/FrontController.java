@@ -22,8 +22,8 @@ import co.shop.board.command.BoardSelect;
 import co.shop.board.command.BoardUpdate;
 import co.shop.board.command.BoardWrite;
 import co.shop.board.command.ManagerBoard;
+import co.shop.board.command.ManagerBoardWrite;
 import co.shop.board.command.ManagerReple;
-import co.shop.board.command.AjaxSetReple;
 import co.shop.cart.command.AjaxCartDelete;
 import co.shop.cart.command.AjaxCountMinus;
 import co.shop.cart.command.AjaxCountPlus;
@@ -35,6 +35,10 @@ import co.shop.main.command.MainCommand;
 import co.shop.member.command.AjaxCheckId;
 import co.shop.member.command.AjaxMemberDelete;
 import co.shop.member.command.MemberUpdate;
+import co.shop.order.command.AjaxOrderInsert;
+import co.shop.order.command.BuyProduct;
+import co.shop.order.command.OrderPage;
+import co.shop.orderDetail.command.AjaxOrderDetailInsert;
 import co.shop.member.command.AjaxSearchPw;
 import co.shop.member.command.ForgetId;
 import co.shop.member.command.ForgetPw;
@@ -43,6 +47,7 @@ import co.shop.member.command.Logout;
 import co.shop.member.command.ManagerUpdateMember;
 import co.shop.member.command.MemberInsert;
 import co.shop.member.command.MemberLogin;
+
 import co.shop.product.command.ProductModify;
 import co.shop.product.command.ProductSaleList;
 import co.shop.product.command.ProductSelect;
@@ -52,8 +57,9 @@ import co.shop.product.command.ProductUpdate;
 import co.shop.product.command.ProductWine;
 import co.shop.product.command.SearchProduct;
 import co.shop.reple.command.AjaxRepleDelete;
-
-
+import co.shop.review.command.ReviewInsert;
+import co.shop.report.command.ReportAction;
+import co.shop.member.command.MemberUpdate;
 import co.shop.product.command.Product;
 import co.shop.product.command.ProductBeer;
 import co.shop.product.command.ProductDelete;
@@ -66,13 +72,16 @@ import co.shop.product.command.ProductModify;
 import co.shop.product.command.ProductSelect;
 import co.shop.product.command.ProductTraditional;
 import co.shop.product.command.ProductWine;
+import co.shop.product.command.SearchProduct;
 import co.shop.reple.command.AjaxRepleDelete;
 import co.shop.social.command.AjaxCheckAge;
 import co.shop.social.command.NaverCallback;
 import co.shop.social.command.NaverLogin;
 import co.shop.social.command.SocialLogin;
 import co.shop.user.command.ManagerPage;
+import co.shop.user.command.OrderSelect;
 import co.shop.user.command.UserPage;
+import co.shop.userpage.command.UserDelete;
 import co.shop.userpage.command.UserEditInfo;
 import co.shop.userpage.command.UserInfoDeletePass;
 import co.shop.userpage.command.UserInfoUpdate;
@@ -129,6 +138,7 @@ public class FrontController extends HttpServlet {
 		map.put("/productInsert.do", new ProductInsert()); //제품 등록
 		map.put("/userorderlist.do", new UserOrderList());
 		map.put("/userInfoDeletePass.do", new UserInfoDeletePass()); //유저 정보 삭제(비번창)
+		map.put("/userDelete.do", new UserDelete()); // 유저 정보 삭제 처리 
 
 		
 		map.put("/cartList.do", new CartList());
@@ -138,8 +148,8 @@ public class FrontController extends HttpServlet {
 		map.put("/productWine.do", new ProductWine()); //상품 리스트 -와인
 		map.put("/productTraditional.do", new ProductTraditional()); //상품 리스트 -전통주
 		map.put("/productBeer.do", new ProductBeer()); //상품 리스트 -맥주
-
-		map.put("/searchProduct.do", new SearchProduct());
+		map.put("/searchProduct.do", new SearchProduct()); //상품 검색
+		map.put("/reportAction.do", new ReportAction()); //게시물 신고 하기
 
 
 		map.put("/ajaxRepleDelete.do", new AjaxRepleDelete());
@@ -150,6 +160,7 @@ public class FrontController extends HttpServlet {
 		map.put("/ajaxSetReple.do", new AjaxSetReple());
 		map.put("/userEditInfo.do", new UserEditInfo());
 		map.put("/memberUpdate.do", new UserInfoUpdate());
+
 		
 		//관리자 제품 관리
 		map.put("/productList1.do", new ProductList1()); //관리자의 전체상품 리스트 ID오름차순
@@ -162,6 +173,10 @@ public class FrontController extends HttpServlet {
 		map.put("/productSaleList.do", new ProductSaleList());// 특가상품 리스트 조회
 		
 
+		map.put("/productList1.do", new ProductList1()); //관리자의 전체상품 리스트
+		map.put("/managerBoardWrite.do",new ManagerBoardWrite()); //공지사항 작성)
+
+
 		
 		//관리자 페이지(이슬)
 		map.put("/managerUpdateMember.do", new ManagerUpdateMember());
@@ -173,7 +188,17 @@ public class FrontController extends HttpServlet {
 		map.put("/ajaxCountPlus.do", new AjaxCountPlus());
 		map.put("/ajaxCartDelete.do", new AjaxCartDelete());
 		map.put("/cartInsert.do", new CartInsert());
-
+		
+		//order(이슬)
+		map.put("/ajaxOrderInsert.do", new AjaxOrderInsert());
+		map.put("/ajaxOrderDetailInsert.do", new AjaxOrderDetailInsert());
+		map.put("/orderPage.do", new OrderPage());
+		map.put("/orderSelect.do", new OrderSelect());
+		map.put("/buyProduct.do", new BuyProduct());
+		
+		//리뷰
+		
+		map.put("/reviewInsert.do", new ReviewInsert());
 	}
 
 	/**
@@ -187,7 +212,7 @@ public class FrontController extends HttpServlet {
 		Command command = map.get(page);
 		String viewPage = command.exec(request, response);
 		
-		if(!viewPage.equals("boardList.do?page=1") && !viewPage.endsWith(".do") && !viewPage.contains("naver") && !viewPage.contains("socialLogin.do")) {
+		if(!viewPage.startsWith("orderSelect.do?orderId=") && !viewPage.equals("boardList.do?page=1") && !viewPage.endsWith(".do") && !viewPage.contains("naver") && !viewPage.contains("socialLogin.do")) {
 			if(viewPage.startsWith("Ajax:")) {
 				response.setContentType("text/html; charset = UTF-8");
 				response.getWriter().append(viewPage.substring(5));

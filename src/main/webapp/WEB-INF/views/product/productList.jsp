@@ -19,6 +19,7 @@
 <link rel="stylesheet" href="assets/css/fontawesome.min.css">
 
 <link rel="stylesheet" href="assets/css/cart.css">
+
 <style>
 /* 반짝이는 효과를 위한 CSS */
 .sparkle-animation {
@@ -88,13 +89,23 @@ opacity
 
 }
 }
+  input[type="image"] {
+    margin-left: 5px;
+    width: 24px;
+    height: 24px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+  }
+  ::placeholder {
+    font-size: 15px;
+  }
 </style>
 </head>
 <body>
 
 
 	<!-- Start Content -->
-
 	<div class="container py-5">
 		<div class="row">
 			<div class="col-lg-3">
@@ -114,7 +125,6 @@ opacity
 						href="productBeer.do"> 맥주 </a></li>
 				</ul>
 			</div>
-
 			<div class="col-lg-9">
 				<div class="row">
 					<div class="col-md-6">
@@ -124,6 +134,7 @@ opacity
 							</li>
 						</ul>
 					</div>
+					<!-- 
 					<div class="col-md-6 pb-4">
 						<div class="d-flex">
 							<select class="form-control">
@@ -133,11 +144,14 @@ opacity
 							</select>
 						</div>
 					</div>
+					 -->
+					 <div class="col-md-6 pb-4">
+					<form action="searchProduct.do" method="GET">
+					  <input type="text" name="product_name" placeholder="전체 상품 검색" />
+					  <input type="image" src="assets/img/search.png" alt="Submit" />
+					</form>
+					</div>
 				</div>
-				<form action="searchProduct.do" method="GET">
-					<input type="text" name="product_name" /> <input type="submit"
-						value="Search" />
-				</form>
 				<div class="row">
 					<c:forEach items="${products}" var="p">
 						<div class="col-md-4">
@@ -225,6 +239,7 @@ opacity
 			</div>
 		</div>
 	</div>
+
 	<!-- End Content -->
 
 

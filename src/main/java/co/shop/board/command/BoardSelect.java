@@ -29,6 +29,8 @@ public class BoardSelect implements Command {
 		voo.setBoardId(Integer.valueOf(request.getParameter("boardId")));
 		List<RepleVO> reples = rs.repleSelectList(voo);
 		
+		String memberId = request.getParameter("memberId");
+		request.setAttribute("memberId", memberId);
 		
 		request.setAttribute("board", vo);	//데이터 전달
 		request.setAttribute("reples", reples);

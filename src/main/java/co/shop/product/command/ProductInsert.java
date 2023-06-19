@@ -42,7 +42,6 @@ public class ProductInsert implements Command {
 				
 				vo.setProductId(multi.getParameter("productId"));
 				vo.setProductName(multi.getParameter("productName"));
-				
 				vo.setProductKind(multi.getParameter("productKind"));
 				vo.setProductPrice(Integer.valueOf(multi.getParameter("productPrice")));
 				vo.setProductTaste(multi.getParameter("productTaste"));

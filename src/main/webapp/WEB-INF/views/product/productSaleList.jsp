@@ -99,7 +99,7 @@
 
 
 		<div>
-			<form id="frm" action="productSelect1.do" method="post">
+			<form id="frm" action="productSelectMng.do" method="post">
 				<input type="hidden" id="productId" name="productId">
 			</form>
 		</div>

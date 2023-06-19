@@ -23,23 +23,20 @@
     max-width: 300px;
     margin-left: auto;
     padding: 10px 15px;
-    background-color: #ffffff;
+    background-color: #FFFFFF;
     border-radius: 4px;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
   }
-
-
 
   input[type="text"] {
     flex-grow: 1;
     height: 32px;
     padding: 5px;
     border-radius: 4px;
-    border: 1px solid #cccccc;
+
+    border: 1px solid #CCCCCC;
     box-sizing: border-box;
   }
-
-
 
   input[type="image"] {
     margin-left: 5px;
@@ -109,7 +106,6 @@
 
 									<a href="productSelect.do?productId=${p.productId}"> <img
 
-
 										style="height: 370px; width: 303px;"
 										src="${pageContext.request.contextPath}/upload/${p.productImg}"
 										alt="상품이미지">
@@ -162,5 +158,4 @@
 </body>
 
 </html>
-
 

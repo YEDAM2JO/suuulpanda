@@ -15,9 +15,9 @@ public class ProductServiceImpl implements ProductService {
 	
 
 	@Override
-	public List<ProductVO> getAllProducts1() {
+	public List<ProductVO> getAllProductsMng() {
 		// TODO Auto-generated method stub
-		return map.getAllProducts1();
+		return map.getAllProductsMng();
 	}
 	
 	@Override

@@ -41,7 +41,7 @@ img {
                     <tr>
          
                         
-                       <td  rowspan="12" style="width: 800px;">
+                       <td  rowspan="9" style="width: 800px;">
                          <input  type= "hidden" name="pfile" value="${product.productImg}">
 <img src="${pageContext.request.contextPath}/upload/${empty pfile ? product.productImg : pfile}" alt="productImg">
                          
@@ -116,7 +116,7 @@ img {
                                 value="${product.productSparkling != null ? product.productSparkling : ''}">
                         </td>
                     </tr>
-<tr>
+						<tr>
                         <td>8</td>
                         <td>알콜도수</td>
                         <td>
@@ -127,7 +127,7 @@ img {
                     </tr>
 
 
-                    <tr>
+                    <%-- <tr>
                         <td>9</td>
                         <td>특가여부</td>
                         <td>
@@ -153,7 +153,7 @@ img {
                             <input type="text" id="productproductSalePrice" name="productSalePrice"
                                 value="${product.productSalePrice != null ? product.productSalePrice : '0'}">
                         </td>
-                    </tr>
+                    </tr> --%>
                 </table>
 
         </div>
@@ -164,7 +164,7 @@ img {
         <div>
             <input type="submit" value="등록">&nbsp;&nbsp;
             <input type="reset" value="취소">&nbsp;&nbsp;
-            <button type="button" onclick="location.href='productList1.do'">목록</button>
+            <button type="button" onclick="location.href='productListMng.do'">목록</button>
         </div>
         </form>
         <!-- 

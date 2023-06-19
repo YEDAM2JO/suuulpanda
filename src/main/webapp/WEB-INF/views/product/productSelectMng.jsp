@@ -31,7 +31,7 @@
 		<div>
 			<table border="1">
 				<tr>
-					<td rowspan="12" style="width: 400px; padding:5px; "><img class="card-img img-fluid"
+					<td rowspan="9" style="width: 400px; padding:5px; "><img class="card-img img-fluid"
 							src="${pageContext.request.contextPath}/upload/${product.productImg}"
 							alt="상품 이미지" id="product-detail" name="pfile"></td>
 					<th>순번</th>
@@ -78,7 +78,8 @@
 					<td>알콜도수</td>
 					<td>${product.productABV}</td>
 				</tr>
-					<tr>
+				
+				<%-- 	<tr>
 					<td>9</td>
 					<td>특가여부</td>
 					<td>${product.productSale}</td>
@@ -92,7 +93,7 @@
 					<td>11</td>
 					<td>특가가격</td>
 					<td>${product.productSalePrice}</td>
-				</tr>
+				</tr> --%>
 			</table>
 
 			<br>
@@ -102,7 +103,7 @@
 				<button type="button" onclick="callFunction('E')">수정</button>&nbsp;&nbsp;
 				<button type="button" onclick="callFunction('D')">삭제</button>&nbsp;&nbsp;
 
-				<button type="button" onclick="location.href='productList1.do'">목록</button>
+				<button type="button" onclick="location.href='productListMng.do'">목록</button>
 
 				<form id="frm" method="post">
 					<input type="hidden" id="productId" name="productId"

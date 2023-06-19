@@ -50,8 +50,15 @@
 
 				<tbody>
 					<c:forEach items="${products}" var="p">
-				
+				<!--  
 						<tr onmouseover='${p.productSale == "Y" ? "this.style.backgroundColor=\"#D8B6FF\"" : "this.style.backgroundColor=\"#fcecae\";"}'
+    onMouseleave='this.style.backgroundColor="#ffffff";'
+    onclick="productChois('${p.productId}')">
+    
+    -->
+    
+    
+				<tr onmouseover='this.style.backgroundColor="#fcecae";'
     onMouseleave='this.style.backgroundColor="#ffffff";'
     onclick="productChois('${p.productId}')">
 							<td align="center">${p.productId}</td>
@@ -59,11 +66,14 @@
 							<td align="center"><img
 								src="<c:url value='/upload/${p.productImg}' />"
 								alt="Product Image" width="100" height="100"></td>
+								
 							<!-- 
 							<td align="center">${p.productImgPath}</td>
 							 -->
 						<%-- 	<td align="center">${p.productPrice}</td> --%>
+						<!--  
 						<td align="center">
+						
 						<c:choose>
 									<c:when test="${p.productSale == 'Y'}">
 										<del>${p.productPrice}원</del> ${p.productSalePrice}원
@@ -72,8 +82,11 @@
       										${p.productPrice}원
     									</c:otherwise>
 								</c:choose>
-					</td>
-							<td align="center">${p.productDate}</td>
+								
+						</td>
+						 -->
+					 		<td align="center">${p.productPrice}</td>
+					 		<td align="center">${p.productDate}</td>
 							<td align="center">${p.productTaste}</td>
 							<td align="center">${p.productSparkling}</td>
 							<td align="center">${p.productABV}</td>
@@ -105,7 +118,7 @@
 
 
 		<div>
-			<form id="frm" action="productSelect1.do" method="post">
+			<form id="frm" action="productSelectMng.do" method="post">
 				<input type="hidden" id="productId" name="productId">
 			</form>
 		</div>

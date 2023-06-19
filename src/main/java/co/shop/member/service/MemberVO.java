@@ -13,6 +13,7 @@ public class MemberVO {
 	private String memberAddr;
 	private String memberTel;
 	private String memberGrade;
-	
+	private String memberAddr1; //우편번호
+	private String memberAddr2; //상세주소 
 	
 }

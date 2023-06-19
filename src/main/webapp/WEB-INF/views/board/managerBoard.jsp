@@ -286,23 +286,27 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>2</td>
-                    <th>
-                      <a href="#!">[공지사항] 개인정보 처리방침 변경안내처리방침</a>
-                      <p>테스트</p>
-                    </th>
-                    <td>관리자</td>
-                    <td>2017.07.13</td>
-                    <td> </td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <th><a href="#!">공지사항 안내입니다. 이용해주셔서 감사합니다</a></th>
-                    <td>관리자</td>
-                    <td>2017.06.15</td>
-                    <td> </td>
-                </tr>
+            
+              <c:forEach items="${boards }" var="b" varStatus="status">
+				    <c:choose>
+				        <c:when test="${b.memberId == 'manager'}">
+				            <tr onmouseover='this.style.background="#9fff80";'
+				                onmouseleave='this.style.background="#FFFFFF";' onclick="boardChois(${b.boardId},'${b.memberId }','${b.boardSecret}')">
+				                <td>${b.boardId }</td>
+				                <td><h5 style="text-decoration: underline;">${b.boardTitle }</h5></td>
+				                <td>${b.memberId }</td>
+				                <td>${b.boardDate }</td>
+				                <td>${b.boardHit }</td>
+				            </tr>
+				        </c:when>
+				        <c:otherwise>
+				            <!-- 'manager'가 아닌 회원의 글은 이 부분에서 처리 -->
+				        </c:otherwise>
+				    </c:choose>
+			</c:forEach>
+                
+            
+                
                 <c:forEach items="${boards }" var="b">
                 	<tr onmouseover='this.style.background="#9fff80";'
 						onmouseleave='this.style.background="#FFFFFF";'>
@@ -314,7 +318,12 @@
                 		<c:set var="state" value="${b.boardRepleState }"/>
                 		<td>${state }</td>
                 		<c:if test="${state eq 'N' }">
-                			<td><button type="button" onclick="location.href='managerReple.do?id=${b.boardId}'">댓글달기</button></td>
+                			<td>
+  <button type="button" onclick="location.href='managerReple.do?id=${b.boardId}'" style="background-color: #fff; border-radius: 5px; padding: 5px 10px; border: 1px solid #ccc;">
+    <i class="fas fa-comment" style="color: #000;"></i> 댓글달기
+  </button>
+</td>
+
                 		</c:if>
                 		<c:if test="${state ne 'N' }">
                 			<td>답변완료</td>
@@ -341,7 +350,7 @@
                 <a href="managerBoard.do?page=${realEnd }" class="bt last">>></a>
             </div>
             <div class="bt_wrap">
-                <a href="boardWrite.do" class="on">등록</a>
+                <a href="managerBoardWrite.do" class="on">등록</a>
                 <!--<a href="#">수정</a>-->
             </div>
         </div>

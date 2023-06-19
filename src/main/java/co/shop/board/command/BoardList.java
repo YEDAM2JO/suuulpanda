@@ -27,6 +27,7 @@ public class BoardList implements Command {
 		int realEnd = (int)Math.ceil(maxNum/(double)10);
 		
 		
+		
 		request.setAttribute("startPage", endPage-5+1);
 		if(realEnd < endPage) {
 			endPage = realEnd;

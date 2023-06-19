@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.shop.report.service.ReportMapper">
+	<!-- 전체 신고 내역 -->
+	<select id="getAllReports" resultType="co.shop.report.service.ReportVO">
+	    SELECT *
+	    FROM reports
+	</select>
+	
+	<!-- 신고 추가 -->
+	<insert id="reportInsert" parameterType="co.shop.report.service.ReportVO">
+	    <selectKey keyProperty="reportId" resultType="java.lang.Integer" order="BEFORE">
+	        select NVL(max(report_id), 0) + 1 as reportId from reports
+	    </selectKey>
+	    INSERT INTO reports (report_id, member_id, report_content, report_date, report_status)
+	    VALUES (#{reportId}, #{memberId}, #{reportContent}, sysdate, 'N')
+	</insert>
+	
+	<!-- 신고 처리 상태 -->
+	<update id="reportUpdate" parameterType="co.shop.report.service.ReportVO">
+	    UPDATE reports
+	    SET report_status = #{reportStatus}
+	    WHERE report_id = #{reportId}
+	</update>
+
+
+</mapper>

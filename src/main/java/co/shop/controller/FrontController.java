@@ -22,8 +22,8 @@ import co.shop.board.command.BoardSelect;
 import co.shop.board.command.BoardUpdate;
 import co.shop.board.command.BoardWrite;
 import co.shop.board.command.ManagerBoard;
+import co.shop.board.command.ManagerBoardWrite;
 import co.shop.board.command.ManagerReple;
-import co.shop.board.command.AjaxSetReple;
 import co.shop.cart.command.AjaxCartDelete;
 import co.shop.cart.command.AjaxCountMinus;
 import co.shop.cart.command.AjaxCountPlus;
@@ -47,6 +47,7 @@ import co.shop.member.command.Logout;
 import co.shop.member.command.ManagerUpdateMember;
 import co.shop.member.command.MemberInsert;
 import co.shop.member.command.MemberLogin;
+
 import co.shop.product.command.ProductModify;
 import co.shop.product.command.ProductSelect;
 import co.shop.product.command.ProductTraditional;
@@ -54,6 +55,8 @@ import co.shop.product.command.ProductWine;
 import co.shop.product.command.SearchProduct;
 import co.shop.reple.command.AjaxRepleDelete;
 import co.shop.review.command.ReviewInsert;
+import co.shop.report.command.ReportAction;
+import co.shop.member.command.MemberUpdate;
 import co.shop.product.command.Product;
 import co.shop.product.command.ProductBeer;
 import co.shop.product.command.ProductInsert;
@@ -64,6 +67,7 @@ import co.shop.product.command.ProductModify;
 import co.shop.product.command.ProductSelect;
 import co.shop.product.command.ProductTraditional;
 import co.shop.product.command.ProductWine;
+import co.shop.product.command.SearchProduct;
 import co.shop.reple.command.AjaxRepleDelete;
 import co.shop.social.command.AjaxCheckAge;
 import co.shop.social.command.NaverCallback;
@@ -72,6 +76,7 @@ import co.shop.social.command.SocialLogin;
 import co.shop.user.command.ManagerPage;
 import co.shop.user.command.OrderSelect;
 import co.shop.user.command.UserPage;
+import co.shop.userpage.command.UserDelete;
 import co.shop.userpage.command.UserEditInfo;
 import co.shop.userpage.command.UserInfoDeletePass;
 import co.shop.userpage.command.UserInfoUpdate;
@@ -128,6 +133,7 @@ public class FrontController extends HttpServlet {
 		map.put("/productInsert.do", new ProductInsert()); //제품 등록
 		map.put("/userorderlist.do", new UserOrderList());
 		map.put("/userInfoDeletePass.do", new UserInfoDeletePass()); //유저 정보 삭제(비번창)
+		map.put("/userDelete.do", new UserDelete()); // 유저 정보 삭제 처리 
 
 		
 		map.put("/cartList.do", new CartList());
@@ -137,8 +143,8 @@ public class FrontController extends HttpServlet {
 		map.put("/productWine.do", new ProductWine()); //상품 리스트 -와인
 		map.put("/productTraditional.do", new ProductTraditional()); //상품 리스트 -전통주
 		map.put("/productBeer.do", new ProductBeer()); //상품 리스트 -맥주
-
-		map.put("/searchProduct.do", new SearchProduct());
+		map.put("/searchProduct.do", new SearchProduct()); //상품 검색
+		map.put("/reportAction.do", new ReportAction()); //게시물 신고 하기
 
 
 		map.put("/ajaxRepleDelete.do", new AjaxRepleDelete());
@@ -150,6 +156,7 @@ public class FrontController extends HttpServlet {
 		map.put("/userEditInfo.do", new UserEditInfo());
 		map.put("/memberUpdate.do", new UserInfoUpdate());
 		map.put("/productList1.do", new ProductList1()); //관리자의 전체상품 리스트
+		map.put("/managerBoardWrite.do",new ManagerBoardWrite()); //공지사항 작성)
 
 		
 		//관리자 페이지(이슬)

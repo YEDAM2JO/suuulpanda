@@ -2,6 +2,8 @@ package co.shop.cart.service;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 public interface CartMapper {
 	
 	List<CartVO> cartSelectList(CartVO vo);
@@ -12,4 +14,8 @@ public interface CartMapper {
 	int cartPlus(CartVO vo);
 	int cartDelete(CartVO vo);
 	int cartMemberDelete(CartVO vo);
+	
+	int orderSuccessDelete(@Param("cartIdArray") String[] cartId); //결제완료 시 장바구니에서 삭제
+	
+	List<CartVO> paymentOrder(@Param("cartIdArray") String[] cartId); //cartId로 장바구니 모든 상품 정보 받아오기 
 }

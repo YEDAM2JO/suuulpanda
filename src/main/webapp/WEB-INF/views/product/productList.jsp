@@ -29,6 +29,7 @@
   }
 
 
+
   input[type="text"] {
     flex-grow: 1;
     height: 32px;
@@ -37,6 +38,7 @@
     border: 1px solid #cccccc;
     box-sizing: border-box;
   }
+
 
 
   input[type="image"] {
@@ -107,6 +109,7 @@
 
 									<a href="productSelect.do?productId=${p.productId}"> <img
 
+
 										style="height: 370px; width: 303px;"
 										src="${pageContext.request.contextPath}/upload/${p.productImg}"
 										alt="상품이미지">
@@ -157,5 +160,7 @@
 		</div>
 	</div>
 </body>
+
 </html>
+
 

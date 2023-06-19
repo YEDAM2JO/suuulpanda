@@ -88,12 +88,17 @@
             </tr>
             
             <tr>
-                <td>비밀번호</td>
-                <td align="center">
-                    <input type="password" id="memberPw" name="memberPw" >
-                    <input type="password" id="memberPw">
-                </td>
-            </tr>
+			    <td>비밀번호</td>
+			    <td align="center">
+			        <input type="password" id="memberPw" name="memberPw">
+			    </td>
+			</tr>
+			<tr>
+			    <td>비밀번호 확인</td>
+			    <td align="center">
+			        <input type="password" id="memberPw">
+			    </td>
+			</tr>
             
         </table>
         <br>

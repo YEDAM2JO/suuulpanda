@@ -1,33 +1,28 @@
-package co.shop.member.command;
+package co.shop.report.command;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import co.shop.board.service.BoardVO;
 import co.shop.common.Command;
 import co.shop.member.service.MemberService;
 import co.shop.member.service.MemberVO;
 import co.shop.member.service.Impl.MemberServiceImpl;
+import co.shop.report.service.ReportService;
+import co.shop.report.service.ReportVO;
+import co.shop.report.service.Impl.ReportServiceImpl;
 
-public class ManagerUpdateMember implements Command {
+public class ReportList implements Command {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
-		MemberService ms = new MemberServiceImpl();
-		
-		
-		
-		
-		
-		
-		MemberVO vo = new MemberVO();
+		ReportService rs = new ReportServiceImpl();
+		ReportVO vo = new ReportVO();
 		vo.setPage(Integer.valueOf(request.getParameter("page")));
-		List<MemberVO> members = ms.memberSelectList(vo);
+		List<ReportVO> reports = rs.getAllReports(vo);
 		
-		int maxNum = ms.memberSelectMax();
+		int maxNum = rs.reportSelectMax();
 		
 		int endPage = (int)Math.ceil(Integer.valueOf(request.getParameter("page"))*0.2) * 5	;
 		int realEnd = (int)Math.ceil(maxNum/(double)5);
@@ -40,10 +35,10 @@ public class ManagerUpdateMember implements Command {
 		}
 		request.setAttribute("endPage", endPage);
 		request.setAttribute("realEnd", realEnd);
-		request.setAttribute("members", members);
+		request.setAttribute("reports", reports);
 		
 
-		return "member/memberList";
+		return "manager/reportList";
 	}
 
 }

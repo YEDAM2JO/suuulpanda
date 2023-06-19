@@ -1,9 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+	
+  
 <title>Zay Shop eCommerce HTML CSS Template</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,6 +26,7 @@
 	href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
 <link rel="stylesheet" href="assets/css/fontawesome.min.css">
 
+		
 </head>
 
 <body>
@@ -314,6 +319,51 @@
 	<script src="assets/js/templatemo.js"></script>
 	<script src="assets/js/custom.js"></script>
 	<!-- End Script -->
+	
+	
+	<!-- Kakaomap api  -->
+	<br>
+	<div align="center">
+	<h2>매장 위치</h2>
+	<div id="map" style="width:500px;height:400px;"></div>
+	
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=fc7464d2a4e6a63b76c439cbe264d159"></script>
+	<script>
+	var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+    mapOption = { 
+        center: new kakao.maps.LatLng(35.86906775230762, 128.59328274668462), // 지도의 중심좌표
+        level: 3 // 지도의 확대 레벨
+    };
+
+var map = new kakao.maps.Map(mapContainer, mapOption);
+
+// 마커가 표시될 위치입니다 
+var markerPosition  = new kakao.maps.LatLng(35.86906775230762, 128.59328274668462); 
+
+// 마커를 생성합니다
+var marker = new kakao.maps.Marker({
+    position: markerPosition
+});
+
+marker.setMap(map);
+
+var iwContent = '<div style="padding:5px;">술판다 동성로점<br><a href="https://map.kakao.com/link/map/술판다 동성로점,35.86906775230762,128.59328274668462" style="color:blue" target="_blank">지도보기</a> <a href="https://map.kakao.com/link/to/술판다 동성로점,35.86906775230762,128.59328274668462" style="color:blue" target="_blank">길찾기</a></div>',
+    iwPosition = new kakao.maps.LatLng(35.86906775230762, 128.59328274668462); //인포윈도우 표시 위치입니다
+
+// 인포윈도우를 생성합니다
+var infowindow = new kakao.maps.InfoWindow({
+    position : iwPosition, 
+    content : iwContent 
+});
+  
+// 마커 위에 인포윈도우를 표시합니다. 두번째 파라미터인 marker를 넣어주지 않으면 지도 위에 표시됩니다
+infowindow.open(map, marker); 
+	</script>
+	</div><br>
+	
+  
+	 
+	
 </body>
 
 </html>

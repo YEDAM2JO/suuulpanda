@@ -19,6 +19,7 @@ public class ReportAction implements Command {
 		ReportVO vo = new ReportVO();
 		vo.setMemberId(memberId);
 		vo.setReportContent(reportContent);
+		vo.setBoardId(Integer.valueOf(request.getParameter("boardId2")));
 		rs.reportInsert(vo);
 		
 		request.setAttribute("memberId", memberId);

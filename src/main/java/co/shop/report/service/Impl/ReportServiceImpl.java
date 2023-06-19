@@ -14,9 +14,9 @@ public class ReportServiceImpl implements ReportService {
 	ReportMapper map = sqlSession.getMapper(ReportMapper.class);
 
 	@Override
-	public List<ReportVO> getAllreports() {
+	public List<ReportVO> getAllReports(ReportVO vo) {
 		// TODO Auto-generated method stub
-		return map.getAllreports();
+		return map.getAllReports(vo);
 	}
 
 	@Override
@@ -26,15 +26,21 @@ public class ReportServiceImpl implements ReportService {
 	}
 
 	@Override
-	public int reportUpdate(String reportId, String reportStatus) {
+	public int reportUpdate(ReportVO vo) {
 		// TODO Auto-generated method stub
-		return map.reportUpdate(reportId, reportStatus);
+		return map.reportUpdate(vo);
 	}
 
 	@Override
 	public int reportDelete(ReportVO vo) {
 		// TODO Auto-generated method stub
 		return map.reportDelete(vo);
+	}
+
+	@Override
+	public int reportSelectMax() {
+		// TODO Auto-generated method stub
+		return map.reportSelectMax();
 	}
 
 }

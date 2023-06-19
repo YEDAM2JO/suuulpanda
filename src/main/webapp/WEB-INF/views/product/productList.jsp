@@ -27,14 +27,17 @@
     border-radius: 4px;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
   }
+
   input[type="text"] {
     flex-grow: 1;
     height: 32px;
     padding: 5px;
     border-radius: 4px;
+
     border: 1px solid #CCCCCC;
     box-sizing: border-box;
   }
+
   input[type="image"] {
     margin-left: 5px;
     width: 24px;
@@ -46,7 +49,9 @@
   ::placeholder {
     font-size: 15px;
   }
+ 
 </style>
+
 </head>
 <body>
 <div class="container py-5">
@@ -77,6 +82,7 @@
 							</li>
 						</ul>
 					</div>
+
 					<div class="col-md-6 pb-4">
 						<div class="d-flex justify-content-end">
 							<select class="form-control" id="sortOption" name="sortOption" onchange="this.form.submit()">
@@ -95,13 +101,17 @@
 					<c:forEach items="${products }" var="p">
 						<div class="col-md-4">
 							<div class="card mb-4 product-wap rounded-0">
+							
 								<div class="card rounded-0">
+
 									<a href="productSelect.do?productId=${p.productId}"> <img
+
 										style="height: 370px; width: 303px;"
 										src="${pageContext.request.contextPath}/upload/${p.productImg}"
 										alt="상품이미지">
 									</a>
 								</div>
+								
 								<div class="card-body">
 									<a href="#" class="h3 text-decoration-none">${p.productName }</a>
 									<ul
@@ -142,7 +152,10 @@
 					</ul>
 				</div>
 			</div>
+
 		</div>
 	</div>
 </body>
+
 </html>
+

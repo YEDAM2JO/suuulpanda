@@ -15,12 +15,17 @@ public class ProductList implements Command {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
-		//전체 상품 리스트
-		ProductService ps = new ProductServiceImpl();
-		List<ProductVO> products = new ArrayList<>();
-		products = ps.getAllProducts();
-		
-		request.setAttribute("products", products);
-		return "product/productList";
+        //상품 리스트 조회
+        ProductService ps = new ProductServiceImpl();
+        String productKind = request.getParameter("productKind");
+        
+        if (productKind == null || productKind.isEmpty()) {
+            productKind = null; // '전체상품' -> productKind null 설정
+        }
+
+        List<ProductVO> products = ps.getProducts(productKind);
+
+        request.setAttribute("products", products);
+        return "product/productList";
 	}
 }

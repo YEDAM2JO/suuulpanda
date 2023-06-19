@@ -19,9 +19,7 @@
 <link rel="stylesheet" href="assets/css/cart.css">
 </head>
 <body>
-<!--
 	<tiles:insertAttribute name="header" />
-	  -->
 	<jsp:include page="productmenu.jsp"></jsp:include>
 
 	<div align="center">
@@ -33,14 +31,14 @@
 			<table border="1">
 				<thead>
 					<tr>
-						<th width="100">상품번호</th>
+						<th width="100">제품코드</th>
 						<th width="200">제품명</th>
 						<th width="200">제품이미지</th>
 						<th width="200">제품가격</th>
 						<th width="200">상품등록일</th>
-						<th width="200">당도</th>
-						<th width="200">탄산유무</th>
-						<th width="200">도수</th>
+						<th width="200">세일</th>
+						<th width="200">할인율</th>
+						<th width="200">할인가격</th>
 
 
 
@@ -50,21 +48,19 @@
 
 				<tbody>
 					<c:forEach items="${products}" var="p">
-				
-						<tr onmouseover='${p.productSale == "Y" ? "this.style.backgroundColor=\"#D8B6FF\"" : "this.style.backgroundColor=\"#fcecae\";"}'
-    onMouseleave='this.style.backgroundColor="#ffffff";'
-    onclick="productChois('${p.productId}')">
+						<tr onmouseover='this.style.backgroundColor="#D8B6FF";'
+							onMouseleave='this.style.backgroundColor="#ffffff";'
+						  onclick="openPopup('${p.productId}')">
+						  <!-- 
+						  	onclick="productChois(${p.productId})"
+						   -->
 							<td align="center">${p.productId}</td>
 							<td align="center">${p.productName}</td>
 							<td align="center"><img
 								src="<c:url value='/upload/${p.productImg}' />"
 								alt="Product Image" width="100" height="100"></td>
-							<!-- 
-							<td align="center">${p.productImgPath}</td>
-							 -->
-						<%-- 	<td align="center">${p.productPrice}</td> --%>
-						<td align="center">
-						<c:choose>
+							<td>
+							<c:choose>
 									<c:when test="${p.productSale == 'Y'}">
 										<del>${p.productPrice}원</del> ${p.productSalePrice}원
    								 </c:when>
@@ -72,13 +68,11 @@
       										${p.productPrice}원
     									</c:otherwise>
 								</c:choose>
-					</td>
+								</td>
 							<td align="center">${p.productDate}</td>
-							<td align="center">${p.productTaste}</td>
-							<td align="center">${p.productSparkling}</td>
-							<td align="center">${p.productABV}</td>
-							
-						
+							<td align="center">${p.productSale}</td>
+							<td align="center">${p.productSalePercent}</td>
+							<%-- <td align="center">${p.productSalePrice}</td> --%>
 							<!--  	
 							<td align="center"><input type="checkbox" name="productSale"
 								value="on" ${p.productSale == 'Y' ? 'checked' : ''}></td>
@@ -109,9 +103,7 @@
 				<input type="hidden" id="productId" name="productId">
 			</form>
 		</div>
-		<!--  -->
 		<tiles:insertAttribute name="footer" />
-		 
 
 	</div>
 	<script type="text/javascript">
@@ -121,6 +113,13 @@
 		frm.submit();
 	}
 </script>
+<script>
+function openPopup(productId) {
+	
+	var popupWindow = window.open("product/popup?productId=" + productId, "popup", "width=400,height=300");
+
+	}
+	</script>
 
 </body>
 </html>

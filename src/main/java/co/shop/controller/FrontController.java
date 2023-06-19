@@ -49,8 +49,11 @@ import co.shop.member.command.MemberInsert;
 import co.shop.member.command.MemberLogin;
 
 import co.shop.product.command.ProductModify;
+import co.shop.product.command.ProductSaleList;
 import co.shop.product.command.ProductSelect;
+import co.shop.product.command.ProductSelect1;
 import co.shop.product.command.ProductTraditional;
+import co.shop.product.command.ProductUpdate;
 import co.shop.product.command.ProductWine;
 import co.shop.product.command.SearchProduct;
 import co.shop.reple.command.AjaxRepleDelete;
@@ -59,6 +62,8 @@ import co.shop.report.command.ReportAction;
 import co.shop.member.command.MemberUpdate;
 import co.shop.product.command.Product;
 import co.shop.product.command.ProductBeer;
+import co.shop.product.command.ProductDelete;
+import co.shop.product.command.ProductEdit;
 import co.shop.product.command.ProductInsert;
 import co.shop.product.command.ProductInsertForm;
 import co.shop.product.command.ProductList;
@@ -155,8 +160,22 @@ public class FrontController extends HttpServlet {
 		map.put("/ajaxSetReple.do", new AjaxSetReple());
 		map.put("/userEditInfo.do", new UserEditInfo());
 		map.put("/memberUpdate.do", new UserInfoUpdate());
+
+		
+		//관리자 제품 관리
+		map.put("/productList1.do", new ProductList1()); //관리자의 전체상품 리스트 ID오름차순
+		//"/productList1.do" URL에 대해 "ProductList1" 클래스의 로직을 실행하도록 매핑
+		
+		map.put("/productSelect1.do", new ProductSelect1()); //제품 상세보기
+		map.put("/productEdit.do", new ProductEdit());
+		map.put("/productUpdate.do", new ProductUpdate());
+		map.put("/productDelete.do", new ProductDelete());
+		map.put("/productSaleList.do", new ProductSaleList());// 특가상품 리스트 조회
+		
+
 		map.put("/productList1.do", new ProductList1()); //관리자의 전체상품 리스트
 		map.put("/managerBoardWrite.do",new ManagerBoardWrite()); //공지사항 작성)
+
 
 		
 		//관리자 페이지(이슬)

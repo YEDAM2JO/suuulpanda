@@ -20,8 +20,7 @@ public class ProductVO {
     private String productSparkling;
     private int productABV;
     private String productSale;
-    private String productSalePercent;
+    private float productSalePercent;
     private int productSalePrice;
     
-  
 }

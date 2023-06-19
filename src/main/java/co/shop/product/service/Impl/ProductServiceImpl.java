@@ -19,6 +19,22 @@ public class ProductServiceImpl implements ProductService {
 		return map.getAllProducts();
 	}
 	
+	
+	@Override
+	public List<ProductVO> getAllProducts1() {
+		// TODO Auto-generated method stub
+		return map.getAllProducts1();
+	}
+	
+	@Override
+	public List<ProductVO> getProductSaleList() {
+		// TODO Auto-generated method stub
+		return map.getProductSaleList();
+	}
+
+	
+	
+	
 	@Override
 	public ProductVO productSelect(ProductVO vo) {
 		// TODO Auto-generated method stub
@@ -74,4 +90,6 @@ public class ProductServiceImpl implements ProductService {
 		return map.productIdSelect(vo);
 	}
 
+	
+	
 }

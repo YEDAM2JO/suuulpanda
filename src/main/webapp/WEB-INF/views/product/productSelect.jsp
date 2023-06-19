@@ -21,7 +21,7 @@
 </head>
 <body>
 	<tiles:insertAttribute name="header" />
-	
+
 	<!-- 상품 상세보기 페이지 -->
 	<section class="bg-light">
 		<div class="container pb-5">
@@ -38,7 +38,16 @@
 					<div class="card">
 						<div class="card-body">
 							<h1 class="h2">${product.productName}</h1>
-							<p class="h3 py-2">${product.productPrice}원</p>
+							<p class="h3 py-2">
+								<c:choose>
+									<c:when test="${product.productSale == 'Y'}">
+										<del>${product.productPrice}원</del> ${product.productSalePrice}원
+   								 </c:when>
+									<c:otherwise>
+      										${product.productPrice}원
+    									</c:otherwise>
+								</c:choose>
+							</p>
 							<ul class="list-inline">
 								<li class="list-inline-item">
 									<p>종류</p>
@@ -86,31 +95,40 @@
 							<%-- Buy 및 Add To Cart 버튼 > 로그인 상태에 따라 표시 --%>
 							<c:choose>
 								<c:when test="${empty id}">
-									<p style="color: red;"> 19세 미만 구매 불가 <br>로그인 후 구매 가능합니다.
-									<br>
-									<button class="btn btn-success btn-lg" onclick="location.href='login.do'">
-									Login
-									</button>
+									<p style="color: red;">
+										19세 미만 구매 불가 <br>로그인 후 구매 가능합니다. <br>
+										<button class="btn btn-success btn-lg"
+											onclick="location.href='login.do'">Login</button>
 								</c:when>
 								<c:otherwise>
 									<form id="frmmmm" action="cartInsert.do" method="post">
-										<input type="hidden" name="productId" value="${product.productId}">
-										<input type="hidden" name="productName" value="${product.productName}">
-										<input type="hidden" name="productFee" value="${product.productPrice}">
-										<input type="hidden" id="productCount" name="productCount" value="">
-										
+										<input type="hidden" name="productId"
+											value="${product.productId}"> <input type="hidden"
+											name="productName" value="${product.productName}"> <input
+											type="hidden" name="productFee"
+											value="${product.productPrice}"> <input type="hidden"
+											id="productCount" name="productCount" value="">
+
 									</form>
-										<div class="row">
-											<div class="col-auto">
-												<ul class="list-inline pb-3">
-													<li class="list-inline-item text-right">
-													Quantity
-													<input type="hidden" name="product-quanity" id="product-quanity" value="1"></li>
-													<li class="list-inline-item"><span class="btn btn-success" id="btn-minus" onclick="minus()">-</span></li>
-													<li class="list-inline-item"><span class="badge bg-secondary" id="var-value">1</span></li>
-													<li class="list-inline-item"><span class="btn btn-success" id="btn-plus" onclick="plus()">+</span></li>
-												</ul>
-											</div>
+									<div class="row">
+										<div class="col-auto">
+											<ul class="list-inline pb-3">
+												<li class="list-inline-item text-right">Quantity <input
+													type="hidden" name="product-quanity" id="product-quanity"
+													value="1"></li>
+												<li class="list-inline-item"><span
+													class="btn btn-success" id="btn-minus" onclick="minus()">-</span></li>
+												<li class="list-inline-item"><span
+													class="badge bg-secondary" id="var-value">1</span></li>
+												<li class="list-inline-item"><span
+													class="btn btn-success" id="btn-plus" onclick="plus()">+</span></li>
+											</ul>
+										</div>
+									</div>
+									<div class="row pb-3">
+										<div class="col d-grid">
+											<button type="submit" class="btn btn-success btn-lg"
+												name="submit" value="buy">Buy</button>
 										</div>
 										<div class="row pb-3">
 											<div class="col d-grid">
@@ -124,7 +142,8 @@
 												</button>
 											</div>
 										</div>
-									
+									</div>
+
 								</c:otherwise>
 							</c:choose>
 						</div>
@@ -168,34 +187,34 @@
 
 	<tiles:insertAttribute name="footer" />
 	<script>
-		function addCart(){
+		function addCart() {
 			let productCount = document.getElementById("productCount");
 			let span = document.getElementById("var-value");
 			productCount.value = span.textContent;
-			
+
 			let frm = document.getElementById("frmmmm");
 			frm.submit();
-			
+
 		}
-		
-		function minus(){
+
+		function minus() {
 			let span = document.getElementById("var-value");
-			
-			
-			if(Number(span.textContent)<=1){
+
+			if (Number(span.textContent) <= 1) {
 				alert("더이상 내릴 수 없습니다.");
 			} else {
-				num = Number(span.textContent) -1;
+				num = Number(span.textContent) - 1;
 			}
 			span.textContent = num;
 		}
-		
-		function plus(){
+
+		function plus() {
 			let span = document.getElementById("var-value");
-			
-			num = Number(span.textContent) +1;
+
+			num = Number(span.textContent) + 1;
 			span.textContent = num;
 		}
+
 		
 		function buyProduct(){
 			let num = document.getElementById("var-value").textContent;
@@ -215,7 +234,8 @@
 			
 			frm.submit();
 		}
+
 	</script>
-	
+
 </body>
 </html>

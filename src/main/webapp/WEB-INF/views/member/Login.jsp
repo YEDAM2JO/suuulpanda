@@ -518,19 +518,18 @@ body {
 		    <input type="hidden" id="socialTel" name="socialTel" value=""/>
 	</form>
       <script>
-let container = document.getElementById('container')
-
-toggle = () => {
-  container.classList.toggle('sign-in')
-  container.classList.toggle('sign-up')
-}
-
-setTimeout(() => {
-  container.classList.add('sign-in')
-}, 200)
-
-
+		let container = document.getElementById('container')
+		
+		toggle = () => {
+		  container.classList.toggle('sign-in')
+		  container.classList.toggle('sign-up')
+		}
+		
+		setTimeout(() => {
+		  container.classList.add('sign-in')
+		}, 200)
       </script>
+      
       <script src = "https://developers.kakao.com/sdk/js/kakao.min.js"></script>
       <script>
 		window.Kakao.init("fb74b6cb0883a625f1a180019b2d9a9f");

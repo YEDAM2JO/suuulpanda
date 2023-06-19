@@ -20,12 +20,43 @@
 <link rel="stylesheet" href="assets/css/fontawesome.min.css">
 
 <link rel="stylesheet" href="assets/css/cart.css">
+
+<style>
+  form {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    max-width: 300px;
+    margin-left: auto;
+    padding: 10px 15px;
+    background-color: #ffffff;
+    border-radius: 4px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  input[type="text"] {
+    flex-grow: 1;
+    height: 32px;
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid #cccccc;
+    box-sizing: border-box;
+  }
+
+  input[type="image"] {
+    margin-left: 5px;
+    width: 24px;
+    height: 24px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+  }
+  ::placeholder {
+    font-size: 15px;
+  }
+</style>
 </head>
 <body>
-	
-	<tiles:insertAttribute name="header"/>
-	<!-- Start Content -->
-	
     <div class="container py-5">
         <div class="row">
 
@@ -54,7 +85,6 @@
                     </li>
                 </ul>
             </div>
-
             <div class="col-lg-9">
                 <div class="row">
                     <div class="col-md-6">
@@ -64,16 +94,24 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="col-md-6 pb-4">
-                        <div class="d-flex">
-                            <select class="form-control">
-                                <option>최신순</option>
-                                <option>높은 가격순</option>
-                                <option>낮은 가격순</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
+                    <!-- 
+					<div class="col-md-6 pb-4">
+						<div class="d-flex">
+							<select class="form-control">
+								<option>최신순</option>
+								<option>높은 가격순</option>
+								<option>낮은 가격순</option>
+							</select>
+						</div>
+					</div>
+					 -->
+					 <div class="col-md-6 pb-4">
+					<form action="searchProduct.do" method="GET">
+					  <input type="text" name="product_name" placeholder="전체 상품 검색" />
+					  <input type="image" src="assets/img/search.png" alt="Submit" />
+					</form>
+					</div>
+				</div>
                 <div class="row">
                 <c:forEach items="${products }" var="p">
                     <div class="col-md-4">
@@ -118,11 +156,5 @@
 
         </div>
     </div>
-    <!-- End Content -->
-
-    
-    <tiles:insertAttribute name="footer"/>
-	
-	
 </body>
 </html>

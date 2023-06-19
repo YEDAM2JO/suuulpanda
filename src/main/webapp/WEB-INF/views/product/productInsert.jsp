@@ -166,8 +166,9 @@ input[type="submit"]:hover, input[type="reset"]:hover {
 			<div style="margin-bottom: 30px;"></div>
 		</div>
 	</div>
-
+	
 	<tiles:insertAttribute name="footer" />
+
 </body>
 
 

@@ -23,22 +23,32 @@
 	
 	<update id = "memberUpdate" parameterType = "co.shop.member.service.MemberVO"> <!-- 구현체가 이거 -->
 		UPDATE member
-		SET
+		<set>
 			MEMBER_NAME = #{memberName}, 
 			MEMBER_TEL = #{memberTel}, 
 			MEMBER_ADDR = #{memberAddr}, 
+		<if test="memberPw!= null and memberPw!= ''">
 			MEMBER_PW = #{memberPw} 
+		</if>
+		</set>
 		
 		WHERE member_id = #{memberId}
 	</update>
 	
 
-	<!-- 회원 탈퇴 -->
+	<!--회원 탈퇴
 	<delete id="memberDelete" parameterType="co.shop.member.service.MemberVO">
 	  DELETE FROM member
 	  WHERE member_id = #{memberId}
-	</delete>
+	</delete> -->
 
+	<!-- 회원 탈퇴 -->
+	<delete id="memberDelete" parameterType="java.lang.String">
+	  DELETE FROM member
+	   WHERE member_id = #{memberId} 
+	     and member_pw =#{memberPw}
+	</delete>
+		
 	
 	<!-- 비밀번호 일치 여부 확인 -->
 	<select id="checkPassword" parameterType="co.shop.member.service.MemberVO" resultType="java.lang.Integer">

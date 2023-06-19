@@ -50,12 +50,10 @@
 
 				<tbody>
 					<c:forEach items="${products}" var="p">
-					<!--  
-						<tr onmouseover='this.style.backgroundColor="#fcecae";'
-						-->
+				
 						<tr onmouseover='${p.productSale == "Y" ? "this.style.backgroundColor=\"#D8B6FF\"" : "this.style.backgroundColor=\"#fcecae\";"}'
     onMouseleave='this.style.backgroundColor="#ffffff";'
-    onclick="productChois(${p.productId})">
+    onclick="productChois('${p.productId}')">
 							<td align="center">${p.productId}</td>
 							<td align="center">${p.productName}</td>
 							<td align="center"><img

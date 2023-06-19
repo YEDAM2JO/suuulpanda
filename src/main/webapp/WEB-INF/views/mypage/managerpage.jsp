@@ -35,7 +35,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<tiles:insertAttribute name="header"/>
+
 	<section>
 
 <br>
@@ -69,6 +69,6 @@
   </div>
   <br><br>
 	</section>
-<tiles:insertAttribute name="footer"/>
+
 </body>
 </html>

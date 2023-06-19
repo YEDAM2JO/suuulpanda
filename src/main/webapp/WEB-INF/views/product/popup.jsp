@@ -7,7 +7,8 @@
   <title>작은 창</title>
 </head>
 <body>
-  <h2>오늘의 특가 상품 등록</h2>
+hi
+ <!--  <h2>오늘의 특가 상품 등록</h2>
   <p>오늘의 특가 상품으로 등록하시겠습니까?</p>
   <button onclick="confirmSelection('Y')">Y</button>
   <button onclick="confirmSelection('N')">N</button>
@@ -25,7 +26,7 @@
         // 작은 창 닫기
         window.close();
       }
-    }
+    } -->
   </script>
 </body>
 </html>

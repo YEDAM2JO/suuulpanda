@@ -50,7 +50,7 @@
 					<c:forEach items="${products}" var="p">
 						<tr onmouseover='this.style.backgroundColor="#D8B6FF";'
 							onMouseleave='this.style.backgroundColor="#ffffff";'
-						  onclick="openPopup(${p.productId})">
+						  onclick="openPopup('${p.productId}')">
 						  <!-- 
 						  	onclick="productChois(${p.productId})"
 						   -->
@@ -59,14 +59,20 @@
 							<td align="center"><img
 								src="<c:url value='/upload/${p.productImg}' />"
 								alt="Product Image" width="100" height="100"></td>
-							<!-- 
-							<td align="center">${p.productImgPath}</td>
-							 -->
-							<td align="center">${p.productPrice}</td>
+							<td>
+							<c:choose>
+									<c:when test="${p.productSale == 'Y'}">
+										<del>${p.productPrice}원</del> ${p.productSalePrice}원
+   								 </c:when>
+									<c:otherwise>
+      										${p.productPrice}원
+    									</c:otherwise>
+								</c:choose>
+								</td>
 							<td align="center">${p.productDate}</td>
 							<td align="center">${p.productSale}</td>
 							<td align="center">${p.productSalePercent}</td>
-							<td align="center">${p.productSalePrice}</td>
+							<%-- <td align="center">${p.productSalePrice}</td> --%>
 							<!--  	
 							<td align="center"><input type="checkbox" name="productSale"
 								value="on" ${p.productSale == 'Y' ? 'checked' : ''}></td>

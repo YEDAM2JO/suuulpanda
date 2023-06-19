@@ -102,9 +102,7 @@ input[type="submit"]:hover, input[type="reset"]:hover {
 </head>
 <body>
 
-	<tiles:insertAttribute name="header" />
-
-<jsp:include page = "productmenu.jsp"></jsp:include>
+	<jsp:include page="productmenu.jsp"></jsp:include>
 
 	<div align="center" style="margin-top: 30px;">
 		<div>
@@ -127,47 +125,53 @@ input[type="submit"]:hover, input[type="reset"]:hover {
 						</tr>
 						<tr>
 							<th>상품 종류</th>
-							<td><input type="text" id="productKind" name="productKind"
-								required="required"></td>
+							<td><select id="productKind" name="productKind" required="required" style="width: 365px; height: 50px;" >
+									<option value="">선택하세요</option>
+									<option value="와인">와인</option>
+									<option value="전통주">전통주</option>
+									<option value="맥주">맥주</option>
+							</select></td>
 						</tr>
-						<tr>
-							<th>상품 이미지</th>
-							<td><input type="file" id="pfile" name="pfile"></td>
+						<th>상품 이미지</th>
+						<td><input type="file" id="pfile" name="pfile"></td>
 						</tr>
 						<tr>
 							<th>상품 가격</th>
-							<td><input type="text" id="productPrice" name="productPrice"
-								required="required"></td>
+							<td><input type="text" id="productPrice" name="productPrice" placeholder="숫자만 입력" required="required"></td>
 						</tr>
 						<tr>
 							<th>상품 당도</th>
-							<td><input type="text" id="productTaste" name="productTaste"
-								required="required"></td>
+							<td><select id="productTaste" name="productTaste" required="required" style="width: 365px; height: 50px;" >
+									<option value="">선택하세요</option>
+									<option value="스위트">스위트</option>
+									<option value="중간">중간</option>
+									<option value="드라이">드라이</option>
+							</select></td>
 						</tr>
 						<tr>
 							<th>탄산 유무</th>
-							<td><input type="text" id="productSparkling"
-								name="productSparkling" required="required"></td>
+							<td><select id="productSparkling" name="productSparkling" required="required" style="width: 365px; height: 50px;" >
+									<option value="">선택하세요</option>
+									<option value="있음">있음</option>
+									<option value="없음">없음</option>
+							</select></td>
 						</tr>
 						<tr>
 							<th>상품 도수</th>
-							<td><input type="text" id="productABV" name="productABV"
-								required="required"></td>
+							<td><input type="text" id="productABV" name="productABV" placeholder="숫자만 입력" required="required"></td>
 						</tr>
 
 					</table>
 				</div>
 				<br>
 				<div>
-					<input type="submit" value="등록">&nbsp;&nbsp; <input
-						type="reset" value="취소">&nbsp;&nbsp;
+					<input type="submit" value="등록">&nbsp;&nbsp;
+					<input type="reset" value="취소">&nbsp;&nbsp;
 				</div>
 			</form>
 			<div style="margin-bottom: 30px;"></div>
 		</div>
 	</div>
-	
-	<tiles:insertAttribute name="footer" />
 
 </body>
 

@@ -19,13 +19,12 @@ public class UserEditInfo implements Command {
 		MemberVO vo = new MemberVO();
 		HttpSession session = request.getSession();
 		vo.setMemberId(String.valueOf(session.getAttribute("id")));
-		vo.setMemberName(request.getParameter("memberName"));
-		vo.setMemberTel(request.getParameter("memberTel"));
-		vo.setMemberAddr(request.getParameter("memberAddr"));
-		vo.setMemberPw(request.getParameter("memberPw"));
-		
 		vo = ms.memberSelect(vo);
-
+		if(null != vo.getMemberAddr()) {
+			vo.setMemberAddr1(vo.getMemberAddr().substring(1, 6));
+			vo.setMemberAddr2(vo.getMemberAddr().substring(7));
+			
+		}
 		// 회원 정보 수정 후, 필요한 처리 수행
 		request.setAttribute("member", vo);
 		

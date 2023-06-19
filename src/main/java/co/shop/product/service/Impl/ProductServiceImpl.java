@@ -13,13 +13,7 @@ public class ProductServiceImpl implements ProductService {
 	SqlSession sqlSession = DataSource.getInstance().openSession(true); 
 	ProductMapper map = sqlSession.getMapper(ProductMapper.class);
 	
-	@Override
-	public List<ProductVO> getAllProducts() {
-		// TODO Auto-generated method stub
-		return map.getAllProducts();
-	}
-	
-	
+
 	@Override
 	public List<ProductVO> getAllProducts1() {
 		// TODO Auto-generated method stub
@@ -65,29 +59,18 @@ public class ProductServiceImpl implements ProductService {
 		return map.productDelete(vo);
 	}
 
-	@Override
-	public List<ProductVO> getWineProducts() {
-		// TODO Auto-generated method stub
-		return map.getWineProducts();
-	}
-
-	@Override
-	public List<ProductVO> getTraditionalProducts() {
-		// TODO Auto-generated method stub
-		return map.getTraditionalProducts();
-	}
-
-	@Override
-	public List<ProductVO> getBeerProducts() {
-		// TODO Auto-generated method stub
-		return map.getBeerProducts();
-	}
-
 
 	@Override
 	public String productIdSelect(ProductVO vo) {
 		// TODO Auto-generated method stub
 		return map.productIdSelect(vo);
+	}
+
+
+	@Override
+	public List<ProductVO> getProducts(String productKind) {
+		// TODO Auto-generated method stub
+		return map.getProducts(productKind);
 	}
 
 	

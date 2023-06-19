@@ -52,16 +52,13 @@ import co.shop.product.command.ProductModify;
 import co.shop.product.command.ProductSaleList;
 import co.shop.product.command.ProductSelect;
 import co.shop.product.command.ProductSelect1;
-import co.shop.product.command.ProductTraditional;
 import co.shop.product.command.ProductUpdate;
-import co.shop.product.command.ProductWine;
 import co.shop.product.command.SearchProduct;
 import co.shop.reple.command.AjaxRepleDelete;
 import co.shop.review.command.ReviewInsert;
 import co.shop.report.command.ReportAction;
 import co.shop.member.command.MemberUpdate;
 import co.shop.product.command.Product;
-import co.shop.product.command.ProductBeer;
 import co.shop.product.command.ProductDelete;
 import co.shop.product.command.ProductEdit;
 import co.shop.product.command.ProductInsert;
@@ -70,8 +67,6 @@ import co.shop.product.command.ProductList;
 import co.shop.product.command.ProductList1;
 import co.shop.product.command.ProductModify;
 import co.shop.product.command.ProductSelect;
-import co.shop.product.command.ProductTraditional;
-import co.shop.product.command.ProductWine;
 import co.shop.product.command.SearchProduct;
 import co.shop.reple.command.AjaxRepleDelete;
 import co.shop.social.command.AjaxCheckAge;
@@ -142,12 +137,9 @@ public class FrontController extends HttpServlet {
 
 		
 		map.put("/cartList.do", new CartList());
-		map.put("/productList.do", new ProductList()); //전체상품 리스트
+		map.put("/productList.do", new ProductList()); //상품 리스트
 		map.put("/productSelect.do", new ProductSelect()); //상품 상세조회
 
-		map.put("/productWine.do", new ProductWine()); //상품 리스트 -와인
-		map.put("/productTraditional.do", new ProductTraditional()); //상품 리스트 -전통주
-		map.put("/productBeer.do", new ProductBeer()); //상품 리스트 -맥주
 		map.put("/searchProduct.do", new SearchProduct()); //상품 검색
 		map.put("/reportAction.do", new ReportAction()); //게시물 신고 하기
 

@@ -1,24 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.shop.product.service.ProductMapper">
-	<!-- 전체 상품 조회 -->
-	<select id="getAllProducts" resultType="co.shop.product.service.ProductVO">
+
+	<!-- 상품 조회 /전체/Kind/ (이진)-->
+	<select id="getProducts"
+		resultType="co.shop.product.service.ProductVO">
 		SELECT * FROM product
+		<where>
+        <if test="productKind != null and productKind != ''">
+            AND product_kind = #{productKind}
+        </if>
+    </where>
 		ORDER BY product_date DESC
 	</select>
+	
 
-
-<!-- 전체 상품 조회  by관리자 ID순으로 오름차순-->
+	<!-- 전체 상품 조회  by관리자 ID순으로 오름차순-->
 	<select id="getAllProducts1" resultType="co.shop.product.service.ProductVO">
 		SELECT * FROM product
 		ORDER BY product_ID
 		
 	</select>
 	
-	<!-- 상품 상세 조회 -->
+	<!-- 상품 상세 조회 (이진)-->
 	<select id="productSelect" resultType="co.shop.product.service.ProductVO">
-		SELECT * FROM product
-		WHERE product_id = #{productId}
+		SELECT	*
+		FROM	product
+		WHERE	product_id = #{productId}
 	</select>
 	
 	<select id="productIdSelect">
@@ -26,11 +34,11 @@
 		WHERE product_name = #{productName}
 	</select>
 	
-	<!-- 상품 등록 -->
+	<!-- 상품 등록 (이진)-->
 	<insert id="productInsert" parameterType="co.shop.product.service.ProductVO">
 		INSERT INTO product
 		VALUES(#{productId}, #{productName}, #{productKind}, #{productImg}, #{productImgPath}, #{productPrice}, sysdate,
-			#{productTaste}, #{productSparkling}, #{productABV}, 'N', null, null)
+			#{productTaste}, #{productSparkling}, #{productABV})
 	</insert>
 	
 	
@@ -81,34 +89,15 @@
 	</select>
 	
 	
-	<!-- 와인 페이지 -->
-	<select id="getWineProducts" resultType="co.shop.product.service.ProductVO">
-    	SELECT * FROM product
-    	WHERE product_kind = '와인'
-    	ORDER BY product_date DESC
+	<!-- 상품 전체 검색 (이진)-->
+	<select id="searchProductsName" resultType="co.shop.product.service.ProductVO">
+	  SELECT	*
+	  FROM	product
+	  WHERE product_name LIKE '%' || #{keyword} || '%'
 	</select>
-	
-	<!-- 전통주 페이지 -->
-	<select id="getTraditionalProducts" resultType="co.shop.product.service.ProductVO">
-    	SELECT * FROM product
-    	WHERE product_kind = '전통주'
-    	ORDER BY product_date DESC
-	</select>
-	
-	<!-- 맥주 페이지 -->
-	<select id="getBeerProducts" resultType="co.shop.product.service.ProductVO">
-    	SELECT * FROM product
-    	WHERE product_kind = '맥주'
-    	ORDER BY product_date DESC
-	</select>
-	
-	<!-- 검색 -->
-<select id="searchProductsName" resultType="co.shop.product.service.ProductVO">
-  SELECT * FROM product
-  WHERE product_name LIKE '%' || #{keyword} || '%'
-</select>
 
-	<!-- 정렬하기 -->
+	<!-- 정렬하기 (이진)-->
+	<!-- 
 	<select id="getSortProduct" resultType="co.shop.product.service.ProductVO">
     SELECT * FROM product
     <if test="sortOption != null">
@@ -125,5 +114,5 @@
         </choose>
     </if>
 	</select>
-
+	-->
 </mapper>

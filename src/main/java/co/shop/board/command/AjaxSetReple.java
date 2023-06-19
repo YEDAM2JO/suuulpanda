@@ -22,7 +22,6 @@ public class AjaxSetReple implements Command {
 		
 		rs.repleInsert(vo);
 		
-		String str = "Ajax:" + request.getParameter("content");
 		
 		BoardService bs = new BoardServiceImpl();
 		BoardVO voo = new BoardVO();
@@ -30,6 +29,7 @@ public class AjaxSetReple implements Command {
 		System.out.println(request.getParameter("id"));
 		bs.boardReple(voo);
 		
+		String str = "Ajax:" + vo.getRepleId();
 		
 		
 		return str;

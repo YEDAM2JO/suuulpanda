@@ -65,11 +65,12 @@
 		<thead>
 	    <tr>
 	        <th width="50" class="cart__list__checkbox"> <!-- Reduce width to 50px -->
-	            <input type="checkbox" class="individual_cart_checkbox input_size_" onclick="checkAll()">
+	            <input type="checkbox" class="individual_cart_checkbox input_size_" onclick="checkAll(event)">
 	        </th>
 	        <th width="150">상품명</th>
 	        <th width="150">개수</th>
 	        <th width="150">단가</th>
+	        <th width="150">총금액</th>
 	    </tr>
 		</thead>
 			
@@ -79,9 +80,11 @@
 				<c:forEach items="${carts}" var="c">
 					<tr>
 						<td width="150" align="center" class="cartCheckbox"><input type="checkbox" value="${c.cartId }">&nbsp;</td>
-						<td width="150" align="center">${c.productName}</td>
-						<td width="150" align="center"><input type='button' onclick='minus(${c.cartId}, ${c.productFee }, event)' value='-'/><input value="${c.productCount}"><input type='button' onclick='plus(${c.cartId}, ${c.productFee }, event)' value='+'/></td>
+						<td width="150" align="center"><input type="text" value="${c.productName}" readonly></td>
+						<td width="150" align="center"><input type='button' onclick='minus(${c.cartId}, ${c.productFee }, event)' value='-'/><input value="${c.productCount}" readonly><input type='button' onclick='plus(${c.cartId}, ${c.productFee }, event)' value='+'/></td>
 						<td width="150" align="center">${c.productFee}</td>
+						<c:set var= "gob" value="${c.productCount * c.productFee}"/>
+						<td width="150" align="center">${gob }</td>
 					</tr>
 					<c:set var= "sum" value="${sum + c.productCount * c.productFee}"/>
 				</c:forEach>
@@ -108,17 +111,18 @@
 
     <div class="cart__mainbtns">
         <a href="cartList.do"><button class="cart__bigorderbtn left">쇼핑 계속하기</button></a>
-        <a href="주문하기"><button class="cart__bigorderbtn right">주문하기</button></a>
+        <a href="#"><button class="cart__bigorderbtn right" onclick="orderInsert()">주문하기</button></a>
     </div>   
     </section>
     <script>
     	function minus(id, price, event){
-    		if(event.target.nextSibling.value <= 1){
+    		if(event.target.nextElementSibling.value <= 1){
     			alert("더이상 내릴 수 없습니다.");
     		} else {
     			//앞단(수량, 총가격)
-    			let num = parseInt(event.target.nextSibling.value)-1;
-    			event.target.nextSibling.value = num;
+    			let num = parseInt(event.target.nextElementSibling.value)-1;
+    			event.target.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.textContent = price * num;
+    			event.target.nextElementSibling.value = num;
     			let sum2 = document.getElementById("sum2");
     			num = parseInt(sum2.textContent);
     			num = num-price;
@@ -137,12 +141,14 @@
     	function plus(id, price, event){
     		//앞단(수량, 총가격)
     		let num = parseInt(event.target.previousSibling.value)+1;
+			
+			event.target.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.textContent = price * num;
     		event.target.previousSibling.value = num;
     		let sum2 = document.getElementById("sum2");
 			num = parseInt(sum2.textContent);
 			num = num+price;
-			
 			sum2.textContent = num;
+			
 	
     		//뒷단
     		let url = "ajaxCountPlus.do?id=" + id;
@@ -155,15 +161,17 @@
              let ckb = document.querySelectorAll('input[type=checkbox]:checked');
           
              //기본 반복문
-             for(let i = ckb.length-1; i>=0; i--){
-                 let id = ckb[i].value;
-                 let url = "ajaxCartDelete.do?id=" + id;
+             for(var b of ckb){
+            	 let id = b.value;
+				let url = "ajaxCartDelete.do?id=" + id;
                  
                  fetch(url)
                  	.then(response => response.text())
                   	.then(text=>htmlProcess(text));
            
              }
+             
+             
              for(let i = ckb.length-1; i>=0; i--){
                  
                  ckb[i].parentNode.remove();
@@ -172,21 +180,34 @@
             
          }
     	 
-    	 function checkAll(){
+    	 function checkAll(event){
     		 let ckb = document.querySelectorAll('input[type=checkbox]');
     		 
     		 for(let i = 0; i<ckb.length; i++){
-             	if(ckb[i].checked){
-             		ckb[i].checked = false;
-             	} else if(!ckb[i].checked) {
-             		ckb[i].checked = true;
-             	}
+    			 ckb[i].checked = event.target.checked;
              }
     	 }
     	 
     	 function htmlProcess(data){
     		 
     	 }
+    	 
+    	 function orderInsert(){
+    		let sum2 = document.getElementById("sum2");
+ 			let num = parseInt(sum2.textContent);
+ 			let url = "ajaxOrderInsert.do?sum=" + num;
+ 			fetch(url)
+ 				.then(response => response.text());
+ 			
+ 			go();
+ 			
+    	 }
+    	 
+    	 function go(){
+    		 location.href="orderPage.do";
+    	 }
+    	 
+    	
     </script>
 
 </body>

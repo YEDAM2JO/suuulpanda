@@ -19,4 +19,5 @@ public class BoardVO {
 	private String boardRepleState;
 	private int boardRepleId;
 	private int page;
+	
 }

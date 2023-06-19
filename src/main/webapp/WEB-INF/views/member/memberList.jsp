@@ -53,7 +53,7 @@
 		<input type="hidden" id="memberTel" name="memberTel" value="">
 	</form>
 	<div>
-		<a href="#">소셜 회원 관리</a>
+		<a href="reportList.do">신고 관리</a>
 	</div>
 	</div>
 	

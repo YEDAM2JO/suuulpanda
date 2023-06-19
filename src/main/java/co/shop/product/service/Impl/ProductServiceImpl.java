@@ -68,4 +68,10 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 
+	@Override
+	public String productIdSelect(ProductVO vo) {
+		// TODO Auto-generated method stub
+		return map.productIdSelect(vo);
+	}
+
 }

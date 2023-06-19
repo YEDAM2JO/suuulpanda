@@ -3,23 +3,29 @@
 <mapper namespace="co.shop.report.service.ReportMapper">
 	<!-- 전체 신고 내역 -->
 	<select id="getAllReports" resultType="co.shop.report.service.ReportVO">
-	    SELECT *
-	    FROM reports
+	   	SELECT *
+		FROM (SELECT ROWNUM rn, b.*
+			FROM(SELECT * FROM reports) b )
+		WHERE rn BETWEEN ((#{page}-1) * 5) + 1
+			AND (#{page} * 5)
 	</select>
-	
+	<select id="reportSelectMax">
+		SELECT count(*)
+		FROM reports
+	</select>
 	<!-- 신고 추가 -->
 	<insert id="reportInsert" parameterType="co.shop.report.service.ReportVO">
 	    <selectKey keyProperty="reportId" resultType="java.lang.Integer" order="BEFORE">
 	        select NVL(max(report_id), 0) + 1 as reportId from reports
 	    </selectKey>
-	    INSERT INTO reports (report_id, member_id, report_content, report_date, report_status)
-	    VALUES (#{reportId}, #{memberId}, #{reportContent}, sysdate, 'N')
+	    INSERT INTO reports
+	    VALUES (#{reportId}, #{memberId}, #{reportContent}, sysdate, 'N', #{boardId})
 	</insert>
 	
 	<!-- 신고 처리 상태 -->
 	<update id="reportUpdate" parameterType="co.shop.report.service.ReportVO">
 	    UPDATE reports
-	    SET report_status = #{reportStatus}
+	    SET report_status = 'Y'
 	    WHERE report_id = #{reportId}
 	</update>
 

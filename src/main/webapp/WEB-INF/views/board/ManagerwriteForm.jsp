@@ -111,7 +111,8 @@
             </form>
         </div>
     </div>
-
-   
+	<script>
+        document.getElementById('boardDate').value = new Date().toISOString().substring(0, 10);
+   	</script>
 </body>
 </html>

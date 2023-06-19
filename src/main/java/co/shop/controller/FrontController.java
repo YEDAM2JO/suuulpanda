@@ -59,6 +59,8 @@ import co.shop.product.command.SearchProduct;
 import co.shop.reple.command.AjaxRepleDelete;
 import co.shop.review.command.ReviewInsert;
 import co.shop.report.command.ReportAction;
+import co.shop.report.command.ReportList;
+import co.shop.report.command.ReportSelect;
 import co.shop.member.command.MemberUpdate;
 import co.shop.product.command.Product;
 import co.shop.product.command.ProductBeer;
@@ -150,7 +152,7 @@ public class FrontController extends HttpServlet {
 		map.put("/productBeer.do", new ProductBeer()); //상품 리스트 -맥주
 		map.put("/searchProduct.do", new SearchProduct()); //상품 검색
 		map.put("/reportAction.do", new ReportAction()); //게시물 신고 하기
-
+		
 
 		map.put("/ajaxRepleDelete.do", new AjaxRepleDelete());
 		
@@ -182,6 +184,8 @@ public class FrontController extends HttpServlet {
 		map.put("/managerUpdateMember.do", new ManagerUpdateMember());
 		map.put("/ajaxMemberDelete.do", new AjaxMemberDelete());
 		map.put("/memberUpdate.do", new MemberUpdate());
+		map.put("/reportList.do", new ReportList());
+		map.put("/reportSelect.do", new ReportSelect());
 		
 		//카트
 		map.put("/ajaxCountMinus.do", new AjaxCountMinus());

@@ -2,25 +2,19 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
 <link rel="stylesheet" href="assets/css/bootstrap.min.css">
 <link rel="stylesheet" href="assets/css/templatemo.css">
 <link rel="stylesheet" href="assets/css/custom.css">
-
-
 <!-- Load fonts style after rendering the layout styles -->
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
 <link rel="stylesheet" href="assets/css/fontawesome.min.css">
-
 <link rel="stylesheet" href="assets/css/cart.css">
-
 <style>
   form {
     display: flex;
@@ -34,6 +28,7 @@
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
   }
 
+
   input[type="text"] {
     flex-grow: 1;
     height: 32px;
@@ -42,6 +37,7 @@
     border: 1px solid #cccccc;
     box-sizing: border-box;
   }
+
 
   input[type="image"] {
     margin-left: 5px;
@@ -54,6 +50,7 @@
   ::placeholder {
     font-size: 15px;
   }
+ 
 </style>
 
 </head>
@@ -105,13 +102,17 @@
 					<c:forEach items="${products }" var="p">
 						<div class="col-md-4">
 							<div class="card mb-4 product-wap rounded-0">
+							
 								<div class="card rounded-0">
+
 									<a href="productSelect.do?productId=${p.productId}"> <img
+
 										style="height: 370px; width: 303px;"
 										src="${pageContext.request.contextPath}/upload/${p.productImg}"
 										alt="상품이미지">
 									</a>
 								</div>
+								
 								<div class="card-body">
 									<a href="#" class="h3 text-decoration-none">${p.productName }</a>
 									<ul
@@ -157,3 +158,4 @@
 	</div>
 </body>
 </html>
+

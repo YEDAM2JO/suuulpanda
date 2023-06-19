@@ -49,8 +49,7 @@ import co.shop.product.command.ProductTraditional;
 import co.shop.product.command.ProductWine;
 import co.shop.product.command.SearchProduct;
 import co.shop.reple.command.AjaxRepleDelete;
-
-
+import co.shop.report.command.ReportAction;
 import co.shop.product.command.Product;
 import co.shop.product.command.ProductBeer;
 import co.shop.product.command.ProductInsert;
@@ -133,8 +132,8 @@ public class FrontController extends HttpServlet {
 		map.put("/productWine.do", new ProductWine()); //상품 리스트 -와인
 		map.put("/productTraditional.do", new ProductTraditional()); //상품 리스트 -전통주
 		map.put("/productBeer.do", new ProductBeer()); //상품 리스트 -맥주
-
-		map.put("/searchProduct.do", new SearchProduct());
+		map.put("/searchProduct.do", new SearchProduct()); //상품 검색
+		map.put("/reportAction.do", new ReportAction()); //게시물 신고 하기
 
 
 		map.put("/ajaxRepleDelete.do", new AjaxRepleDelete());

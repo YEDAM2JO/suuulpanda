@@ -2,6 +2,8 @@ package co.shop.product.service;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 public interface ProductMapper {
 	List<ProductVO> getProducts(String productKind); //상품 조회 (이진)
 	
@@ -20,5 +22,8 @@ public interface ProductMapper {
 	
 	int productUpdate(ProductVO vo);
 	int productDelete(ProductVO vo);
+	
+	List<ProductVO> recommendResult(@Param("productKind") String productKind, @Param("productTaste") String productTaste, @Param("productSparkling") String productSparkling); //추천상품 조회
+	
 	
 }

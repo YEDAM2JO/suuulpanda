@@ -62,4 +62,17 @@ public class CartServiceImpl implements CartService {
 		return map.cartMemberDelete(vo);
 	}
 
+	@Override
+	public List<CartVO> paymentOrder(String[] cartId) {
+		// TODO Auto-generated method stub
+		return map.paymentOrder(cartId);
+	}
+
+	@Override
+	public int orderSuccessDelete(String[] cartId) {
+		// TODO Auto-generated method stub
+		return map.orderSuccessDelete(cartId);
+	}
+	
+
 }

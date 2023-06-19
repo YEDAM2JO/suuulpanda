@@ -62,7 +62,7 @@
                     <tr onclick="orderChois('${o.orderId}')">
                         <td>${o.orderId}</td>
                         <td>${o.orderDate}</td>
-                        <td>${o.orderTotalPrice}</td>
+                        <td>${o.orderPrice}</td>
                     </tr>
                 </c:forEach>
             </tbody>

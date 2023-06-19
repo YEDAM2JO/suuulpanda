@@ -147,6 +147,7 @@ table {
         </c:if>
         
         <!-- 신고하기 -->
+        <c:if test="${id != board.memberId && id != 'manager'}">
         <form id="reportForm" action="reportAction.do" method="post" class="report-form">
             <input type="hidden" id="memberId" name="memberId" value="${board.memberId}">
             <label for="reportContent">신고 내용을 선택하세요 : </label>
@@ -155,8 +156,10 @@ table {
                 <option value="욕설">욕설</option>
                 <option value="음란물">음란물</option>
             </select>
+            <input type="hidden" id="boardId2" name="boardId2" value="${board.boardId }">
             <input type="submit" value="신고하기">
         </form>
+        </c:if>
         
         <button type="button" onclick="location.href='boardList.do?page=1'">목록</button>
     </div>

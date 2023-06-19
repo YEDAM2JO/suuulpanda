@@ -34,13 +34,15 @@
 	<tbody>
 		<c:forEach items = "${members }" var="m">
 			<tr>
-				<td align = "center"><input id="memberId" type="text" value="${m.memberId }" readonly></td>
-				<td align = "center"><input id="memberPw" type="text" value="${m.memberPw }"></td>
-				<td align = "center"><input id="memberName" type="text" value="${m.memberName }"></td>
-				<td align = "center"><input id="memberAddr" type="text" value="${m.memberAddr }"></td>
-				<td align = "center"><input id="memberTel" type="text" value="${m.memberTel }"></td>
-				<td align = "center"><button type="button" onclick="update('${m.memberId}','${m.memberPw }','${m.memberName}','${m.memberAddr }','${m.memberTel}' )">수정</button></td>
+			<form action ="memberUpdate.do" method="post">
+				<td align = "center"><input id="memberId" name = "memberId" type="text" value="${m.memberId }" readonly></td>
+				<td align = "center"><input id="memberPw" name = "memberPw" type="text" value="${m.memberPw }"></td>
+				<td align = "center"><input id="memberName" name = "memberName" type="text" value="${m.memberName }"></td>
+				<td align = "center"><input id="memberAddr" name = "memberAddr" type="text" value="${m.memberAddr }"></td>
+				<td align = "center"><input id="memberTel" name = "memberTel" type="text" value="${m.memberTel }"></td>
+				<td align = "center"><input type="submit" value="수정"></td>
 				<td align = "center"><button type="button" onclick="deleteM('${m.memberId}', event)">삭제</button></td>
+			</form>
 			</tr>
 		</c:forEach>
 	</tbody>
@@ -52,8 +54,11 @@
 		<input type="hidden" id="memberAddr" name="memberAddr" value="">
 		<input type="hidden" id="memberTel" name="memberTel" value="">
 	</form>
+	<c:forEach var="num" begin="${startPage }" end="${endPage }">
+	      <a href="managerUpdateMember.do?page=${num }">${num }</a>
+    </c:forEach>
 	<div>
-		<a href="reportList.do">신고 관리</a>
+		<a href="reportList.do?page=1">신고 관리</a>
 	</div>
 	</div>
 	

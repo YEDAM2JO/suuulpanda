@@ -13,9 +13,9 @@ public class MemberServiceImpl implements MemberService {
 	SqlSession sqlSession = DataSource.getInstance().openSession(true);
 	MemberMapper map = sqlSession.getMapper(MemberMapper.class);
 	@Override
-	public List<MemberVO> memberSelectList() {
+	public List<MemberVO> memberSelectList(MemberVO vo) {
 		// TODO Auto-generated method stub
-		return map.memberSelectList();
+		return map.memberSelectList(vo);
 	}
 
 	@Override
@@ -40,6 +40,12 @@ public class MemberServiceImpl implements MemberService {
 	public int memberDelete(MemberVO vo) {
 		// TODO Auto-generated method stub
 		return map.memberDelete(vo);
+	}
+
+	@Override
+	public int memberSelectMax() {
+		// TODO Auto-generated method stub
+		return map.memberSelectMax();
 	}
 
 }

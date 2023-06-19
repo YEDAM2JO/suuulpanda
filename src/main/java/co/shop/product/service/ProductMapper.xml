@@ -7,6 +7,13 @@
 		ORDER BY product_date DESC
 	</select>
 
+
+<!-- 전체 상품 조회  by관리자 ID순으로 오름차순-->
+	<select id="getAllProducts1" resultType="co.shop.product.service.ProductVO">
+		SELECT * FROM product
+		ORDER BY product_ID
+		
+	</select>
 	
 	<!-- 상품 상세 조회 -->
 	<select id="productSelect" resultType="co.shop.product.service.ProductVO">
@@ -22,21 +29,51 @@
 	</insert>
 	
 	
-	
+	<!--  상품 업데이트 -->
 	<update id="productUpdate" 
 	parameterType="co.shop.product.service.ProductVO">
-	UPDATE PRODUCT 
-		<set>
+	UPDATE PRODUCT
+	<set> 
 		
-		</set>
+		product_Id = #{productId},
+        product_Name=#{productName},
+        product_Kind=#{productKind},
+          
+        <if test="productImg != null">
+            product_Img = #{productImg},
+        </if>     
+ <!--  
+        product_Img = #{productImg},
+ -->
+        product_Img_Path=#{productImgPath},
+        product_Price=#{productPrice},
+        product_Date=#{productDate},
+        product_Taste=#{productTaste},
+        product_Sparkling=#{productSparkling},
+        product_ABV=#{productABV},
+        product_Sale=#{productSale},
+        product_Sale_Percent=#{productSalePercent},
+        product_Sale_Price=#{productSalePrice}
+		</set> 
 		WHERE PRODUCT_ID = #{productId}
 		
+		
 	</update>
-	<delete id="productDelete">
+	
+	
+	<!--  상품 삭제 -->
+	<delete id="productDelete" parameterType="co.shop.product.service.ProductVO">
 	DELETE FROM PRODUCT
 		WHERE PRODUCT_ID = #{productId}
 	</delete>
 	
+	
+	<!--  특가상품리스트  -->
+	<select id="getProductSaleList" resultType="co.shop.product.service.ProductVO">
+    	SELECT * FROM product
+    	WHERE product_Sale = 'Y'
+    	ORDER BY product_date DESC
+	</select>
 	
 	
 	<!-- 와인 페이지 -->

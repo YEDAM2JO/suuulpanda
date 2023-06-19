@@ -59,7 +59,7 @@ public class ProductInsert implements Command {
 		} catch(IOException e) {
 			e.printStackTrace();
 		}
-		return "managerpage.do";
+		return "productList1.do";
 
 
 	}

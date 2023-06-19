@@ -40,7 +40,7 @@
 
 <br>
 <div class="container">
-	<a  href="productInsertForm.do"><img src="assets/img/005.png"></a>
+	<a  href="productList1.do"><img src="assets/img/005.png"></a>
 	<a  href="managerUpdateMember.do"><img src="assets/img/004.png"></a>
 	<a  href="managerBoard.do?page=1"><img src="assets/img/006.png"></a>
 </div><br><br>

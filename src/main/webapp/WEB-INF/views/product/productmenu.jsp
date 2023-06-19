@@ -25,11 +25,11 @@
         </li>
         
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="productList1.do">상품 리스트 및 수정 </a>
+          <a class="nav-link active" aria-current="page" href="productList1.do">상품 리스트& 수정 </a>
         </li>
         
           <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="productsale.do">특가 상품 </a>
+          <a class="nav-link active" aria-current="page" href="productSaleList.do">특가 상품 </a>
         </li>
         
 

@@ -15,7 +15,7 @@ public class ProductVO {
     private String productSparkling;
     private int productABV;
     private String productSale;
-    private String productSalePercent;
+    private float productSalePercent;
     private int productSalePrice;
     
     
@@ -85,10 +85,10 @@ public class ProductVO {
 	public void setProductSale(String productSale) {
 		this.productSale = productSale;
 	}
-	public String getProductSalePercent() {
+	public float getProductSalePercent() {
 		return productSalePercent;
 	}
-	public void setProductSalePercent(String productSalePercent) {
+	public void setProductSalePercent(float productSalePercent) {
 		this.productSalePercent = productSalePercent;
 	}
 	public int getProductSalePrice() {

@@ -13,22 +13,90 @@
 <link rel="stylesheet" href="assets/css/templatemo.css">
 <link rel="stylesheet" href="assets/css/custom.css">
 
-
 <!-- Load fonts style after rendering the layout styles -->
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
 <link rel="stylesheet" href="assets/css/fontawesome.min.css">
 
 <link rel="stylesheet" href="assets/css/cart.css">
+<style>
+/* 반짝이는 효과를 위한 CSS */
+.sparkle-animation {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-image: radial-gradient(rgba(255, 255, 255, 0.5),
+		rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0.4));
+	background-size: 200% 200%;
+	animation: sparkle 5s linear infinite; /* 속도를 느리게 조절하기 위해 5초로 변경 */
+	opacity: 0;
+	pointer-events: none;
+}
+
+@
+keyframes sparkle { 0% {
+	opacity: 0;
+}
+30
+
+
+%
+{
+opacity
+
+
+:
+
+
+1
+;
+
+
+}
+70
+
+
+%
+{
+opacity
+
+
+:
+
+
+0
+;
+
+
+}
+100
+
+
+%
+{
+opacity
+
+
+:
+
+
+0
+;
+
+
+}
+}
+</style>
 </head>
 <body>
 
-	<tiles:insertAttribute name="header" />
+
 	<!-- Start Content -->
 
 	<div class="container py-5">
 		<div class="row">
-
 			<div class="col-lg-3">
 				<h1 class="h2 pb-4">Categories</h1>
 				<ul class="list-unstyled templatemo-accordion">
@@ -71,21 +139,43 @@
 						value="Search" />
 				</form>
 				<div class="row">
-					<c:forEach items="${products }" var="p">
+					<c:forEach items="${products}" var="p">
 						<div class="col-md-4">
 							<div class="card mb-4 product-wap rounded-0">
 								<div class="card rounded-0">
-									<a href="productSelect.do?productId=${p.productId}"> <img
-										style="height: 370px; width: 303px;"
-										src="${pageContext.request.contextPath}/upload/${p.productImg}"
-										alt="상품이미지">
-									</a>
+									<c:choose>
+										<c:when test="${p.productSale eq 'Y'}">
+											<!-- 반짝이는 효과를 적용한 이미지 -->
+											<div class="image-wrapper sparkle-container"
+												style="position: relative;">
+												<a href="productSelect.do?productId=${p.productId}"> <img
+													style="height: 370px; width: 303px;"
+													src="${pageContext.request.contextPath}/upload/${p.productImg}"
+													alt="상품이미지">
+													<div class="sale-label"
+														style="position: absolute; top: 0; left: 0; color: red; font-weight: bold; background-color: white; padding: 5px; opacity: 0.8;">세일중</div>
+													<div class="sparkle-animation"></div>
+												</a>
+											</div>
+										</c:when>
+										<c:otherwise>
+											<!-- 일반적인 이미지 -->
+											<div class="image-wrapper">
+												<a href="productSelect.do?productId=${p.productId}"> <img
+													style="height: 370px; width: 303px;"
+													src="${pageContext.request.contextPath}/upload/${p.productImg}"
+													alt="상품이미지">
+												</a>
+											</div>
+										</c:otherwise>
+									</c:choose>
+
 								</div>
 								<div class="card-body">
-									<a href="#" class="h3 text-decoration-none">${p.productName }</a>
+									<h1 class="h3 text-decoration-none">${p.productName}</h1>
 									<ul
 										class="w-100 list-unstyled d-flex justify-content-between mb-0">
-										<li>${p.productKind }</li>
+										<li>${p.productKind}</li>
 										<li class="pt-2"><span
 											class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
 											<span
@@ -99,15 +189,27 @@
 										</li>
 									</ul>
 									<p class="text-center mb-0">
-										가격 :
-										<fmt:formatNumber value="${p.productPrice}" pattern="#,###원" />
+										가격:
+										<c:choose>
+											<c:when test="${p.productSale eq 'Y'}">
+												<del>
+													<fmt:formatNumber value="${p.productPrice}"
+														pattern="#,###원" />
+												</del>
+												<fmt:formatNumber value="${p.productSalePrice}"
+													pattern="#,###원" />
+											</c:when>
+											<c:otherwise>
+												<fmt:formatNumber value="${p.productPrice}" pattern="#,###원" />
+											</c:otherwise>
+										</c:choose>
 									</p>
 								</div>
 							</div>
 						</div>
 					</c:forEach>
 				</div>
-				<div div="row">
+				<div class="row">
 					<ul class="pagination pagination-lg justify-content-end">
 						<li class="page-item disabled"><a
 							class="page-link active rounded-0 mr-3 shadow-sm border-top-0 border-left-0"
@@ -121,13 +223,26 @@
 					</ul>
 				</div>
 			</div>
-
 		</div>
 	</div>
 	<!-- End Content -->
 
-	<tiles:insertAttribute name="footer" />
 
+
+	<script>
+  // 반짝이는 효과를 위한 JavaScript
+  const sparkleContainers = document.querySelectorAll('.sparkle-container');
+  sparkleContainers.forEach(container => {
+    const imageWrapper = container.querySelector('.image-wrapper');
+    const sparkleAnimation = container.querySelector('.sparkle-animation');
+    imageWrapper.addEventListener('mouseover', () => {
+      sparkleAnimation.style.opacity = 1;
+    });
+    imageWrapper.addEventListener('mouseout', () => {
+      sparkleAnimation.style.opacity = 0;
+    });
+  });
+</script>
 
 </body>
 </html>

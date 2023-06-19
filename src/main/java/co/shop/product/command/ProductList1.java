@@ -18,7 +18,7 @@ public class ProductList1 implements Command {
 			//전체 상품 리스트
 			ProductService ps = new ProductServiceImpl();
 			List<ProductVO> products = new ArrayList<>();
-			products = ps.getAllProducts();
+			products = ps.getAllProducts1();
 			
 			request.setAttribute("products", products);
 			return "product/productList1";

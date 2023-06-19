@@ -4,6 +4,8 @@ import java.util.List;
 
 public interface ProductMapper {
 	List<ProductVO> getAllProducts(); // 전체상품조회
+	List<ProductVO> getProductSaleList();//세일 상품 리스트 
+	List<ProductVO> getAllProducts1();//관리자. product_id 오름차순으로 조회
 	ProductVO productSelect(ProductVO vo); //상세조회
 	List<ProductVO> searchProductsName(String productName); // 상품이름검색
 	Integer productInsert(ProductVO vo);

@@ -43,20 +43,25 @@ public class ProductUpdate implements Command {
             vo.setProductSale(multi.getParameter("productSale"));
             vo.setProductTaste(multi.getParameter("productTaste"));
             vo.setProductSparkling(multi.getParameter("productSparkling"));
-            vo.setProductSalePercent(Float.valueOf(multi.getParameter("productSalePercent")));
-            vo.setProductSalePrice(Integer.valueOf(multi.getParameter("productSalePrice")));
-            
+			/*
+			 * vo.setProductSalePercent(Float.valueOf(multi.getParameter(
+			 * "productSalePercent")));
+			 * vo.setProductSalePrice(Integer.valueOf(multi.getParameter("productSalePrice")
+			 * ));
+			 */
             // Calculate special sale price if product is on sale
-            if (multi.getParameter("productSale") != null && multi.getParameter("productSale").equals("Y")) {
-                double productPrice = Double.parseDouble(multi.getParameter("productPrice"));
-                double productSalePercent = Double.parseDouble(multi.getParameter("productSalePercent"));
-                double productSalePrice = productPrice * (1 - productSalePercent);
-                vo.setProductSalePrice((int) productSalePrice);
-                vo.setProductSale("Y");
-            } else {
-                vo.setProductSalePrice(Integer.valueOf(multi.getParameter("productPrice")));
-                vo.setProductSale("N");
-            }
+			/*
+			 * if (multi.getParameter("productSale") != null &&
+			 * multi.getParameter("productSale").equals("Y")) { double productPrice =
+			 * Double.parseDouble(multi.getParameter("productPrice")); double
+			 * productSalePercent =
+			 * Double.parseDouble(multi.getParameter("productSalePercent")); double
+			 * productSalePrice = productPrice * (1 - productSalePercent);
+			 * vo.setProductSalePrice((int) productSalePrice); vo.setProductSale("Y"); }
+			 * else {
+			 * vo.setProductSalePrice(Integer.valueOf(multi.getParameter("productPrice")));
+			 * vo.setProductSale("N"); }
+			 */
             
             // Update the product in the database
             int result = ps.productUpdate(vo);
@@ -69,7 +74,7 @@ public class ProductUpdate implements Command {
             e.printStackTrace();
         }
         
-        return "productList1.do";
+        return "productListMng.do";
     }
 }
 

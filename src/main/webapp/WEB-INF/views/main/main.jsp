@@ -67,47 +67,53 @@
 		<div class="carousel-inner">
 
 
-	<div class="carousel-item active">
-  <div class="container">
-    <div class="row p-5">
-      <div class="order-lg d-flex justify-content-center align-items-center">
-        <img class="mx-auto" src="./assets/img/15.jpg" alt="" style="object-fit: cover; width: 100%; height: 500px;">
-      </div>
-      <div class="col-lg-12 mb-0 d-flex align-items-center">
-        <div class="text-align-left align-self-center">
+			<div class="carousel-item active">
+				<div class="container">
+					<div class="row p-5">
+						<div
+							class="order-lg d-flex justify-content-center align-items-center">
+							<img class="mx-auto" src="./assets/img/15.jpg" alt=""
+								style="object-fit: cover; width: 100%; height: 500px;">
+						</div>
+						<div class="col-lg-12 mb-0 d-flex align-items-center">
+							<div class="text-align-left align-self-center">
 								<!-- 내용 추가 -->
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		<div class="carousel-item">
-	<div class="container">
-		<div class="row p-5">
-			<div class="order-lg d-flex justify-content-center align-items-center">
-				<img class="mx-auto" src="./assets/img/1.jpg" alt="" style="object-fit: contain; width: auto; height: 500px;">
-			</div>
-			<div class="col-lg-12 mb-0 d-flex align-items-center">
-				<div class="text-align-left"></div>
-			</div>
-		</div>
-	</div>
-</div>
 			<div class="carousel-item">
-	<div class="container">
-		<div class="row p-5">
-			
-				<div class="order-lg d-flex justify-content-center align-items-center">
-				<img class="mx-auto" src="./assets/img/16.jpg" alt="" style="object-fit: contain; width: auto; height: 500px;">
-				
+				<div class="container">
+					<div class="row p-5">
+						<div
+							class="order-lg d-flex justify-content-center align-items-center">
+							<img class="mx-auto" src="./assets/img/1.jpg" alt=""
+								style="object-fit: contain; width: auto; height: 500px;">
+						</div>
+						<div class="col-lg-12 mb-0 d-flex align-items-center">
+							<div class="text-align-left"></div>
+						</div>
+					</div>
+				</div>
 			</div>
-			<div class="col-lg-12 mb-0 d-flex align-items-center">
-				<div class="text-align-left"></div>
+			<div class="carousel-item">
+				<div class="container">
+					<div class="row p-5">
+
+						<div
+							class="order-lg d-flex justify-content-center align-items-center">
+							<img class="mx-auto" src="./assets/img/16.jpg" alt=""
+								style="object-fit: contain; width: auto; height: 500px;">
+
+						</div>
+						<div class="col-lg-12 mb-0 d-flex align-items-center">
+							<div class="text-align-left"></div>
+						</div>
+					</div>
+				</div>
 			</div>
-		</div>
-	</div>
-</div>
-								<!--  
+			<!--  
                                 <h1 class="h1">Repr in voluptate</h1>
                                 <h3 class="h2">Ullamco laboris nisi ut </h3>
                                 <p>
@@ -115,19 +121,20 @@
                                     If you wish to support TemplateMo, please make a small contribution via PayPal or tell your friends about our website. Thank you.
                                 </p>
                                 -->
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
 		</div>
-		<a class="carousel-control-prev text-decoration-none w-auto ps-3"
-			href="#template-mo-zay-hero-carousel" role="button"
-			data-bs-slide="prev"> <i class="fas fa-chevron-left"></i>
-		</a> <a class="carousel-control-next text-decoration-none w-auto pe-3"
-			href="#template-mo-zay-hero-carousel" role="button"
-			data-bs-slide="next"> <i class="fas fa-chevron-right"></i>
-		</a>
+	</div>
+	</div>
+	</div>
+	</div>
+	</div>
+	<a class="carousel-control-prev text-decoration-none w-auto ps-3"
+		href="#template-mo-zay-hero-carousel" role="button"
+		data-bs-slide="prev"> <i class="fas fa-chevron-left"></i>
+	</a>
+	<a class="carousel-control-next text-decoration-none w-auto pe-3"
+		href="#template-mo-zay-hero-carousel" role="button"
+		data-bs-slide="next"> <i class="fas fa-chevron-right"></i>
+	</a>
 	</div>
 	<!-- End Banner Hero -->
 
@@ -136,43 +143,70 @@
 	<section class="container py-5">
 		<div class="row text-center pt-3">
 			<div class="col-lg-6 m-auto">
-			
 
-						
-			
-			
-			</p>
-			
-				<h1 class="h1">특가 상품</h1>
-			
+
+
+
+
+				</p>
+
+				<h1 class="h1">추천 상품</h1>
+
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-12 col-md-4 p-5 mt-3">
-				<a href="#"><img src="./assets/img/4.jpg"
-					class="rounded-circle img-fluid border"></a>
+			<div
+				class="col-12 col-md-4 p-5 mt-3 d-flex flex-column justify-content-between">
+				<div class="text-center">
+					<a href="http://localhost/meddle/productSelect.do?productId=w009">
+						<img src="./assets/img/다나 에스테이트 바소 카베르네 소비뇽.png"
+						class="rounded-circle img-fluid border"
+						style="max-width: 100%; height: 300px;">
+					</a>
+				</div>
 				<h5 class="text-center mt-3 mb-3">와인</h5>
 				<p class="text-center">
 					<a class="btn btn-success">구매하기</a>
 				</p>
 			</div>
-			<div class="col-12 col-md-4 p-5 mt-3">
-				<a href="#"><img src="./assets/img/6.jpg"
-					class="rounded-circle img-fluid border"></a>
+
+			<div
+				class="col-12 col-md-4 p-5 mt-3 d-flex flex-column justify-content-between">
+				<div class="text-center">
+					<a href="http://localhost/meddle/productSelect.do?productId=T010">
+						<img src="./assets/img/조선3대명주 감홍로.png"
+						class="rounded-circle img-fluid border"
+						style="max-width: 100%; height: 300px;">
+					</a>
+				</div>
 				<h2 class="h5 text-center mt-3 mb-3">전통주</h2>
 				<p class="text-center">
 					<a class="btn btn-success">구매하기</a>
 				</p>
 			</div>
-			<div class="col-12 col-md-4 p-5 mt-3">
-				<a href="#"><img src="./assets/img/6.jpg"
-					class="rounded-circle img-fluid border"></a>
+
+			<div
+				class="col-12 col-md-4 p-5 mt-3 d-flex flex-column justify-content-between">
+				<div class="text-center">
+					<a href="http://localhost/meddle/productSelect.do?productId=B002">
+				
+						<img src="./assets/img/아사히맥주.png"
+						class="rounded-circle img-fluid border"
+						style="max-width: 100%; height: 300px;">
+						
+					
+					</a>
+				</div>
 				<h2 class="h5 text-center mt-3 mb-3">맥주</h2>
 				<p class="text-center">
 					<a class="btn btn-success">구매하기</a>
 				</p>
 			</div>
 		</div>
+
+
+
+
 	</section>
 	<!-- End Categories of The Month -->
 
@@ -191,8 +225,11 @@
 			<div class="row">
 				<div class="col-12 col-md-4 mb-4">
 					<div class="card h-100">
-						<a href="shop-single.html"> <img src="./assets/img/7.jpg"
+						
+							<a href="http://localhost/meddle/productSelect.do?productId=w006">
+							<img src=	"./assets/img/도츠 아무르 도츠.png"
 							class="card-img-top" alt="...">
+												
 						</a>
 						<div class="card-body">
 							<ul class="list-unstyled d-flex justify-content-between">
@@ -213,8 +250,11 @@
 				</div>
 				<div class="col-12 col-md-4 mb-4">
 					<div class="card h-100">
-						<a href="shop-single.html"> <img src="./assets/img/7.jpg"
+					
+							<a href="http://localhost/meddle/productSelect.do?productId=w003">
+						 <img src="./assets/img/바르바네라 디스페토 로쏘.png"
 							class="card-img-top" alt="...">
+					
 						</a>
 						<div class="card-body">
 							<ul class="list-unstyled d-flex justify-content-between">
@@ -235,7 +275,7 @@
 				</div>
 				<div class="col-12 col-md-4 mb-4">
 					<div class="card h-100">
-						<a href="shop-single.html"> <img src="./assets/img/9.jpg"
+						<a href="http://localhost/meddle/productSelect.do?productId=w010"> <img src="./assets/img/플라워스 소노마 샤도네이.png"
 							class="card-img-top" alt="...">
 						</a>
 						<div class="card-body">

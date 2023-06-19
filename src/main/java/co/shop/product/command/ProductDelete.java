@@ -23,7 +23,7 @@ public class ProductDelete implements Command {
 			request.setAttribute("message", "게시글 삭제 실패하였습니다.");
 		}
 
-		return "productList1.do";
+		return "productListMng.do";
 	}
 
 }

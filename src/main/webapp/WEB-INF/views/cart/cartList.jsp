@@ -79,7 +79,7 @@
 			<c:set var = "sum" value = "0" />
 				<c:forEach items="${carts}" var="c">
 					<tr>
-						<td width="150" align="center" class="cartCheckbox"><input type="checkbox" value="${c.cartId }">&nbsp;</td>
+						<td width="150" align="center" class="cartCheckbox"><input type="checkbox" value="${c.cartId }" name="checkBox">&nbsp;</td>
 						<td width="150" align="center"><input type="text" value="${c.productName}" readonly></td>
 						<td width="150" align="center"><input type='button' onclick='minus(${c.cartId}, ${c.productFee }, event)' value='-'/><input value="${c.productCount}" readonly><input type='button' onclick='plus(${c.cartId}, ${c.productFee }, event)' value='+'/></td>
 						<td width="150" align="center">${c.productFee}</td>
@@ -111,7 +111,7 @@
 
     <div class="cart__mainbtns">
         <a href="cartList.do"><button class="cart__bigorderbtn left">쇼핑 계속하기</button></a>
-        <a href="#"><button class="cart__bigorderbtn right" onclick="orderInsert()">주문하기</button></a>
+        <a href="#"><button class="cart__bigorderbtn right" onclick="order()">주문하기</button></a>
     </div>   
     </section>
     <script>
@@ -192,19 +192,25 @@
     		 
     	 }
     	 
-    	 function orderInsert(){
-    		let sum2 = document.getElementById("sum2");
- 			let num = parseInt(sum2.textContent);
- 			let url = "ajaxOrderInsert.do?sum=" + num;
- 			fetch(url)
- 				.then(response => response.text());
- 			
- 			go();
- 			
-    	 }
-    	 
-    	 function go(){
-    		 location.href="orderPage.do";
+    	 function order(){
+    		 let query = 'input[name="checkBox"]:checked';
+    		 let selectProduct = document.querySelectorAll(query);
+    		 
+    		 let selectProductLength = selectProduct.length;
+    		 if(selectProductLength == 0) {
+    			alert('구매하실 제품을 선택해주세요.');	 
+    			return;
+    		 }
+    		 
+    		 let cartId = '';
+    		 selectProduct.forEach((el)  => {
+    			 cartId += el.value + ',';
+    		 });
+    		 
+    		 cartId = cartId.slice(0, -1);
+    		 
+    		 location.href = "/meddle/paymentOrder.do?cartId="+cartId;
+    		 
     	 }
     	 
     	

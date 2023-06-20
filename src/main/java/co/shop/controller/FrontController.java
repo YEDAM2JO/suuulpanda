@@ -31,6 +31,9 @@ import co.shop.cart.command.CartInsert;
 import co.shop.cart.command.CartList;
 import co.shop.cart.command.cart;
 import co.shop.common.Command;
+import co.shop.kakaopay.command.Kakaopay;
+import co.shop.kakaopay.command.KakaopayApproval;
+import co.shop.kakaopay.command.KakaopayMessage;
 import co.shop.main.command.MainCommand;
 import co.shop.member.command.AjaxCheckId;
 import co.shop.member.command.AjaxMemberDelete;
@@ -39,6 +42,8 @@ import co.shop.order.command.AjaxOrderInsert;
 import co.shop.order.command.BuyProduct;
 import co.shop.order.command.OrderPage;
 import co.shop.orderDetail.command.AjaxOrderDetailInsert;
+import co.shop.payment.command.DepositMessage;
+import co.shop.payment.command.paymentOrder;
 import co.shop.member.command.AjaxSearchPw;
 import co.shop.member.command.ForgetId;
 import co.shop.member.command.ForgetPw;
@@ -59,6 +64,8 @@ import co.shop.product.command.ProductSelectMng;
 
 import co.shop.product.command.ProductUpdate;
 import co.shop.product.command.SearchProduct;
+import co.shop.recommend.command.Recommend;
+import co.shop.recommend.command.RecommendResult;
 import co.shop.reple.command.AjaxRepleDelete;
 import co.shop.review.command.ReviewInsert;
 import co.shop.report.command.ReportAction;
@@ -201,11 +208,21 @@ public class FrontController extends HttpServlet {
 		//리뷰
 		
 		map.put("/reviewInsert.do", new ReviewInsert());
+		
+		//술추천 페이지 관련 처리
+		map.put("/recommend.do", new Recommend());
+		map.put("/recommendResult.do", new RecommendResult());
+		
+		//결제 관련 처리
+		map.put("/paymentOrder.do", new paymentOrder());
+		map.put("/kakaopay.do", new Kakaopay());
+		map.put("/kakaopayApproval.do", new KakaopayApproval());
+		map.put("/kakaopayMessage.do", new KakaopayMessage());
+		map.put("/depositMessage.do", new DepositMessage());
+		
 	}
 
-	/**
-	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		String uri= request.getRequestURI();
@@ -214,7 +231,7 @@ public class FrontController extends HttpServlet {
 		Command command = map.get(page);
 		String viewPage = command.exec(request, response);
 		
-		if(!viewPage.startsWith("orderSelect.do?orderId=") && !viewPage.equals("boardList.do?page=1") && !viewPage.endsWith(".do") && !viewPage.contains("naver") && !viewPage.contains("socialLogin.do")) {
+		if(!viewPage.startsWith("orderSelect.do?orderId=") && !viewPage.equals("boardList.do?page=1") && !viewPage.endsWith(".do") && !viewPage.contains("naver") && !viewPage.contains("socialLogin.do") && !viewPage.contains("online-pay.kakao.com") && !viewPage.contains("kakaopayMessage.do")) {
 			if(viewPage.startsWith("Ajax:")) {
 				response.setContentType("text/html; charset = UTF-8");
 				response.getWriter().append(viewPage.substring(5));

@@ -100,7 +100,6 @@
 	<table border="1">
 	<thead>
 		<tr>
-			<th width="150">상세주문번호</th>
 			<th width="150">제품명</th>
 			<th width="150">수량</th>
 			<th width="150">버튼</th>
@@ -109,7 +108,6 @@
 	<tbody>
 		<c:forEach items = "${order }" var="o">
 			<tr>
-				<td align = "center">${o.orderDetailId }</td>
 				<td align = "center">${o.productName }</td>
 				<td align = "center">${o.productCount }</td>
 				<td align = "center"><div class="modal">

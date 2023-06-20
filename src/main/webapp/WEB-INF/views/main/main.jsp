@@ -6,8 +6,8 @@
 <html lang="en">
 
 <head>
-	
-  
+
+
 <title>Zay Shop eCommerce HTML CSS Template</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -25,8 +25,10 @@
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
 <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+<style>
+.card-text { text-indent: 1em; }
+</style>
 
-		
 </head>
 
 <body>
@@ -74,10 +76,10 @@
 
 			<div class="carousel-item active">
 				<div class="container">
-					<div class="row p-5">
+					<div class="">
 						<div
 							class="order-lg d-flex justify-content-center align-items-center">
-							<img class="mx-auto" src="./assets/img/15.jpg" alt=""
+							<img class="mx-auto" src="./assets/img/우주맥주.jpg" alt=""
 								style="object-fit: cover; width: 100%; height: 500px;">
 						</div>
 						<div class="col-lg-12 mb-0 d-flex align-items-center">
@@ -90,10 +92,10 @@
 			</div>
 			<div class="carousel-item">
 				<div class="container">
-					<div class="row p-5">
+					<div class="">
 						<div
 							class="order-lg d-flex justify-content-center align-items-center">
-							<img class="mx-auto" src="./assets/img/1.jpg" alt=""
+							<img class="mx-auto" src="./assets/img/스타워즈탁주.png" alt=""
 								style="object-fit: contain; width: auto; height: 500px;">
 						</div>
 						<div class="col-lg-12 mb-0 d-flex align-items-center">
@@ -104,11 +106,11 @@
 			</div>
 			<div class="carousel-item">
 				<div class="container">
-					<div class="row p-5">
+					<div class="">
 
 						<div
 							class="order-lg d-flex justify-content-center align-items-center">
-							<img class="mx-auto" src="./assets/img/16.jpg" alt=""
+							<img class="mx-auto" src="./assets/img/와인.jpeg" alt=""
 								style="object-fit: contain; width: auto; height: 500px;">
 
 						</div>
@@ -155,7 +157,7 @@
 
 				</p>
 
-				<h1 class="h1">추천 상품</h1>
+				<h1 class="h1">카테고리</h1>
 
 			</div>
 		</div>
@@ -163,7 +165,8 @@
 			<div
 				class="col-12 col-md-4 p-5 mt-3 d-flex flex-column justify-content-between">
 				<div class="text-center">
-					<a href="http://localhost/meddle/productSelect.do?productId=w009">
+					<a
+						href="http://localhost/meddle/productList.do?productKind=%EC%99%80%EC%9D%B8">
 						<img src="./assets/img/다나 에스테이트 바소 카베르네 소비뇽.png"
 						class="rounded-circle img-fluid border"
 						style="max-width: 100%; height: 300px;">
@@ -178,7 +181,8 @@
 			<div
 				class="col-12 col-md-4 p-5 mt-3 d-flex flex-column justify-content-between">
 				<div class="text-center">
-					<a href="http://localhost/meddle/productSelect.do?productId=T010">
+					<a
+						href="http://localhost/meddle/productList.do?productKind=%EC%A0%84%ED%86%B5%EC%A3%BC">
 						<img src="./assets/img/조선3대명주 감홍로.png"
 						class="rounded-circle img-fluid border"
 						style="max-width: 100%; height: 300px;">
@@ -193,13 +197,14 @@
 			<div
 				class="col-12 col-md-4 p-5 mt-3 d-flex flex-column justify-content-between">
 				<div class="text-center">
-					<a href="http://localhost/meddle/productSelect.do?productId=B002">
-				
+					<a
+						href="http://localhost/meddle/productList.do?productKind=%EB%A7%A5%EC%A3%BC">
+
 						<img src="./assets/img/아사히맥주.png"
 						class="rounded-circle img-fluid border"
 						style="max-width: 100%; height: 300px;">
-						
-					
+
+
 					</a>
 				</div>
 				<h2 class="h5 text-center mt-3 mb-3">맥주</h2>
@@ -221,67 +226,21 @@
 		<div class="container py-5">
 			<div class="row text-center py-3">
 				<div class="col-lg-6 m-auto">
-					<h1 class="h1">Featured Product</h1>
+					<h1 class="h1">추천상품</h1>
+					<!--
 					<p>Reprehenderit in voluptate velit esse cillum dolore eu
 						fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-						proident.</p>
+						proident.</p> -->
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-12 col-md-4 mb-4">
 					<div class="card h-100">
-						
-							<a href="http://localhost/meddle/productSelect.do?productId=w006">
-							<img src=	"./assets/img/도츠 아무르 도츠.png"
-							class="card-img-top" alt="...">
-												
-						</a>
-						<div class="card-body">
-							<ul class="list-unstyled d-flex justify-content-between">
-								<li><i class="text-warning fa fa-star"></i> <i
-									class="text-warning fa fa-star"></i> <i
-									class="text-warning fa fa-star"></i> <i
-									class="text-muted fa fa-star"></i> <i
-									class="text-muted fa fa-star"></i></li>
-								<li class="text-muted text-right">$240.00</li>
-							</ul>
-							<a href="shop-single.html"
-								class="h2 text-decoration-none text-dark">Gym Weight</a>
-							<p class="card-text">Lorem ipsum dolor sit amet, consectetur
-								adipisicing elit. Sunt in culpa qui officia deserunt.</p>
-							<p class="text-muted">Reviews (24)</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-12 col-md-4 mb-4">
-					<div class="card h-100">
-					
-							<a href="http://localhost/meddle/productSelect.do?productId=w003">
-						 <img src="./assets/img/바르바네라 디스페토 로쏘.png"
-							class="card-img-top" alt="...">
-					
-						</a>
-						<div class="card-body">
-							<ul class="list-unstyled d-flex justify-content-between">
-								<li><i class="text-warning fa fa-star"></i> <i
-									class="text-warning fa fa-star"></i> <i
-									class="text-warning fa fa-star"></i> <i
-									class="text-muted fa fa-star"></i> <i
-									class="text-muted fa fa-star"></i></li>
-								<li class="text-muted text-right">$480.00</li>
-							</ul>
-							<a href="shop-single.html"
-								class="h2 text-decoration-none text-dark">Cloud Nike Shoes</a>
-							<p class="card-text">Aenean gravida dignissim finibus. Nullam
-								ipsum diam, posuere vitae pharetra sed, commodo ullamcorper.</p>
-							<p class="text-muted">Reviews (48)</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-12 col-md-4 mb-4">
-					<div class="card h-100">
-						<a href="http://localhost/meddle/productSelect.do?productId=w010"> <img src="./assets/img/플라워스 소노마 샤도네이.png"
-							class="card-img-top" alt="...">
+
+						<a href="http://localhost/meddle/productSelect.do?productId=w006">
+							<img src="./assets/img/도츠 아무르 도츠.png" class="card-img-top"
+							alt="...">
+
 						</a>
 						<div class="card-body">
 							<ul class="list-unstyled d-flex justify-content-between">
@@ -290,15 +249,67 @@
 									class="text-warning fa fa-star"></i> <i
 									class="text-warning fa fa-star"></i> <i
 									class="text-warning fa fa-star"></i></li>
-								<li class="text-muted text-right">$360.00</li>
+								<li class="text-muted text-right">440,000원</li>
 							</ul>
 							<a href="shop-single.html"
-								class="h2 text-decoration-none text-dark">Summer Addides
-								Shoes</a>
-							<p class="card-text">Curabitur ac mi sit amet diam luctus
-								porta. Phasellus pulvinar sagittis diam, et scelerisque ipsum
-								lobortis nec.</p>
-							<p class="text-muted">Reviews (74)</p>
+								class="h2 text-decoration-none text-dark">도츠 아무르 도츠</a>
+								<br>
+								<br>
+							<p class="card-text">NV 빈티지 포함 전 라인들이 첫번째 압착 Cuvee만을 사용하며,
+								철저한 품질 관리를 위해 AY지역 35km반경의 포도만 사용한다.</p>
+							<p class="text-muted"></p>
+						</div>
+					</div>
+				</div>
+				<div class="col-12 col-md-4 mb-4">
+					<div class="card h-100">
+
+						<a href="http://localhost/meddle/productSelect.do?productId=w003">
+							<img src="./assets/img/플라워스 소노마 샤도네이.png" class="card-img-top"
+							alt="...">
+
+						</a>
+						<div class="card-body">
+							<ul class="list-unstyled d-flex justify-content-between">
+								<li><i class="text-warning fa fa-star"></i> <i
+									class="text-warning fa fa-star"></i> <i
+									class="text-warning fa fa-star"></i> <i
+									class="text-muted fa fa-star"></i> <i
+									class="text-muted fa fa-star"></i></li>
+								<li class="text-muted text-right">132,000원</li>
+							</ul>
+							<a href="shop-single.html"
+								class="h2 text-decoration-none text-dark">플라워스 소노마 샤도네이</a>
+								<br>
+								<br>
+							<p class="card-text">플라워스의 샤도네이는 잘 익은 과일, 배, 아카시아 꽃향이 부드러운
+								텍스쳐와 자연스러운 산도를 가진 섬세하고도 복합적인 와인이다</p>
+							<p class="text-muted"></p>
+						</div>
+					</div>
+				</div>
+				<div class="col-12 col-md-4 mb-4">
+					<div class="card h-100">
+						<a href="http://localhost/meddle/productSelect.do?productId=w010">
+							<img src="./assets/img/바르바네라 디스페토 로쏘.png" class="card-img-top"
+							alt="...">
+						</a>
+						<div class="card-body">
+							<ul class="list-unstyled d-flex justify-content-between">
+								<li><i class="text-warning fa fa-star"></i> <i
+									class="text-warning fa fa-star"></i> <i
+									class="text-warning fa fa-star"></i> <i
+									class="text-warning fa fa-star"></i> <i
+									class="text-warning fa fa-star"></i></li>
+								<li class="text-muted text-right">32,000원</li>
+							</ul>
+							<a href="shop-single.html"
+								class="h2 text-decoration-none text-dark"> 바르바네라 디스페토 로쏘</a>
+								<br>
+								<br>								
+							<p class="card-text">첫 시작은 토스카나 끼안티였으나 현재 움브리아, 뿔리아, 시칠리아까지
+								영역을 확장하였습니다. 현대적인 설비로 지속적인 연구를 하여 와인 퀄리티를 끊임없이 향상시키고 있습니다.</p>
+							<p class="text-muted"></p>
 						</div>
 					</div>
 				</div>
@@ -319,11 +330,12 @@
 	<script src="assets/js/templatemo.js"></script>
 	<script src="assets/js/custom.js"></script>
 	<!-- End Script -->
-	
-	
+
+
 	<!-- Kakaomap api  -->
 	<br>
 	<div align="center">
+
 	<h2>매장 위치</h2>
 	<div id="map" style="width:500px;height:400px;"></div>
 	
@@ -374,7 +386,7 @@ infowindow.open(map, marker);
 
 	</div>
 	 
-	
+
 </body>
 
 </html>

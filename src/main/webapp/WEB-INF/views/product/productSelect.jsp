@@ -5,6 +5,56 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+    /* 리뷰 테이블 스타일 */
+    #reviewArea table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    #reviewArea th,
+    #reviewArea td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    /* 리뷰 작성창 스타일 */
+    #reviewForm {
+        margin-top: 20px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f5f5f5;
+    }
+
+    #reviewForm label {
+        font-weight: bold;
+    }
+
+    #reviewForm input[type="text"],
+    #reviewForm textarea {
+        width: 100%;
+        padding: 5px;
+        border-radius: 3px;
+        border: 1px solid #ccc;
+    }
+
+    #reviewForm input[type="submit"] {
+        padding: 5px 10px;
+        border-radius: 3px;
+        border: none;
+        background-color: #4CAF50;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    #reviewForm input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+
+</style>
+
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
@@ -154,30 +204,42 @@
 			</form>
 			</div>
 		</div>
+		
 		<div id="reviewArea">
-			<table border="1">
+		<h2 style="text-align:center; margin-right: 10px;">REVIEW</h2>
+			<table class="bright" style="width: 80%;" align="center"><br>
 				<tr>
 					<th>작성자</th>
 					<th>점수</th>
 					<td>내용</td>
 					<th>작성일자</th>
 				</tr>
-			<c:forEach items="${reviews }" var="r">
-				<tr>
-					<td>${r.memberId }</td>
-					<td><c:forEach var="rating" begin="1" end="5">
-							<c:if test="${r.reviewScore >= rating }">
-							★
-							</c:if>
-							<c:if test="${r.reviewScore < rating }">
-							☆
-							</c:if>
-					</c:forEach></td>
-					<td>${r.reviewContent }</td>
-					<td>${r.reviewDate }</td>
-				</tr>
+				
+				
+				<c:forEach items="${reviews}" var="r">
+	<tr>
+		<td style="padding: 15px;">
+			${r.memberId }
+		</td>
+		<td style="padding: 15px;">
+			<c:forEach var="rating" begin="1" end="5">
+				<c:if test="${r.reviewScore >= rating }">
+					★
+				</c:if>
+				<c:if test="${r.reviewScore < rating }">
+					☆
+				</c:if>
 			</c:forEach>
-		</table>
+		</td>
+		<td style="padding: 15px;">
+			${r.reviewContent }
+		</td>
+		<td style="padding: 15px;">
+			${r.reviewDate }
+		</td>
+	</tr>
+		</c:forEach>
+			</table><br>
 		</div>
 	</section>
 

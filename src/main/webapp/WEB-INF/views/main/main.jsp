@@ -361,7 +361,18 @@ infowindow.open(map, marker);
 	</script>
 	</div><br>
 	
-  
+  	<div>
+		<!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-QBCV31L2RR"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+		
+		  gtag('config', 'G-QBCV31L2RR');
+		</script>
+
+	</div>
 	 
 	
 </body>

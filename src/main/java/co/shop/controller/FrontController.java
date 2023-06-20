@@ -138,14 +138,16 @@ public class FrontController extends HttpServlet {
 		
 		map.put("/naverLogin.do", new NaverLogin());
 		map.put("/naverCallback.do", new NaverCallback());
-		map.put("/memberInsert.do", new MemberInsert());
+		map.put("/memberInsert.do", new MemberInsert()); 
 		map.put("/ajaxCheckId.do", new AjaxCheckId());
-		map.put("/userpage.do", new UserPage());
-		map.put("/managerpage.do",new ManagerPage());
-		map.put("/productModify.do", new ProductModify());
-		map.put("/productInsertForm.do", new ProductInsertForm()); //상품 등록 폼 호출
-		map.put("/productInsert.do", new ProductInsert()); //상품 등록
-		map.put("/userorderlist.do", new UserOrderList());
+
+		map.put("/userpage.do", new UserPage()); // 유저 마이페이지
+		map.put("/managerpage.do",new ManagerPage()); //관리자 페이지
+		map.put("/productModify.do", new ProductModify());  //상품 수정
+		map.put("/productInsertForm.do", new ProductInsertForm()); //제품 등록 폼 호출
+		map.put("/productInsert.do", new ProductInsert()); //제품 등록
+		map.put("/userorderlist.do", new UserOrderList()); // 유저 주문목록
+
 		map.put("/userInfoDeletePass.do", new UserInfoDeletePass()); //유저 정보 삭제(비번창)
 		map.put("/userDelete.do", new UserDelete()); // 유저 정보 삭제 처리 
 
@@ -164,8 +166,8 @@ public class FrontController extends HttpServlet {
 		map.put("/managerBoard.do", new ManagerBoard());
 		map.put("/managerReple.do", new ManagerReple());
 		map.put("/ajaxSetReple.do", new AjaxSetReple());
-		map.put("/userEditInfo.do", new UserEditInfo());
-		map.put("/memberUpdate.do", new UserInfoUpdate());
+		map.put("/userEditInfo.do", new UserEditInfo()); //유저 정보 수정(유저 본인 정보)
+		map.put("/memberUpdate.do", new UserInfoUpdate()); 
 
 		
 		//관리자 제품 관리

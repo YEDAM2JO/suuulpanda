@@ -3,11 +3,6 @@
 <!DOCTYPE html>
 <html>
 	<style>
-	.container {
-		display: flex;
-		justify-content: center;
-	}
-
 	.container img {
 		flex: 1;
 		max-width:200px;
@@ -25,26 +20,15 @@
 </head>
 <body>
 
-<tiles:insertAttribute name="header"/>
-<section>
-
-
-<br>
-<div class="container">
-
- 
-	<a  href="productListMng.do"><img src="assets/img/005.png"></a>
-	<a  href="managerUpdateMember.do"><img src="assets/img/004.png"></a>
-
-  
-	<a  href="managerBoard.do?page=1"><img src="assets/img/006.png"></a>
-</div><br><br><p>
+<section><br>
+	<div class="container" align="center">
+		<a  href="productListMng.do"><img src="assets/img/005.png"></a>
+		<a  href="managerUpdateMember.do"><img src="assets/img/004.png"></a>
+		<a  href="managerBoard.do?page=1"><img src="assets/img/006.png"></a>
+	</div><br><br><p>
 
 	<br><br>
 
 </section>
-
-<tiles:insertAttribute name="footer"/>
-
 </body>
 </html>

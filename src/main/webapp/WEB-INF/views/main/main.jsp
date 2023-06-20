@@ -173,8 +173,8 @@
 					</a>
 				</div>
 				<h5 class="text-center mt-3 mb-3">와인</h5>
-				<p class="text-center">
-					<a class="btn btn-success">구매하기</a>
+				<p class="text-center" style="color:#000;">
+				    <a class="btn btn-success" style="color: black;">구매하기</a>
 				</p>
 			</div>
 
@@ -189,8 +189,8 @@
 					</a>
 				</div>
 				<h2 class="h5 text-center mt-3 mb-3">전통주</h2>
-				<p class="text-center">
-					<a class="btn btn-success">구매하기</a>
+				<p class="text-center" style="color:#000;">
+				    <a class="btn btn-success" style="color: black;">구매하기</a>
 				</p>
 			</div>
 
@@ -208,14 +208,11 @@
 					</a>
 				</div>
 				<h2 class="h5 text-center mt-3 mb-3">맥주</h2>
-				<p class="text-center">
-					<a class="btn btn-success">구매하기</a>
+				<p class="text-center" style="color:#000;">
+				    <a class="btn btn-success" style="color: black; ">구매하기</a>
 				</p>
 			</div>
 		</div>
-
-
-
 
 	</section>
 	<!-- End Categories of The Month -->
@@ -336,7 +333,7 @@
 	<br>
 	<div align="center">
 
-	<h2>매장 위치</h2>
+	<h1>매장 위치</h1>
 	<div id="map" style="width:500px;height:400px;"></div>
 	
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=fc7464d2a4e6a63b76c439cbe264d159"></script>

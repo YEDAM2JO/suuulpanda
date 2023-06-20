@@ -6,17 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-<link rel="stylesheet" href="assets/css/templatemo.css">
-<link rel="stylesheet" href="assets/css/custom.css">
 
-
-<!-- Load fonts style after rendering the layout styles -->
-<link rel="stylesheet"
-	href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
-<link rel="stylesheet" href="assets/css/fontawesome.min.css">
-
-<link rel="stylesheet" href="assets/css/cart.css">
     <style>
     	table {
   			border-collapse: collapse;
@@ -184,7 +174,7 @@
 		  clear: both;
 		}
 		.container {
-		  width: 1100px;
+		 
 		  margin: 0 auto;
 		}
 		.blind {
@@ -304,7 +294,7 @@
 		       <c:forEach items="${boards }" var="b" varStatus="status">
     <c:choose>
         <c:when test="${b.memberId == 'manager'}">
-            <tr onmouseover='this.style.background="#9fff80";'
+            <tr onmouseover='this.style.background="#dadada";'
                 onmouseleave='this.style.background="#FFFFFF";' onclick="boardChois(${b.boardId},'${b.memberId }','${b.boardSecret}')">
                 <td>${b.boardId }</td>
                  <td><h5 style="text-decoration: underline;">${b.boardTitle }</h5></td>
@@ -320,7 +310,7 @@
 </c:forEach>
                 
                 <c:forEach items="${boards }" var="b">
-                	<tr onmouseover='this.style.background="#9fff80";'
+                	<tr onmouseover='this.style.background="#dadada";'
 						onmouseleave='this.style.background="#FFFFFF";' onclick="boardChois(${b.boardId},'${b.memberId }','${b.boardSecret}')">
                 		<td>${b.boardId }</td>
                 		<td>${b.boardTitle }</td>

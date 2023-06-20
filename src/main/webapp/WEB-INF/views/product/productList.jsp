@@ -47,7 +47,7 @@
   ::placeholder {
     font-size: 15px;
   }
-=======
+
 form {
 	display: flex;
 	justify-content: flex-end;

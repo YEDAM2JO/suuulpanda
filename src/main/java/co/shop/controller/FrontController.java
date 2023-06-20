@@ -39,13 +39,12 @@ import co.shop.member.command.AjaxCheckId;
 import co.shop.member.command.AjaxMemberDelete;
 import co.shop.member.command.MemberUpdate;
 import co.shop.order.command.AjaxOrderInsert;
-import co.shop.order.command.BuyProduct;
 import co.shop.order.command.OrderPage;
 import co.shop.orderDetail.command.AjaxOrderDetailInsert;
 import co.shop.payment.command.DepositMessage;
 import co.shop.payment.command.paymentOrder;
 import co.shop.member.command.AjaxSearchPw;
-import co.shop.member.command.ForgetId;
+
 import co.shop.member.command.ForgetPw;
 import co.shop.member.command.Login;
 import co.shop.member.command.Logout;
@@ -67,6 +66,7 @@ import co.shop.product.command.SearchProduct;
 import co.shop.recommend.command.Recommend;
 import co.shop.recommend.command.RecommendResult;
 import co.shop.reple.command.AjaxRepleDelete;
+import co.shop.review.command.AjaxDeleteReview;
 import co.shop.review.command.ReviewInsert;
 import co.shop.report.command.ReportAction;
 import co.shop.report.command.ReportList;
@@ -119,7 +119,6 @@ public class FrontController extends HttpServlet {
 	public void init(ServletConfig config) throws ServletException {
 		map.put("/main.do", new MainCommand());
 		map.put("/login.do", new Login());
-		map.put("/cart.do", new cart());
 		map.put("/socialLogin.do", new SocialLogin());
 		map.put("/ajaxCheckAge.do", new AjaxCheckAge());
 		map.put("/memberLogin.do", new MemberLogin());
@@ -133,19 +132,21 @@ public class FrontController extends HttpServlet {
 		map.put("/boardEdit.do", new BoardEdit());
 		map.put("/boardUpdate.do", new BoardUpdate());
 		map.put("/boardDelete.do", new BoardDelete());
-		map.put("/forgetId.do", new ForgetId());
+		
 		map.put("/logout.do", new Logout());
 		
 		map.put("/naverLogin.do", new NaverLogin());
 		map.put("/naverCallback.do", new NaverCallback());
-		map.put("/memberInsert.do", new MemberInsert());
+		map.put("/memberInsert.do", new MemberInsert()); 
 		map.put("/ajaxCheckId.do", new AjaxCheckId());
-		map.put("/userpage.do", new UserPage());
-		map.put("/managerpage.do",new ManagerPage());
-		map.put("/productModify.do", new ProductModify());
-		map.put("/productInsertForm.do", new ProductInsertForm()); //상품 등록 폼 호출
-		map.put("/productInsert.do", new ProductInsert()); //상품 등록
-		map.put("/userorderlist.do", new UserOrderList());
+
+		map.put("/userpage.do", new UserPage()); // 유저 마이페이지
+		map.put("/managerpage.do",new ManagerPage()); //관리자 페이지
+		map.put("/productModify.do", new ProductModify());  //상품 수정
+		map.put("/productInsertForm.do", new ProductInsertForm()); //제품 등록 폼 호출
+		map.put("/productInsert.do", new ProductInsert()); //제품 등록
+		map.put("/userorderlist.do", new UserOrderList()); // 유저 주문목록
+
 		map.put("/userInfoDeletePass.do", new UserInfoDeletePass()); //유저 정보 삭제(비번창)
 		map.put("/userDelete.do", new UserDelete()); // 유저 정보 삭제 처리 
 
@@ -164,8 +165,8 @@ public class FrontController extends HttpServlet {
 		map.put("/managerBoard.do", new ManagerBoard());
 		map.put("/managerReple.do", new ManagerReple());
 		map.put("/ajaxSetReple.do", new AjaxSetReple());
-		map.put("/userEditInfo.do", new UserEditInfo());
-		map.put("/memberUpdate.do", new UserInfoUpdate());
+		map.put("/userEditInfo.do", new UserEditInfo()); //유저 정보 수정(유저 본인 정보)
+		map.put("/memberUpdate.do", new UserInfoUpdate()); 
 
 		
 		//관리자 제품 관리
@@ -202,12 +203,11 @@ public class FrontController extends HttpServlet {
 		map.put("/ajaxOrderDetailInsert.do", new AjaxOrderDetailInsert());
 		map.put("/orderPage.do", new OrderPage());
 		map.put("/orderSelect.do", new OrderSelect());
-		map.put("/buyProduct.do", new BuyProduct());
 		
 		//리뷰
 		
 		map.put("/reviewInsert.do", new ReviewInsert());
-		
+		map.put("/ajaxDeleteReview.do", new AjaxDeleteReview());
 		//술추천 페이지 관련 처리
 		map.put("/recommend.do", new Recommend());
 		map.put("/recommendResult.do", new RecommendResult());

@@ -40,7 +40,7 @@ img {
 }
 
 .cart ul :first-child {
-  color: limegreen;
+  color: #7c7c7c;
 }
 
 table {
@@ -156,7 +156,7 @@ td {
 }
 
 .cart__bigorderbtn.right {
-  background-color: limegreen;
+  background-color: #888888;
   color: white;
   border: none;
 }

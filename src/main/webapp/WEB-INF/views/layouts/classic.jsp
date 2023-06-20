@@ -16,11 +16,13 @@
 <link rel="stylesheet" href="assets/css/fontawesome.min.css">
 
 </head>
+<tiles:insertAttribute name="header"/>
 <body>
-	<tiles:insertAttribute name="header"/>
+	
 	<div style="min-height: 400px">
 		<tiles:insertAttribute name="body"/>
 	</div>
-	<tiles:insertAttribute name="footer"/>
+	
 </body>
+<tiles:insertAttribute name="footer"/>
 </html>

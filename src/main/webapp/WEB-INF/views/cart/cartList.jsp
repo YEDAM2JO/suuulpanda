@@ -165,7 +165,7 @@
 				</td>
 				<td colspan="5">
 					<div class="cart__list__total" align="center">
-						총 금액 : <fmt:formatNumber value="${sum}" pattern="#,###원" />
+						총 장바구니 금액: <p id="sum2"><c:out value="${sum}"/> </p>
 					</div>
 				</td>
 			</tr>
@@ -177,8 +177,13 @@
 
     <div class="cart__mainbtns">
         <a href="cartList.do"><button class="cart__bigorderbtn left">쇼핑 계속하기</button></a>
-        <a href="#"><button class="cart__bigorderbtn right" onclick="order()">주문하기</button></a>
+		<a href="#"><button class="cart__bigorderbtn right" onclick="order()" style="background-color: darkgray;">주문하기</button></a>
+
+
+
     </div>   
+    
+    
     </section>
     <script>
     	function minus(id, price, event){
@@ -186,9 +191,10 @@
     			alert("더이상 내릴 수 없습니다.");
     		} else {
     			//앞단(수량, 총가격)
+    			
     			let num = parseInt(event.target.nextElementSibling.value)-1;
-    			event.target.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.textContent = price * num;
-    			event.target.nextElementSibling.value = num;
+    			event.target.parentNode.nextSibling.nextSibling.nextSibling.nextSibling.textContent = price * num;
+    			event.target.nextSibling.value = num;
     			let sum2 = document.getElementById("sum2");
     			num = parseInt(sum2.textContent);
     			num = num-price;
@@ -199,7 +205,7 @@
     			let url = "ajaxCountMinus.do?id=" + id;
     			
     			fetch(url)
-    				.then(response => reseponse.text());
+    				.then(response => response.text());
     		}
     		
     	}
@@ -208,7 +214,7 @@
     		//앞단(수량, 총가격)
     		let num = parseInt(event.target.previousSibling.value)+1;
 			
-			event.target.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.textContent = price * num;
+			event.target.parentNode.nextSibling.nextSibling.nextSibling.nextSibling.textContent = price * num;
     		event.target.previousSibling.value = num;
     		let sum2 = document.getElementById("sum2");
 			num = parseInt(sum2.textContent);
@@ -234,13 +240,15 @@
                  fetch(url)
                  	.then(response => response.text())
                   	.then(text=>htmlProcess(text));
+                 
+                 
            
              }
              
              
-             for(let i = ckb.length-1; i>=0; i--){
+             for(var b of ckb){
                  
-                 ckb[i].parentNode.remove();
+                 b.parentNode.remove();
              }
              
             
@@ -278,6 +286,7 @@
     		 location.href = "/meddle/paymentOrder.do?cartId="+cartId;
     		 
     	 }
+    	 
     	 
     	
     </script>

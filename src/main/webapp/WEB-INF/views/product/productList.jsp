@@ -16,6 +16,38 @@
 <link rel="stylesheet" href="assets/css/fontawesome.min.css">
 <link rel="stylesheet" href="assets/css/cart.css">
 <style>
+
+  form {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    max-width: 300px;
+    margin-left: auto;
+    padding: 10px 15px;
+    background-color: #FFFFFF;
+    border-radius: 4px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  input[type="text"] {
+    flex-grow: 1;
+    height: 32px;
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid #CCCCCC;
+    box-sizing: border-box;
+  }
+  input[type="image"] {
+    margin-left: 5px;
+    width: 24px;
+    height: 24px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+  }
+  ::placeholder {
+    font-size: 15px;
+  }
+=======
 form {
 	display: flex;
 	justify-content: flex-end;
@@ -49,8 +81,8 @@ input[type="image"] {
 ::placeholder {
 	font-size: 15px;
 }
-</style>
 
+</style>
 </head>
 <body>
 	<div class="container py-5">
@@ -60,16 +92,16 @@ input[type="image"] {
 				<ul class="list-unstyled templatemo-accordion">
 					<li class="pb-3"><a
 						class="collapsed d-flex justify-content-between h3 text-decoration-none"
-						href="productList.do?productKind=전체">전체 상품</a></li>
+						href="productList.do?productKind=전체&state=0&page=1">전체 상품</a></li>
 					<li class="pb-3"><a
 						class="collapsed d-flex justify-content-between h3 text-decoration-none"
-						href="productList.do?productKind=와인">와인</a></li>
+						href="productList.do?productKind=와인&state=0&page=1">와인</a></li>
 					<li class="pb-3"><a
 						class="collapsed d-flex justify-content-between h3 text-decoration-none"
-						href="productList.do?productKind=전통주">전통주</a></li>
+						href="productList.do?productKind=전통주&state=0&page=1">전통주</a></li>
 					<li class="pb-3"><a
 						class="collapsed d-flex justify-content-between h3 text-decoration-none"
-						href="productList.do?productKind=맥주">맥주</a></li>
+						href="productList.do?productKind=맥주&state=0&page=1">맥주</a></li>
 				</ul>
 			</div>
 			<div class="col-lg-9">
@@ -81,7 +113,6 @@ input[type="image"] {
 							</li>
 						</ul>
 					</div>
-
 					<div class="col-md-6 pb-4">
 						<div class="d-flex justify-content-end">
 							<form>
@@ -106,7 +137,6 @@ input[type="image"] {
 							<div class="card mb-4 product-wap rounded-0">
 
 								<div class="card rounded-0">
-
 									<a href="productSelect.do?productId=${p.productId}"> <img
 										style="height: 370px; width: 303px;"
 										src="${pageContext.request.contextPath}/upload/${p.productImg}"
@@ -139,22 +169,22 @@ input[type="image"] {
 							</div>
 						</div>
 					</c:forEach>
-				</div>
-				<div div="row">
+					<div class="row">
 					<ul class="pagination pagination-lg justify-content-end">
-						<li class="page-item disabled"><a
-							class="page-link active rounded-0 mr-3 shadow-sm border-top-0 border-left-0"
-							href="#" tabindex="-1">1</a></li>
-						<li class="page-item"><a
-							class="page-link rounded-0 mr-3 shadow-sm border-top-0 border-left-0 text-dark"
-							href="#">2</a></li>
-						<li class="page-item"><a
-							class="page-link rounded-0 shadow-sm border-top-0 border-left-0 text-dark"
-							href="#">3</a></li>
+						<c:forEach var="num" begin="1" end="${realEnd }">
+	      				<li class="page-item"><a onclick="pageGo('${num }')" class="page-link active rounded-0 mr-3 shadow-sm border-top-0 border-left-0">${num }</a></li>
+    					</c:forEach>
 					</ul>
+					
 				</div>
+				</div>
+				
 			</div>
+<<<<<<< HEAD
+			
 
+=======
+>>>>>>> branch 'master' of https://github.com/YEDAM2JO/suuulpanda.git
 		</div>
 
 	</div>
@@ -163,16 +193,32 @@ input[type="image"] {
 
 			var optionSelect = document.getElementById("sortOption");
 
-			// select element에서 선택된 option의 value가 저장된다.
+		    
+			    // select element에서 선택된 option의 value가 저장된다.
 			var selectValue = optionSelect.options[optionSelect.selectedIndex].value;
-
-			// select element에서 선택된 option의 text가 저장된다.
-
+			
+			    // select element에서 선택된 option의 text가 저장된다.
+			
 			var url = window.location.href;
+			
+			if(url.search("&state") > 0){
+				url = url.substring(0,url.search("&state"));
+<<<<<<< HEAD
+				
+=======
 
-			if (url.search("&state") > 0) {
-				url = url.substring(0, url.search("&state"));
+>>>>>>> branch 'master' of https://github.com/YEDAM2JO/suuulpanda.git
 			}
+<<<<<<< HEAD
+			
+			
+			if(selectValue=='latest'){
+				url = url + "&state=A&page=1";
+			} else if(selectValue == 'high'){
+				url = url + "&state=H&page=1";
+			} else if(selectValue == 'low'){
+				url = url + "&state=L&page=1";
+=======
 
 			if (selectValue == 'latest') {
 				url = url + "&state=A";
@@ -180,14 +226,27 @@ input[type="image"] {
 				url = url + "&state=H";
 			} else if (selectValue == 'low') {
 				url = url + "&state=L";
+>>>>>>> branch 'master' of https://github.com/YEDAM2JO/suuulpanda.git
 			}
 
 			location.href = url;
 
 		}
+<<<<<<< HEAD
+		
+		function pageGo(num){
+			var url = window.location.href;
+			 
+			
+			url = url.substring(0,url.search("&page")) +"&page=" + num;
+				
+		
+			
+			location.href=url;
+		}
+		
+=======
+>>>>>>> branch 'master' of https://github.com/YEDAM2JO/suuulpanda.git
 	</script>
 </body>
-
-
 </html>
-

@@ -53,6 +53,7 @@
         background-color: #45a049;
     }
 
+
 </style>
 
 <meta charset="UTF-8">
@@ -166,24 +167,28 @@
 													type="hidden" name="product-quanity" id="product-quanity"
 													value="1"></li>
 												<li class="list-inline-item"><span
-													class="btn btn-success" id="btn-minus" onclick="minus()">-</span></li>
+													class="btn btn-success" id="btn-minus" onclick="minus()" style="color: black;">-</span></li>
 												<li class="list-inline-item"><span
 													class="badge bg-secondary" id="var-value">1</span></li>
 												<li class="list-inline-item"><span
-													class="btn btn-success" id="btn-plus" onclick="plus()">+</span></li>
+													class="btn btn-success" id="btn-plus" onclick="plus()" style="color: black;">+</span></li>
 											</ul>
 										</div>
 									</div>
 									<div class="row pb-3">
 										
 										<div class="row pb-3">
+<<<<<<< HEAD
+
+=======
 											<div class="col d-grid">
-												<button type="button" class="btn btn-success btn-lg" name="buy" value="buy" onclick="buyProduct()">
+												<button type="button" class="btn btn-success btn-lg" name="buy" value="buy" onclick="buyProduct()" style="color: black;">
 												Buy
 												</button>
 											</div>
+>>>>>>> branch 'master' of https://github.com/YEDAM2JO/suuulpanda.git
 											<div class="col d-grid">
-												<button type="button" class="btn btn-success btn-lg" onclick="addCart()" id = "adct" name="adct" value="addtocart">
+												<button type="button" class="btn btn-success btn-lg" onclick="addCart()" id="adct" name="adct" value="addtocart" style="color: black;">
 												Add To Cart
 												</button>
 											</div>
@@ -196,13 +201,7 @@
 					</div>
 				</div>
 			</div>
-			<div>
-			<form id="tpsub" action="buyProduct.do" method="post">
-				<input type="hidden" id="totalPrice2" name="totalPrice2" value="">
-				<input type="hidden" id="productName2" name="productName2" value="">
-				<input type="hidden" id="productCount2" name="productCount2" value="">
-			</form>
-			</div>
+		
 		</div>
 		
 		<div id="reviewArea">
@@ -213,6 +212,7 @@
 					<th>점수</th>
 					<td>내용</td>
 					<th>작성일자</th>
+					<th width="100"></th>
 				</tr>
 				
 				
@@ -237,9 +237,17 @@
 		<td style="padding: 15px;">
 			${r.reviewDate }
 		</td>
+		<td>
+		<c:if test="${id == r.memberId}">
+
+				<button type="button" onclick="deleteReview('${r.reviewId }',event)">삭제</button>
+			
+		</c:if>
+		</td>
+		
 	</tr>
 		</c:forEach>
-			</table><br>
+			</table><br><br>
 		</div>
 	</section>
 
@@ -271,27 +279,18 @@
 			num = Number(span.textContent) + 1;
 			span.textContent = num;
 		}
-
 		
-		function buyProduct(){
-			let num = document.getElementById("var-value").textContent;
+		function deleteReview(id,event){
+			let url = "ajaxDeleteReview.do?id=" + id;
 			
-			let num2 = num * ${product.productPrice};
+			fetch(url)
+				.then(response => response.text());
 			
-			let totalPrice = document.getElementById("totalPrice2");
-			totalPrice.value = num2;
+			event.target.parentNode.parentNode.remove();
 			
-			let productName = document.getElementById("productName2");
-			productName.value = "${product.productName}";
-			
-			let productCount = document.getElementById("productCount2");
-			productCount.value = Number(num);
-			
-			let frm = document.getElementById("tpsub");
-			
-			frm.submit();
 		}
-
+		
+	
 	</script>
 
 </body>

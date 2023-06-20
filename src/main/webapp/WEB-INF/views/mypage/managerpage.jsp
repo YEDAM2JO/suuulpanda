@@ -26,18 +26,11 @@
 <body>
 
 <tiles:insertAttribute name="header"/>
-<section>
-
-
-<br>
-<div class="container">
-
- 
-	<a  href="productListMng.do"><img src="assets/img/005.png"></a>
-	<a  href="managerUpdateMember.do"><img src="assets/img/004.png"></a>
-
-  
-	<a  href="managerBoard.do?page=1"><img src="assets/img/006.png"></a>
+<section><br>
+	<div class="container">
+		<a  href="productListMng.do"><img src="assets/img/005.png"></a>
+		<a  href="managerUpdateMember.do?page=1"><img src="assets/img/004.png"></a>
+		<a  href="managerBoard.do?page=1"><img src="assets/img/006.png"></a>
 </div><br><br><p>
 
 	<br><br>

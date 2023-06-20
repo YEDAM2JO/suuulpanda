@@ -6,7 +6,38 @@
 	<select id="getProducts"
 		resultType="co.shop.product.service.ProductVO" parameterType="map">
 		SELECT *
-		FROM product
+		FROM(
+		SELECT ROWNUM rn, b.*
+		FROM (SELECT * FROM product
+		<where>
+        <if test="productKind != null and productKind != '전체'">
+            AND product_kind = #{productKind}
+        </if>
+        </where>
+        <if test="productPrice == 2">
+        	ORDER BY product_price DESC
+        </if>
+        <if test="productPrice == 3">
+        	ORDER BY product_price 
+        </if>
+        
+        <if test= "productPrice == 0">
+        	ORDER BY product_date DESC
+        </if>
+        <if test="productPrice == 1">
+        	ORDER BY product_date DESC
+        </if>)
+        b)
+        WHERE rn BETWEEN ((#{page}-1) * 9) +1
+			AND (#{page} * 9)
+    
+		
+	</select>
+	
+	<select id="productSelectMax">
+		SELECT count(*)
+		FROM (SELECT *
+				FROM product
 		<where>
         <if test="productKind != null and productKind != '전체'">
             AND product_kind = #{productKind}
@@ -25,11 +56,9 @@
         <if test="productPrice == 1">
         	ORDER BY product_date DESC
         </if>
-    
-		
+        )
+        
 	</select>
-	
-
 
 <!-- 전체 상품 조회  by관리자 ID순으로 오름차순-->
 	<select id="getAllProductsMng" resultType="co.shop.product.service.ProductVO">

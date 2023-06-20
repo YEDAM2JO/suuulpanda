@@ -5,10 +5,7 @@
 <!DOCTYPE html>
 <html>
 <style>
-	.container {
-		display: flex;
-		justify-content: center;
-	}
+	
 
 	.container img {
 		flex: 1;
@@ -26,11 +23,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-<tiles:insertAttribute name="header"/>
+
 
 	<section>
 	<br>
-	<div class="container">
+	<div class="container" align="center">
 	<a  href="userorderlist.do"><img src="assets/img/002.png"></a> <!-- 고객 주문 내역 -->
 	<a  href="userEditInfo.do"><img src="assets/img/003.png"></a> <!-- 고객 회원 정보 수정 -->
 	<a  href="userInfoDeletePass.do"><img src="assets/img/001.png"></a> <!-- 회원 탈퇴 -->
@@ -57,6 +54,6 @@
 	
 	
 	</section>
-<tiles:insertAttribute name="footer"/>
+
 </body>
 </html>

@@ -32,11 +32,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>고객 주문 내역 페이지</title>
-    
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
 
-<tiles:insertAttribute name="header"/>
+
 
 </head>
 <body>
@@ -55,7 +52,7 @@
                     <tr onclick="orderChois('${o.orderId}')">
                         <td>${o.orderId}</td>
                         <td>${o.orderDate}</td>
-                        <td>${o.orderPrice}</td>
+                        <td>${o.orderPrice}원</td>
                     </tr>
                 </c:forEach>
             </tbody>

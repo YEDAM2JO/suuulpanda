@@ -153,8 +153,13 @@
 
     <div class="cart__mainbtns">
         <a href="cartList.do"><button class="cart__bigorderbtn left">쇼핑 계속하기</button></a>
-        <a href="#"><button class="cart__bigorderbtn right" onclick="order()">주문하기</button></a>
+		<a href="#"><button class="cart__bigorderbtn right" onclick="order()" style="background-color: darkgray;">주문하기</button></a>
+
+
+
     </div>   
+    
+    
     </section>
     <script>
     	function minus(id, price, event){

@@ -61,7 +61,7 @@
 				<ul class="list-unstyled templatemo-accordion">
 					<li class="pb-3"><a
 						class="collapsed d-flex justify-content-between h3 text-decoration-none"
-						href="productList.do">전체 상품</a></li>
+						href="productList.do?productKind=전체">전체 상품</a></li>
 					<li class="pb-3"><a
 						class="collapsed d-flex justify-content-between h3 text-decoration-none"
 						href="productList.do?productKind=와인">와인</a></li>
@@ -86,8 +86,8 @@
 					<div class="col-md-6 pb-4">
 						<div class="d-flex justify-content-end">
 							<form>
-								<select class="form-control" id="sortOption" name="sortOption"
-									onchange="this.form.submit()">
+								<select class="form-control" id="sortOption" name="sortOption" onchange="changeOptionSelect()">
+								<option value="" selected disabled hidden>==선택하세요==</option>
 									<option value="latest">최신순</option>
 									<option value="high">높은 가격순</option>
 									<option value="low">낮은 가격순</option>
@@ -157,8 +157,41 @@
 			</div>
 
 		</div>
+		
 	</div>
+	<script>
+		function changeOptionSelect(){
+			
+			var optionSelect = document.getElementById("sortOption");
+		     
+			    // select element에서 선택된 option의 value가 저장된다.
+			var selectValue = optionSelect.options[optionSelect.selectedIndex].value;
+			 
+			    // select element에서 선택된 option의 text가 저장된다.
+			
+			var url = window.location.href;
+			 
+			if(url.search("&state") > 0){
+				url = url.substring(0,url.search("&state"));
+			}
+			
+			
+			if(selectValue=='latest'){
+				url = url + "&state=A";
+			} else if(selectValue == 'high'){
+				url = url + "&state=H";
+			} else if(selectValue == 'low'){
+				url = url + "&state=L";
+			}
+			
+			location.href=url;
+			
+		}
+	
+		
+	</script>
 </body>
+
 
 </html>
 

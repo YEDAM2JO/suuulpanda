@@ -53,6 +53,7 @@
         background-color: #45a049;
     }
 
+
 </style>
 
 <meta charset="UTF-8">
@@ -166,20 +167,28 @@
 													type="hidden" name="product-quanity" id="product-quanity"
 													value="1"></li>
 												<li class="list-inline-item"><span
-													class="btn btn-success" id="btn-minus" onclick="minus()">-</span></li>
+													class="btn btn-success" id="btn-minus" onclick="minus()" style="color: black;">-</span></li>
 												<li class="list-inline-item"><span
 													class="badge bg-secondary" id="var-value">1</span></li>
 												<li class="list-inline-item"><span
-													class="btn btn-success" id="btn-plus" onclick="plus()">+</span></li>
+													class="btn btn-success" id="btn-plus" onclick="plus()" style="color: black;">+</span></li>
 											</ul>
 										</div>
 									</div>
 									<div class="row pb-3">
 										
 										<div class="row pb-3">
+<<<<<<< HEAD
 
+=======
 											<div class="col d-grid">
-												<button type="button" class="btn btn-success btn-lg" onclick="addCart()" id = "adct" name="adct" value="addtocart">
+												<button type="button" class="btn btn-success btn-lg" name="buy" value="buy" onclick="buyProduct()" style="color: black;">
+												Buy
+												</button>
+											</div>
+>>>>>>> branch 'master' of https://github.com/YEDAM2JO/suuulpanda.git
+											<div class="col d-grid">
+												<button type="button" class="btn btn-success btn-lg" onclick="addCart()" id="adct" name="adct" value="addtocart" style="color: black;">
 												Add To Cart
 												</button>
 											</div>
@@ -238,7 +247,7 @@
 		
 	</tr>
 		</c:forEach>
-			</table><br>
+			</table><br><br>
 		</div>
 	</section>
 

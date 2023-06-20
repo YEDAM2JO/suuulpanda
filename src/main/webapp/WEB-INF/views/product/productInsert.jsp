@@ -86,7 +86,7 @@ input[type="text"], input[type="file"] {
 
 input[type="submit"], input[type="reset"] {
 	padding: 8px 16px;
-	background-color: rgba(76, 175, 80, 0.8);
+	background-color: rgb(78 78 78 / 80%);
 	color: white;
 	border: none;
 	border-radius: 4px;

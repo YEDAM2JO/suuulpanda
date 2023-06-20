@@ -38,6 +38,7 @@
     .button-container button:hover {
         background-color: #45a049;
     }
+    
 </style>
 
 </head>
@@ -58,31 +59,55 @@
             <tr>
                 <td>이름</td>
                 <td align="center">
-                    <input type="text" id="memberName" name="memberName" value="${member.memberName}">
+                    <input type="text" id="memberName" name="memberName" value="${member.memberName}" style="width: 300px;">
                 </td>
             </tr>
             
             <tr>
                 <td>전화번호</td>
                 <td align="center">
-                    <input type="text" id="memberTel" name="memberTel" value="${member.memberTel}">
+                    <input type="text" id="memberTel" name="memberTel" value="${member.memberTel}" style="width: 300px;">
                 </td>
             </tr>
+            
+            <script>
+			    // 입력 필드에서 값을 가져와서 하이픈을 적용하여 포맷팅하는 함수
+			    function formatPhoneNumber(input) {
+			        // 입력 필드에서 숫자를 제외한 모든 문자를 제거합니다
+			        var phoneNumber = input.value.replace(/\D/g, '');
+			        
+			        // 하이픈을 적용하여 포맷팅된 전화번호를 생성합니다
+			        var formattedPhoneNumber = phoneNumber.replace(/(\d{3})(\d{4})(\d{4})/, '$1-$2-$3');
+			        
+			        // 포맷팅된 전화번호를 입력 필드에 적용합니다
+			        input.value = formattedPhoneNumber;
+			    }
+			
+			    // 페이지가 로드될 때 전화번호 필드의 값을 포맷팅합니다
+			    var memberTelInput = document.getElementById('memberTel');
+			    formatPhoneNumber(memberTelInput);
+			
+			    // 입력 필드의 값이 변경될 때마다 포맷팅을 적용합니다
+			    memberTelInput.addEventListener('input', function() {
+			        formatPhoneNumber(this);
+			    });
+			</script>
             
             <tr>
             
                 <td>주소</td>
               	<td>
 					<i class='bx bxs-addr'></i>
-					<input type="text" id="sample6_postcode" name="sample6_postcode" placeholder="우편번호" value="${member.memberAddr1 }" style="margin-bottom: 5px;">
+					<input type="text" id="sample6_postcode" name="sample6_postcode" placeholder="우편번호" value="${member.memberAddr1 }" style="margin-bottom: 5px; width: 300px; width: 175px;">
 					
 					<span class='button'>
-					<button type="button" id="checkId" value="No" onclick="sample6_execDaumPostcode()" style="margin-bottom: 5px;">우편번호찾기</button>
+					<button type="button" id="checkId" value="No" onclick="sample6_execDaumPostcode()" style="margin-bottom: 5px; ">우편번호찾기</button>
 					</span><br> 
 					
-					<input type="text" id="sample6_address" name="sample6_address" placeholder="주소" value="${member.memberAddr2 }" style="margin-bottom: 5px;"><br>
-					<input type="text" id="sample6_detailAddress" name="sample6_detailAddress" placeholder="상세주소" style="margin-bottom: 5px;"><br>
-					<input type="text" id="sample6_extraAddress" name="sample6_extraAddress" placeholder="참고항목" style="margin-bottom: 5px;"></td>
+					<input type="text" id="sample6_address" name="sample6_address" placeholder="주소" value="${member.memberAddr2}" style="margin-bottom: 5px; width: 300px;"><br>
+
+					<input type="text" id="sample6_detailAddress" name="sample6_detailAddress" placeholder="상세주소" style="margin-bottom: 5px; width: 300px;" ><br>
+					<input type="text" id="sample6_extraAddress" name="sample6_extraAddress" placeholder="참고항목" style="margin-bottom: 5px; width: 300px;"></td>
 				
 
             </tr>
@@ -90,13 +115,13 @@
             <tr>
 			    <td>비밀번호</td>
 			    <td align="center">
-			        <input type="password" id="memberPw" name="memberPw">
+			        <input type="password" id="memberPw" name="memberPw" style="width: 300px;">
 			    </td>
 			</tr>
 			<tr>
 			    <td>비밀번호 확인</td>
 			    <td align="center">
-			        <input type="password" id="memberPw">
+			        <input type="password" id="memberPw" style="width: 300px;">
 			    </td>
 			</tr>
             
@@ -108,8 +133,9 @@
         </div>
             
         <div>
-    <input type="submit" value="수정" class="btn btn-primary">&nbsp;&nbsp;
-    <button type="button" onclick="location.href='userpage.do'" class="btn btn-secondary">목록</button>
+    <input type="submit" value="수정" class="btn btn-primary" style="background-color: #5c5c5c; color: #fff; border: none;">&nbsp;&nbsp;
+
+    <button type="button" onclick="location.href='userpage.do'" class="btn btn-secondary" style="background-color: #5c5c5c; color: #fff;">목록</button>
 </div>
     <br>
     <br>

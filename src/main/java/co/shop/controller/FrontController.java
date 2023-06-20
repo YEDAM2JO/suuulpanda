@@ -137,24 +137,25 @@ public class FrontController extends HttpServlet {
 		
 		map.put("/naverLogin.do", new NaverLogin());
 		map.put("/naverCallback.do", new NaverCallback());
-		map.put("/memberInsert.do", new MemberInsert());
+		map.put("/memberInsert.do", new MemberInsert()); 
 		map.put("/ajaxCheckId.do", new AjaxCheckId());
-		map.put("/userpage.do", new UserPage());
-		map.put("/managerpage.do",new ManagerPage());
-		map.put("/productModify.do", new ProductModify());
-		map.put("/product.do", new Product()); //전체상품페이지XXXXXX
+
+		map.put("/userpage.do", new UserPage()); // 유저 마이페이지
+		map.put("/managerpage.do",new ManagerPage()); //관리자 페이지
+		map.put("/productModify.do", new ProductModify());  //상품 수정
 		map.put("/productInsertForm.do", new ProductInsertForm()); //제품 등록 폼 호출
 		map.put("/productInsert.do", new ProductInsert()); //제품 등록
-		map.put("/userorderlist.do", new UserOrderList());
+		map.put("/userorderlist.do", new UserOrderList()); // 유저 주문목록
+
 		map.put("/userInfoDeletePass.do", new UserInfoDeletePass()); //유저 정보 삭제(비번창)
 		map.put("/userDelete.do", new UserDelete()); // 유저 정보 삭제 처리 
 
 		
 		map.put("/cartList.do", new CartList());
-		map.put("/productList.do", new ProductList()); //상품 리스트
-		map.put("/productSelect.do", new ProductSelect()); //상품 상세조회
+		map.put("/productList.do", new ProductList()); //상품 리스트 (전체,와인,전통주,맥주)
+		map.put("/productSelect.do", new ProductSelect()); //상품 개별 조회
 
-		map.put("/searchProduct.do", new SearchProduct()); //상품 검색
+		map.put("/searchProduct.do", new SearchProduct()); //상품 이름 검색
 		map.put("/reportAction.do", new ReportAction()); //게시물 신고 하기
 		
 
@@ -164,8 +165,8 @@ public class FrontController extends HttpServlet {
 		map.put("/managerBoard.do", new ManagerBoard());
 		map.put("/managerReple.do", new ManagerReple());
 		map.put("/ajaxSetReple.do", new AjaxSetReple());
-		map.put("/userEditInfo.do", new UserEditInfo());
-		map.put("/memberUpdate.do", new UserInfoUpdate());
+		map.put("/userEditInfo.do", new UserEditInfo()); //유저 정보 수정(유저 본인 정보)
+		map.put("/memberUpdate.do", new UserInfoUpdate()); 
 
 		
 		//관리자 제품 관리

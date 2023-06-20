@@ -61,16 +61,16 @@
 				<ul class="list-unstyled templatemo-accordion">
 					<li class="pb-3"><a
 						class="collapsed d-flex justify-content-between h3 text-decoration-none"
-						href="productList.do?productKind=전체">전체 상품</a></li>
+						href="productList.do?productKind=전체&state=0&page=1">전체 상품</a></li>
 					<li class="pb-3"><a
 						class="collapsed d-flex justify-content-between h3 text-decoration-none"
-						href="productList.do?productKind=와인">와인</a></li>
+						href="productList.do?productKind=와인&state=0&page=1">와인</a></li>
 					<li class="pb-3"><a
 						class="collapsed d-flex justify-content-between h3 text-decoration-none"
-						href="productList.do?productKind=전통주">전통주</a></li>
+						href="productList.do?productKind=전통주&state=0&page=1">전통주</a></li>
 					<li class="pb-3"><a
 						class="collapsed d-flex justify-content-between h3 text-decoration-none"
-						href="productList.do?productKind=맥주">맥주</a></li>
+						href="productList.do?productKind=맥주&state=0&page=1">맥주</a></li>
 				</ul>
 			</div>
 			<div class="col-lg-9">
@@ -140,21 +140,18 @@
 							</div>
 						</div>
 					</c:forEach>
-				</div>
-				<div div="row">
+					<div class="row">
 					<ul class="pagination pagination-lg justify-content-end">
-						<li class="page-item disabled"><a
-							class="page-link active rounded-0 mr-3 shadow-sm border-top-0 border-left-0"
-							href="#" tabindex="-1">1</a></li>
-						<li class="page-item"><a
-							class="page-link rounded-0 mr-3 shadow-sm border-top-0 border-left-0 text-dark"
-							href="#">2</a></li>
-						<li class="page-item"><a
-							class="page-link rounded-0 shadow-sm border-top-0 border-left-0 text-dark"
-							href="#">3</a></li>
+						<c:forEach var="num" begin="1" end="${realEnd }">
+	      				<li class="page-item"><a onclick="pageGo('${num }')" class="page-link active rounded-0 mr-3 shadow-sm border-top-0 border-left-0">${num }</a></li>
+    					</c:forEach>
 					</ul>
+					
 				</div>
+				</div>
+				
 			</div>
+			
 
 		</div>
 		
@@ -173,21 +170,32 @@
 			 
 			if(url.search("&state") > 0){
 				url = url.substring(0,url.search("&state"));
+				
 			}
 			
 			
 			if(selectValue=='latest'){
-				url = url + "&state=A";
+				url = url + "&state=A&page=1";
 			} else if(selectValue == 'high'){
-				url = url + "&state=H";
+				url = url + "&state=H&page=1";
 			} else if(selectValue == 'low'){
-				url = url + "&state=L";
+				url = url + "&state=L&page=1";
 			}
 			
 			location.href=url;
 			
 		}
-	
+		
+		function pageGo(num){
+			var url = window.location.href;
+			 
+			
+			url = url.substring(0,url.search("&page")) +"&page=" + num;
+				
+		
+			
+			location.href=url;
+		}
 		
 	</script>
 </body>

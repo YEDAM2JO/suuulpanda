@@ -39,13 +39,12 @@ import co.shop.member.command.AjaxCheckId;
 import co.shop.member.command.AjaxMemberDelete;
 import co.shop.member.command.MemberUpdate;
 import co.shop.order.command.AjaxOrderInsert;
-import co.shop.order.command.BuyProduct;
 import co.shop.order.command.OrderPage;
 import co.shop.orderDetail.command.AjaxOrderDetailInsert;
 import co.shop.payment.command.DepositMessage;
 import co.shop.payment.command.paymentOrder;
 import co.shop.member.command.AjaxSearchPw;
-import co.shop.member.command.ForgetId;
+
 import co.shop.member.command.ForgetPw;
 import co.shop.member.command.Login;
 import co.shop.member.command.Logout;
@@ -67,6 +66,7 @@ import co.shop.product.command.SearchProduct;
 import co.shop.recommend.command.Recommend;
 import co.shop.recommend.command.RecommendResult;
 import co.shop.reple.command.AjaxRepleDelete;
+import co.shop.review.command.AjaxDeleteReview;
 import co.shop.review.command.ReviewInsert;
 import co.shop.report.command.ReportAction;
 import co.shop.report.command.ReportList;
@@ -119,7 +119,6 @@ public class FrontController extends HttpServlet {
 	public void init(ServletConfig config) throws ServletException {
 		map.put("/main.do", new MainCommand());
 		map.put("/login.do", new Login());
-		map.put("/cart.do", new cart());
 		map.put("/socialLogin.do", new SocialLogin());
 		map.put("/ajaxCheckAge.do", new AjaxCheckAge());
 		map.put("/memberLogin.do", new MemberLogin());
@@ -133,7 +132,7 @@ public class FrontController extends HttpServlet {
 		map.put("/boardEdit.do", new BoardEdit());
 		map.put("/boardUpdate.do", new BoardUpdate());
 		map.put("/boardDelete.do", new BoardDelete());
-		map.put("/forgetId.do", new ForgetId());
+		
 		map.put("/logout.do", new Logout());
 		
 		map.put("/naverLogin.do", new NaverLogin());
@@ -203,12 +202,11 @@ public class FrontController extends HttpServlet {
 		map.put("/ajaxOrderDetailInsert.do", new AjaxOrderDetailInsert());
 		map.put("/orderPage.do", new OrderPage());
 		map.put("/orderSelect.do", new OrderSelect());
-		map.put("/buyProduct.do", new BuyProduct());
 		
 		//리뷰
 		
 		map.put("/reviewInsert.do", new ReviewInsert());
-		
+		map.put("/ajaxDeleteReview.do", new AjaxDeleteReview());
 		//술추천 페이지 관련 처리
 		map.put("/recommend.do", new Recommend());
 		map.put("/recommendResult.do", new RecommendResult());

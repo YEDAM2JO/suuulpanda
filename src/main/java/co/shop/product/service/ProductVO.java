@@ -22,5 +22,5 @@ public class ProductVO {
     private String productSale;
     private float productSalePercent;
     private int productSalePrice;
-    
+    private int page;
 }

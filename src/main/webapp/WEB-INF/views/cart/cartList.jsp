@@ -141,7 +141,7 @@
 				</td>
 				<td colspan="5">
 					<div class="cart__list__total" align="center">
-						총 주문 금액 : <c:out value="${sum}"/>원
+						총 장바구니 금액: <p id="sum2"><c:out value="${sum}"/> </p>
 					</div>
 				</td>
 			</tr>
@@ -162,9 +162,10 @@
     			alert("더이상 내릴 수 없습니다.");
     		} else {
     			//앞단(수량, 총가격)
+    			
     			let num = parseInt(event.target.nextElementSibling.value)-1;
-    			event.target.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.textContent = price * num;
-    			event.target.nextElementSibling.value = num;
+    			event.target.parentNode.nextSibling.nextSibling.nextSibling.nextSibling.textContent = price * num;
+    			event.target.nextSibling.value = num;
     			let sum2 = document.getElementById("sum2");
     			num = parseInt(sum2.textContent);
     			num = num-price;
@@ -175,7 +176,7 @@
     			let url = "ajaxCountMinus.do?id=" + id;
     			
     			fetch(url)
-    				.then(response => reseponse.text());
+    				.then(response => response.text());
     		}
     		
     	}
@@ -184,7 +185,7 @@
     		//앞단(수량, 총가격)
     		let num = parseInt(event.target.previousSibling.value)+1;
 			
-			event.target.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.textContent = price * num;
+			event.target.parentNode.nextSibling.nextSibling.nextSibling.nextSibling.textContent = price * num;
     		event.target.previousSibling.value = num;
     		let sum2 = document.getElementById("sum2");
 			num = parseInt(sum2.textContent);
@@ -210,13 +211,15 @@
                  fetch(url)
                  	.then(response => response.text())
                   	.then(text=>htmlProcess(text));
+                 
+                 
            
              }
              
              
-             for(let i = ckb.length-1; i>=0; i--){
+             for(var b of ckb){
                  
-                 ckb[i].parentNode.remove();
+                 b.parentNode.remove();
              }
              
             
@@ -254,6 +257,7 @@
     		 location.href = "/meddle/paymentOrder.do?cartId="+cartId;
     		 
     	 }
+    	 
     	 
     	
     </script>

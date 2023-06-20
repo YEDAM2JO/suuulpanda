@@ -3,52 +3,45 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+  <style>
+     table {
+      width: 90%;
+      margin: 0 auto;
+      border-collapse: collapse;
+    }
+    
+    th {
+      background-color: #ccc;
+    }
+    
+    tbody tr:nth-child(even) {
+    
+    }
+    
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+    
+    tbody tr:hover {
+      background-color: #e6e6e6;
+      cursor: pointer;
+    }
+  </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>고객 주문 내역 페이지</title>
+    
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #f8f9fa;
-            margin: 0;
-            padding: 0;
-        }
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        h1 {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        th, td {
-            padding: 10px;
-            text-align: center;
-            border: 1px solid #ddd;
-        }
-
-        tr:hover {
-            background-color: #9fff80;
-        }
-    </style>
 <tiles:insertAttribute name="header"/>
 
 </head>
 <body>
-    <div class="container">
-        <h1>고객 주문 내역 페이지</h1>
+    <div class="container" align="center"><br>
+        <h1>고객 주문 내역 페이지</h1><br>
         <table>
             <thead>
                 <tr>

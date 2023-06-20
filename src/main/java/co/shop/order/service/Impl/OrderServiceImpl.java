@@ -8,6 +8,7 @@ import co.shop.common.DataSource;
 import co.shop.order.service.OrderMapper;
 import co.shop.order.service.OrderService;
 import co.shop.order.service.OrderVO;
+import co.shop.order.service.OrderVO2;
 
 public class OrderServiceImpl implements OrderService{
 	SqlSession sqlSession = DataSource.getInstance().openSession(true);
@@ -48,5 +49,22 @@ public class OrderServiceImpl implements OrderService{
 		// TODO Auto-generated method stub
 		return map.orderMemberMoney(vo);
 	}
+
+	@Override
+	public List<OrderVO2> orderSelectList2(OrderVO2 vo) {
+		// TODO Auto-generated method stub
+		return map.orderSelectList2(vo);
+	}
+
+	@Override
+	public int orderMemberNumber2(OrderVO2 vo) {
+		// TODO Auto-generated method stub
+		return map.orderMemberNumber2(vo);
+	}
 	
+	@Override
+	public int orderMemberMoney2(OrderVO2 vo) {
+		// TODO Auto-generated method stub
+		return map.orderMemberMoney2(vo);
+	}
 }

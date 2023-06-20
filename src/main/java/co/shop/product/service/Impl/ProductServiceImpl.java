@@ -85,6 +85,12 @@ public class ProductServiceImpl implements ProductService {
 		return null;
 	}
 
+	@Override
+	public List<ProductVO> recommendResult(String productKind, String productTaste, String productSparkling) {
+		// TODO Auto-generated method stub
+		return map.recommendResult(productKind, productTaste, productSparkling);
+	}
+
 	
 	
 }

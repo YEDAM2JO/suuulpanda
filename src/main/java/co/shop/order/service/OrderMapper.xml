@@ -10,14 +10,29 @@
 	WHERE member_id = #{memberId}
 	ORDER BY order_date
 </select>
+<resultMap id="orderResultMap" type="co.shop.order.service.OrderVO2">
+    <id property="orderId" column="order_id" />
+    <!-- 다른 컬럼 매핑들 -->
+</resultMap>
+<select id="orderSelectList2" resultMap="orderResultMap">
+    SELECT * FROM orders
+    WHERE member_id = #{memberId}
+    ORDER BY order_date
+</select>
 <select id="orderSelect">
 	SELECT max(order_id) FROM ordert
 </select>
 <select id="orderMemberNumber">
 	SELECT NVL(count(order_id),0) FROM ordert WHERE member_id = #{memberId} 
 </select>
+<select id="orderMemberNumber2">
+	SELECT COALESCE(count(order_id),0) FROM orders WHERE member_id = #{memberId} 
+</select>
 <select id="orderMemberMoney">
 	SELECT NVL(sum(order_total_price),0) FROM ordert WHERE member_id = #{memberId}
+</select>
+<select id="orderMemberMoney2">
+	SELECT COALESCE(sum(order_price),0) FROM orders WHERE member_id = #{memberId}
 </select>
 <insert id="orderInsert">
 	<selectKey keyProperty="orderId" resultType = "int" order="BEFORE">

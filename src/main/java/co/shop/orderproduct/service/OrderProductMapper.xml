@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.shop.orderproduct.service.OrderProductMapper">
+	<insert id="OrderProductInsert">
+		<selectKey keyProperty="cartId" resultType = "int" order="BEFORE">
+			select NVL(max(order_product_id), 0) +1 as orderProductId FROM order_product
+		</selectKey>
+		INSERT INTO order_product
+		VALUES(#{orderProductId}, #{orderId}, #{productName}, #{productCount}, #{productFee})
+	</insert>
+</mapper>

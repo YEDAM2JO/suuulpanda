@@ -64,7 +64,7 @@
 						<!-- 전체상품페이지 -->
 						<li class="nav-item"><a class="nav-link"
 							href="productList.do">전체상품</a></li>
-						<li class="nav-item"><a class="nav-link" href="#">술추천</a></li>
+						<li class="nav-item"><a class="nav-link" href="recommend.do">술추천</a></li>
 						<li class="nav-item"><a class="nav-link"
 							href="boardList.do?page=1">문의게시판</a></li>
 					</ul>

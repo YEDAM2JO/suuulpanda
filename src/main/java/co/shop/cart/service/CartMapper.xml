@@ -38,5 +38,18 @@
 	<delete id="cartMemberDelete">
 		DELETE FROM cart WHERE member_id = #{memberId}
 	</delete>
-	
+	<delete id="orderSuccessDelete">
+		DELETE FROM cart
+		WHERE cart_id IN
+		<foreach item="item" collection="cartIdArray" open="(" separator="," close=")">
+        	#{item}
+    	</foreach>
+	</delete>
+	<select id="paymentOrder" resultType="co.shop.cart.service.CartVO">
+		SELECT * FROM cart
+		WHERE cart_id IN
+	    <foreach item="item" collection="cartIdArray" open="(" separator="," close=")">
+        	#{item}
+    	</foreach>
+	</select>
 </mapper>

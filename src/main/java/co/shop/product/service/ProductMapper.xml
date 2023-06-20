@@ -4,14 +4,29 @@
 
 	<!-- 상품 조회 /전체/Kind/ (이진)-->
 	<select id="getProducts"
-		resultType="co.shop.product.service.ProductVO">
-		SELECT * FROM product
+		resultType="co.shop.product.service.ProductVO" parameterType="map">
+		SELECT *
+		FROM product
 		<where>
-        <if test="productKind != null and productKind != ''">
+        <if test="productKind != null and productKind != '전체'">
             AND product_kind = #{productKind}
         </if>
-    </where>
-		ORDER BY product_date DESC
+        </where>
+        <if test="productPrice == 2">
+        	ORDER BY product_price DESC
+        </if>
+        <if test="productPrice == 3">
+        	ORDER BY product_price 
+        </if>
+        
+        <if test= "productPrice == 0">
+        	ORDER BY product_date DESC
+        </if>
+        <if test="productPrice == 1">
+        	ORDER BY product_date DESC
+        </if>
+    
+		
 	</select>
 	
 

@@ -8,7 +8,7 @@ public interface ProductService {
 
 	List<ProductVO> getAllProductsMng();//관리자. product_id 오름차순으로 조회
 
-	List<ProductVO> getProducts(String productKind); //상품 조회 (이진)
+	List<ProductVO> getProducts(ProductVO vo); //상품 조회 (이진)
 	
 	List<ProductVO> getProductSaleList();//세일 상품 리스트 
 	

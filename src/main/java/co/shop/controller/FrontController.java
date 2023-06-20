@@ -54,7 +54,6 @@ import co.shop.product.command.ProductSelect;
 
 import co.shop.product.command.ProductSelectMng;
 
-import co.shop.product.command.ProductTraditional;
 
 
 

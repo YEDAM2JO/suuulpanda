@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,12 +29,13 @@
 			<c:forEach var="product" items="${products }">
 				<div class="col">
 					<div class="card shadow-sm">
-  						<img src="${product.productImgPath }" width="100%" height="100%"/>
-
+						<a href="productSelect.do?productId=${product.productId}">
+  							<img src="${pageContext.request.contextPath}/upload/${product.productImg}" width="100%" height="100%"/>
+						</a>
 						<div class="card-body" align="center">
 							<p class="card-text">${product.productName }</p>
 							<p class="card-text">${product.productKind }</p>
-							<p class="card-text">${product.productPrice }</p> 
+							<p class="card-text">가격 : <fmt:formatNumber value="${product.productPrice}" pattern="#,###원" /></p>
 						</div>
 					</div>
 				</div>

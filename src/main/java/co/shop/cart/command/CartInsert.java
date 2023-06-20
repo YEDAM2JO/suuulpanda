@@ -21,6 +21,8 @@ public class CartInsert implements Command {
 		vo.setProductFee(Integer.valueOf(request.getParameter("productFee")));
 		vo.setProductId(request.getParameter("productId"));
 		vo.setProductName(request.getParameter("productName"));
+		vo.setProductImg(request.getParameter("productImg"));
+
 		
 		CartVO voo = new CartVO();
 		voo = cs.cartSelect(vo);

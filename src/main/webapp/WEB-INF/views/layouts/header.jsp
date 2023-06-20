@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 	<style>
 	    .navbar-sm-brand {
 	        flex: 1; /* 동일한 공간을 차지하도록 설정 */

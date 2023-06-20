@@ -64,16 +64,16 @@
 				<ul class="list-unstyled templatemo-accordion">
 					<li class="pb-3"><a
 						class="collapsed d-flex justify-content-between h3 text-decoration-none"
-						href="productList.do"> 전체 상품 </a></li>
+						href="productList.do?productKind=전체">전체 상품</a></li>
 					<li class="pb-3"><a
 						class="collapsed d-flex justify-content-between h3 text-decoration-none"
-						href="productWine.do"> 와인 </a></li>
+						href="productList.do?productKind=와인">와인</a></li>
 					<li class="pb-3"><a
 						class="collapsed d-flex justify-content-between h3 text-decoration-none"
-						href="productTraditional.do"> 전통주 </a></li>
+						href="productList.do?productKind=전통주">전통주</a></li>
 					<li class="pb-3"><a
 						class="collapsed d-flex justify-content-between h3 text-decoration-none"
-						href="productBeer.do"> 맥주 </a></li>
+						href="productList.do?productKind=맥주">맥주</a></li>
 				</ul>
 			</div>
 

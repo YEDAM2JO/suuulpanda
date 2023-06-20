@@ -80,6 +80,12 @@ public class ProductServiceImpl implements ProductService {
 		return map.recommendResult(productKind, productTaste, productSparkling);
 	}
 
+	@Override
+	public int productSelectMax(ProductVO vo) {
+		// TODO Auto-generated method stub
+		return map.productSelectMax(vo);
+	}
+
 	
 	
 }

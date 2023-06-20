@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Param;
 
 public interface ProductMapper {
 	List<ProductVO> getProducts(ProductVO vo); //상품 조회 (이진)
-	
+	int productSelectMax(ProductVO vo);
 	List<ProductVO> getProductSaleList();//세일 상품 리스트 
 
 	List<ProductVO> getAllProductsMng();//관리자. product_id 오름차순으로 조회

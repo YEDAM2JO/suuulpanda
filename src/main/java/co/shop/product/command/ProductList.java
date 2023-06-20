@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.shop.common.Command;
+import co.shop.member.service.MemberService;
+import co.shop.member.service.MemberVO;
+import co.shop.member.service.Impl.MemberServiceImpl;
 import co.shop.product.service.ProductService;
 import co.shop.product.service.ProductVO;
 import co.shop.product.service.Impl.ProductServiceImpl;
@@ -20,7 +23,8 @@ public class ProductList implements Command {
         ProductVO vo = new ProductVO();
         
         vo.setProductKind(request.getParameter("productKind"));
-        //vo.setPage(Integer.valueOf(request.getParameter("page")));
+        
+        vo.setPage(Integer.valueOf(request.getParameter("page")));
         String str = request.getParameter("state");
         
         if(str != null) {
@@ -35,8 +39,26 @@ public class ProductList implements Command {
         	vo.setProductPrice(0);
         }
         List<ProductVO> products = ps.getProducts(vo);
-
         request.setAttribute("products", products);
+        int maxNum = ps.productSelectMax(vo);
+        
+        
+        int endPage = (int)Math.ceil(Integer.valueOf(request.getParameter("page"))*0.9) * 9	;
+		int realEnd = (int)Math.ceil(maxNum/(double)9);
+		request.setAttribute("startPage", 1);
+		if(realEnd < endPage) {
+			endPage = realEnd;
+		}
+		request.setAttribute("endPage", endPage);
+		request.setAttribute("realEnd", realEnd);
+		
+		
         return "product/productList";
+        
+        
+        
+
+		
+		
 	}
 }

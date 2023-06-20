@@ -180,11 +180,7 @@ input[type="image"] {
 				</div>
 				
 			</div>
-<<<<<<< HEAD
-			
 
-=======
->>>>>>> branch 'master' of https://github.com/YEDAM2JO/suuulpanda.git
 		</div>
 
 	</div>
@@ -203,36 +199,23 @@ input[type="image"] {
 			
 			if(url.search("&state") > 0){
 				url = url.substring(0,url.search("&state"));
-<<<<<<< HEAD
-				
-=======
 
->>>>>>> branch 'master' of https://github.com/YEDAM2JO/suuulpanda.git
 			}
-<<<<<<< HEAD
-			
-			
-			if(selectValue=='latest'){
-				url = url + "&state=A&page=1";
-			} else if(selectValue == 'high'){
-				url = url + "&state=H&page=1";
-			} else if(selectValue == 'low'){
-				url = url + "&state=L&page=1";
-=======
+
 
 			if (selectValue == 'latest') {
-				url = url + "&state=A";
+				url = url + "&state=A&page=1";
 			} else if (selectValue == 'high') {
-				url = url + "&state=H";
+				url = url + "&state=H&page=1";
 			} else if (selectValue == 'low') {
-				url = url + "&state=L";
->>>>>>> branch 'master' of https://github.com/YEDAM2JO/suuulpanda.git
+				url = url + "&state=L&page=1";
+
 			}
 
 			location.href = url;
 
 		}
-<<<<<<< HEAD
+
 		
 		function pageGo(num){
 			var url = window.location.href;
@@ -245,8 +228,7 @@ input[type="image"] {
 			location.href=url;
 		}
 		
-=======
->>>>>>> branch 'master' of https://github.com/YEDAM2JO/suuulpanda.git
+
 	</script>
 </body>
 </html>

@@ -78,18 +78,21 @@
 					<div class="col-md-6">
 						<ul class="list-inline shop-top-menu pb-3 pt-1">
 							<li class="list-inline-item">
-								<p>전체상품</p>
+								<p></p>
 							</li>
 						</ul>
 					</div>
 
 					<div class="col-md-6 pb-4">
 						<div class="d-flex justify-content-end">
-							<select class="form-control" id="sortOption" name="sortOption" onchange="this.form.submit()">
-								<option value="latest" selected>최신순</option>
-								<option value="high">높은 가격순</option>
-								<option value="low">낮은 가격순</option>
-							</select>
+							<form>
+								<select class="form-control" id="sortOption" name="sortOption"
+									onchange="this.form.submit()">
+									<option value="latest">최신순</option>
+									<option value="high">높은 가격순</option>
+									<option value="low">낮은 가격순</option>
+								</select>
+							</form>
 							<form action="searchProduct.do" method="GET" class="ml-2">
 								<input type="text" name="product_name" placeholder="전체 상품 검색" />
 								<input type="image" src="assets/img/search.png" alt="Submit" />

@@ -16,6 +16,7 @@
 <link rel="stylesheet" href="assets/css/fontawesome.min.css">
 <link rel="stylesheet" href="assets/css/cart.css">
 <style>
+
   form {
     display: flex;
     justify-content: flex-end;
@@ -46,10 +47,45 @@
   ::placeholder {
     font-size: 15px;
   }
+=======
+form {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	max-width: 300px;
+	margin-left: auto;
+	padding: 10px 15px;
+	background-color: #FFFFFF;
+	border-radius: 4px;
+	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+input[type="text"] {
+	flex-grow: 1;
+	height: 32px;
+	padding: 5px;
+	border-radius: 4px;
+	border: 1px solid #CCCCCC;
+	box-sizing: border-box;
+}
+
+input[type="image"] {
+	margin-left: 5px;
+	width: 24px;
+	height: 24px;
+	border: none;
+	background: transparent;
+	cursor: pointer;
+}
+
+::placeholder {
+	font-size: 15px;
+}
+
 </style>
 </head>
 <body>
-<div class="container py-5">
+	<div class="container py-5">
 		<div class="row">
 			<div class="col-lg-3">
 				<h1 class="h2 pb-4">Categories</h1>
@@ -80,8 +116,9 @@
 					<div class="col-md-6 pb-4">
 						<div class="d-flex justify-content-end">
 							<form>
-								<select class="form-control" id="sortOption" name="sortOption" onchange="changeOptionSelect()">
-								<option value="" selected disabled hidden>==선택하세요==</option>
+								<select class="form-control" id="sortOption" name="sortOption"
+									onchange="changeOptionSelect()">
+									<option value="" selected disabled hidden>==선택하세요==</option>
 									<option value="latest">최신순</option>
 									<option value="high">높은 가격순</option>
 									<option value="low">낮은 가격순</option>
@@ -98,7 +135,7 @@
 					<c:forEach items="${products }" var="p">
 						<div class="col-md-4">
 							<div class="card mb-4 product-wap rounded-0">
-							
+
 								<div class="card rounded-0">
 									<a href="productSelect.do?productId=${p.productId}"> <img
 										style="height: 370px; width: 303px;"
@@ -106,7 +143,7 @@
 										alt="상품이미지">
 									</a>
 								</div>
-								
+
 								<div class="card-body">
 									<a href="#" class="h3 text-decoration-none">${p.productName }</a>
 									<ul
@@ -148,12 +185,13 @@
 				</div>
 			</div>
 		</div>
-		
+
 	</div>
 	<script>
-		function changeOptionSelect(){
-			
+		function changeOptionSelect() {
+
 			var optionSelect = document.getElementById("sortOption");
+
 		    
 			    // select element에서 선택된 option의 value가 저장된다.
 			var selectValue = optionSelect.options[optionSelect.selectedIndex].value;
@@ -164,22 +202,20 @@
 			
 			if(url.search("&state") > 0){
 				url = url.substring(0,url.search("&state"));
+
 			}
-			
-			
-			if(selectValue=='latest'){
+
+			if (selectValue == 'latest') {
 				url = url + "&state=A";
-			} else if(selectValue == 'high'){
+			} else if (selectValue == 'high') {
 				url = url + "&state=H";
-			} else if(selectValue == 'low'){
+			} else if (selectValue == 'low') {
 				url = url + "&state=L";
 			}
-			
-			location.href=url;
-			
+
+			location.href = url;
+
 		}
-	
-		
 	</script>
 </body>
 </html>

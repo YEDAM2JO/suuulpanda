@@ -116,25 +116,7 @@
 	  WHERE product_name LIKE '%' || #{keyword} || '%'
 	</select>
 
-	<!-- 정렬하기 (이진)-->
-	<!-- 
-	<select id="getSortProduct" resultType="co.shop.product.service.ProductVO">
-    SELECT * FROM product
-    <if test="sortOption != null">
-        <choose>
-            <when test="sortOption.equals('latest')">
-                ORDER BY product_date DESC
-            </when>
-            <when test="sortOption.equals('high')">
-                ORDER BY product_price DESC
-            </when>
-            <when test="sortOption.equals('low')">
-                ORDER BY product_price ASC
-            </when>
-        </choose>
-    </if>
-	</select>
-	-->
+
 	<!-- 술추천조회 -->
 	<select id="recommendResult" resultType="co.shop.product.service.ProductVO">
 		SELECT * FROM product

@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 
 <html>
@@ -63,7 +64,22 @@
         padding: 5px;
         outline: none;
     }
-
+	.input__readonly {
+	    border: none;
+	    background-color: transparent;
+	    color: #333;
+	    padding: 5px;
+	    outline: none;
+	    width: 100%;
+	    text-align: center;
+	}
+	.cart__list__count {
+    	width: 50px; 
+    	font-size: 14px;
+    	text-align: center;
+    	border: none;
+    	outline: none;
+	}
 
 </style>
 
@@ -99,12 +115,12 @@
 			
 		<thead>
 	    <tr>
-	        <th width="50" class="cart__list__checkbox"> <!-- Reduce width to 50px -->
+	        <th width="50" class="cart__list__checkbox">
 	            <input type="checkbox" class="individual_cart_checkbox input_size_" onclick="checkAll(event)">
 	        </th>
-	        <th width="150">상품명</th>
-	        <th width="110">상품이미지</th>
-	        <th width="150">개수</th>
+	        <th width="90">상품이미지</th>
+	        <th width="200">상품명</th>
+	        <th width="50">개수</th>
 	        <th width="150">단가</th>
 	        <th width="150">총금액</th>
 	    </tr>
@@ -115,17 +131,25 @@
 			<c:set var = "sum" value = "0" />
 				<c:forEach items="${carts}" var="c">
 					<tr>
-						<td width="150" align="center" class="cartCheckbox"><input type="checkbox" value="${c.cartId }" name="checkBox">&nbsp;</td>
-						<td width="150" align="center"><input type="text" value="${c.productName}" readonly class="input__readonly"></td>
-						<td width="110" align="center">
+						<td align="center" class="cartCheckbox"><input type="checkbox" value="${c.cartId }" name="checkBox">&nbsp;</td>
+						<td align="center">
 							<a href="productSelect.do?productId=${c.productId}">
-							<img alt="상품이미지" src="${pageContext.request.contextPath}/upload/${c.productImg}" style="height: 150px;">
+							<img alt="상품이미지" src="${pageContext.request.contextPath}/upload/${c.productImg}" style="height: 170px;">
 							</a>
 						</td>
-						<td width="150" align="center"><input type='button' onclick='minus(${c.cartId}, ${c.productFee }, event)' value='-'/><input value="${c.productCount}" readonly ><input type='button' onclick='plus(${c.cartId}, ${c.productFee }, event)' value='+'/></td>
-						<td width="150" align="center">${c.productFee}</td>
+						<td align="center"><input type="text" value="${c.productName}" readonly class="input__readonly"></td>
+						<td align="center" class="cart__list__buttons">
+							<input type='button' onclick='minus(${c.cartId}, ${c.productFee }, event)' value='-'/>
+							<input value="${c.productCount}" readonly class="cart__list__count">
+							<input type='button' onclick='plus(${c.cartId}, ${c.productFee }, event)' value='+'/>
+						</td>
+						<td align="center" style="font-size: 18px;">
+							<fmt:formatNumber value="${c.productFee}" pattern="#,###원" />
+						</td>
 						<c:set var= "gob" value="${c.productCount * c.productFee}"/>
-						<td width="150" align="center">${gob }</td>
+						<td align="center" style="font-size: 18px;">
+							<fmt:formatNumber value="${gob }" pattern="#,###원" />
+						</td>
 					</tr>
 					<c:set var= "sum" value="${sum + c.productCount * c.productFee}"/>
 				</c:forEach>
@@ -141,7 +165,7 @@
 				</td>
 				<td colspan="5">
 					<div class="cart__list__total" align="center">
-						총 주문 금액 : <c:out value="${sum}"/>원
+						총 금액 : <fmt:formatNumber value="${sum}" pattern="#,###원" />
 					</div>
 				</td>
 			</tr>

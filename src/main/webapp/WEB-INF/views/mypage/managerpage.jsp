@@ -41,23 +41,6 @@
 </div><br><br><p>
 
 	<br><br>
-	<div align="center">
-	 <div class="col-sm-6 mb-3 mb-sm-0">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">판매내역(정산)</h5>
-        <p class="card-text">
-        <c:forEach items = "${member}" var = "m">
-					
-						하루 정산 금액 : <p>
-						어쩌고 저쩌고		
-								
-		</c:forEach></p>
-       </div>
-      </div>
-    </div>
-  </div>
-  <br><br>
 
 </section>
 

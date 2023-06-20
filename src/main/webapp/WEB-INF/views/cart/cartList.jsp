@@ -11,23 +11,58 @@
 		margin-bottom: 10px; /* 간격을 늘리고자 하는 값으로 조정 */
 	}
 	
-	.cart__list__total {
-		background-color: rgba(0, 0, 0, 0.1); /* 회색 불투명 네모 박스의 배경색 지정 */
-		padding: 10px; /* 박스 내부의 여백 설정 */
-		text-align: center; /* 텍스트 가운데 정렬 */
-		margin-top: 20px; /* 네모 박스와 line 사이의 간격 조정 */
-	}
-
-	.cart__list__total p {
-		margin: 0; /* 문단의 위아래 여백 제거 */
-	}
-
-	.cart__list__line {
-		border-top: 1px solid #ccc; /* line의 스타일 설정 */
-		margin-top: 20px; /* line 위쪽 간격 조정 */
-		margin-bottom: 20px; /* line 아래쪽 간격 조정 */
-	}
-
+    .cart__list {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    
+    .cart__list th,
+    .cart__list td {
+        padding: 10px;
+        text-align: center;
+        border: 1px solid #ccc;
+    }
+    
+    .cart__list thead th {
+        background-color: #f1f1f1;
+    }
+    
+    .cart__list .cart__list__image {
+        width: 150px;
+        height: 200px;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .cart__list .cart__list__image img {
+        width: 100%;
+        height: auto;
+        transition: transform 0.3s ease;
+    }
+    
+    .cart__list .cart__list__image:hover img {
+        transform: scale(1.1);
+    }
+    
+    .cart__list tfoot {
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+    
+    .cart__list tfoot td {
+        text-align: right;
+        padding: 10px;
+    }
+    
+    .cart__list__total p {
+        margin: 0;
+    }
+	.input__readonly {
+        border: 1px solid rgba(0, 0, 0, 0.3);
+        background-color: transparent;
+        color: #333;
+        padding: 5px;
+        outline: none;
+    }
 
 
 </style>
@@ -68,6 +103,7 @@
 	            <input type="checkbox" class="individual_cart_checkbox input_size_" onclick="checkAll(event)">
 	        </th>
 	        <th width="150">상품명</th>
+	        <th width="110">상품이미지</th>
 	        <th width="150">개수</th>
 	        <th width="150">단가</th>
 	        <th width="150">총금액</th>
@@ -80,8 +116,13 @@
 				<c:forEach items="${carts}" var="c">
 					<tr>
 						<td width="150" align="center" class="cartCheckbox"><input type="checkbox" value="${c.cartId }" name="checkBox">&nbsp;</td>
-						<td width="150" align="center"><input type="text" value="${c.productName}" readonly></td>
-						<td width="150" align="center"><input type='button' onclick='minus(${c.cartId}, ${c.productFee }, event)' value='-'/><input value="${c.productCount}" readonly><input type='button' onclick='plus(${c.cartId}, ${c.productFee }, event)' value='+'/></td>
+						<td width="150" align="center"><input type="text" value="${c.productName}" readonly class="input__readonly"></td>
+						<td width="110" align="center">
+							<a href="productSelect.do?productId=${c.productId}">
+							<img alt="상품이미지" src="${pageContext.request.contextPath}/upload/${c.productImg}" style="height: 150px;">
+							</a>
+						</td>
+						<td width="150" align="center"><input type='button' onclick='minus(${c.cartId}, ${c.productFee }, event)' value='-'/><input value="${c.productCount}" readonly ><input type='button' onclick='plus(${c.cartId}, ${c.productFee }, event)' value='+'/></td>
 						<td width="150" align="center">${c.productFee}</td>
 						<c:set var= "gob" value="${c.productCount * c.productFee}"/>
 						<td width="150" align="center">${gob }</td>
@@ -94,12 +135,13 @@
 		<tfoot>
 			<tr>
 				<td>
-					
-					<button class="cart__list__optionbtn" onclick="deleteItem()">선택상품 삭제</button>
+					<div class="cart__list__total" align="center">
+						<button class="cart__list__optionbtn" onclick="deleteItem()">선택상품 삭제</button>
+					</div>
 				</td>
-				<td>
-					<div class="cart__list__total">
-						총 주문 금액: <p id="sum2"><c:out value="${sum}"/> </p>
+				<td colspan="5">
+					<div class="cart__list__total" align="center">
+						총 주문 금액 : <c:out value="${sum}"/>원
 					</div>
 				</td>
 			</tr>

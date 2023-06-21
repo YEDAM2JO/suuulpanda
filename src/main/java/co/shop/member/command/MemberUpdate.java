@@ -22,7 +22,7 @@ public class MemberUpdate implements Command {
 		int i = ms.memberUpdate(vo);
 		System.out.println(i);
 		
-		return "managerUpdateMember.do";
+		return "managerUpdateMember.do?page=1";
 	}
 
 }

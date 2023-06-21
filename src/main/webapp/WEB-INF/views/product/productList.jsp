@@ -86,19 +86,23 @@ input[type="image"] {
     color: #000;
 }
 
-.hover10 figure img {
-  -webkit-filter: grayscale(0) blur(0);
-  filter: grayscale(0) blur(0);
+.hover01{
+	overflow: hidden;
+
+}
+.hover01 figure{
+	margin: 0;
+	padding: 0;
+}
+.hover01 figure img {
+  -webkit-transform: scale(1);
+  transform: scale(1);
   -webkit-transition: .3s ease-in-out;
   transition: .3s ease-in-out;
 }
-.hover10 figure{
-	margin : 0;
-	padding: 0;
-}
-.hover10 figure:hover img {
-  -webkit-filter: grayscale(100%) blur(3px);
-  filter: grayscale(100%) blur(3px);
+.hover01 figure:hover img {
+  -webkit-transform: scale(1.3);
+  transform: scale(1.3);
 }
 </style>
 </head>
@@ -154,7 +158,7 @@ input[type="image"] {
 						<div class="col-md-4">
 							<div class="card mb-4 product-wap rounded-0">
 
-								<div class="card rounded-0 hover10 column">
+								<div class="card rounded-0 hover01 column">
 									<a href="productSelect.do?productId=${p.productId}"><figure><img
 										style="height: 370px; width: 303px;"
 										src="${pageContext.request.contextPath}/upload/${p.productImg}"

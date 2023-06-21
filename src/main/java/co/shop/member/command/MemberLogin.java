@@ -1,5 +1,6 @@
 package co.shop.member.command;
 
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -22,6 +23,7 @@ public class MemberLogin implements Command {
 		
 		HttpSession session = request.getSession();
 		
+		
 		if(vo != null) {
 			session.setAttribute("id", vo.getMemberId());
 			session.setAttribute("name", vo.getMemberName());
@@ -30,6 +32,8 @@ public class MemberLogin implements Command {
 			session.setAttribute("errMsg", "로그인 정보가 올바르지 않습니다.");
 			return "member/Login";
 		}
+		
+		
 		
 	}
 

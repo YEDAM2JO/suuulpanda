@@ -23,4 +23,5 @@ public class ProductVO {
     private float productSalePercent;
     private int productSalePrice;
     private int page;
+    private double avgScore;
 }

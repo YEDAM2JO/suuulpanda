@@ -67,10 +67,7 @@
 		<ol class="carousel-indicators">
 			<li data-bs-target="#template-mo-zay-hero-carousel"
 				data-bs-slide-to="0" class="active"></li>
-			<li data-bs-target="#template-mo-zay-hero-carousel"
-				data-bs-slide-to="1"></li>
-			<li data-bs-target="#template-mo-zay-hero-carousel"
-				data-bs-slide-to="2"></li>
+		
 		</ol>
 		<div class="carousel-inner">
 
@@ -91,6 +88,7 @@
 					</div>
 				</div>
 			</div>
+
 		<!-- 	<div class="carousel-item">
 				<div class="">
 					<div class="">
@@ -129,20 +127,14 @@
                                     If you wish to support TemplateMo, please make a small contribution via PayPal or tell your friends about our website. Thank you.
                                 </p>
                                 -->
+
 		</div>
 	</div>
 	</div>
 	</div>
 	</div>
 	</div>
-	<a class="carousel-control-prev text-decoration-none w-auto ps-3"
-		href="#template-mo-zay-hero-carousel" role="button"
-		data-bs-slide="prev"> <i class="fas fa-chevron-left"></i>
-	</a>
-	<a class="carousel-control-next text-decoration-none w-auto pe-3"
-		href="#template-mo-zay-hero-carousel" role="button"
-		data-bs-slide="next"> <i class="fas fa-chevron-right"></i>
-	</a>
+	
 	</div>
 	<!-- End Banner Hero -->
 
@@ -151,11 +143,6 @@
 	<section class="container py-5">
 		<div class="row text-center pt-3">
 			<div class="col-lg-6 m-auto">
-
-
-
-
-
 				</p>
 				<h1 class="h1">카테고리</h1>
 

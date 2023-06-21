@@ -104,6 +104,8 @@ input[type="image"] {
   -webkit-transform: scale(1.3);
   transform: scale(1.3);
 }
+.rate{background: url(https://aldo814.github.io/jobcloud/html/images/user/star_bg02.png) no-repeat;width: 121px;height: 20px;position: relative;}
+.rate span{position: absolute;background: url(https://aldo814.github.io/jobcloud/html/images/user/star02.png);width: auto;height: 20px;}
 </style>
 </head>
 <body>
@@ -167,6 +169,9 @@ input[type="image"] {
 								</div>
 
 								<div class="card-body">
+								<div class="rate">
+        <span style="width: ${p.avgScore * 20}%"></span>
+    </div>
 									<a href="#" class="h3 text-decoration-none">${p.productName }</a>
 									<p>${p.productKind }</p>
 									<p class="text-center mb-0">

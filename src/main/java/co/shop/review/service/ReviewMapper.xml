@@ -4,6 +4,10 @@
 	<select id="reviewSelectList" resultType="co.shop.review.service.ReviewVO">
 		SELECT * FROM review WHERE product_id = #{productId} ORDER BY review_date
 	</select>
+	<select id="reviewAvg">
+		SELECT NVL(AVG(review_score),0) FROM review WHERE product_id = #{productId}
+	</select>
+	
 	<insert id="reviewInsert">
 	<selectKey keyProperty="reviewId" resultType = "int" order="BEFORE">
 			select NVL(max(review_id),0) +1 as reviewId FROM review	

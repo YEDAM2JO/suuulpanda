@@ -38,4 +38,10 @@ public class ReviewServiceImpl implements ReviewService {
 		return map.reviewDelete(vo);
 	}
 
+	@Override
+	public double reviewAvg(ReviewVO vo) {
+		// TODO Auto-generated method stub
+		return map.reviewAvg(vo);
+	}
+
 }

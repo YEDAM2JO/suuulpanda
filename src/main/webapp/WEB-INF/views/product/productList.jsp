@@ -81,6 +81,10 @@ input[type="image"] {
 ::placeholder {
 	font-size: 15px;
 }
+.pagination .page-link:hover, .pagination .page-link.active {
+    background-color: rgb(243, 243, 243);
+    color: #000;
+}
 
 </style>
 </head>
@@ -146,21 +150,7 @@ input[type="image"] {
 
 								<div class="card-body">
 									<a href="#" class="h3 text-decoration-none">${p.productName }</a>
-									<ul
-										class="w-100 list-unstyled d-flex justify-content-between mb-0">
-										<li>${p.productKind }</li>
-										<li class="pt-2"><span
-											class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
-											<span
-											class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
-											<span
-											class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
-											<span
-											class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
-											<span
-											class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
-										</li>
-									</ul>
+									<p>${p.productKind }</p>
 									<p class="text-center mb-0">
 										가격 :
 										<fmt:formatNumber value="${p.productPrice}" pattern="#,###원" />

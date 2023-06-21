@@ -308,7 +308,6 @@
         </c:otherwise>
     </c:choose>
 </c:forEach>
-                
                 <c:forEach items="${boards }" var="b">
                 	<tr onmouseover='this.style.background="#dadada";'
 						onmouseleave='this.style.background="#FFFFFF";' onclick="boardChois(${b.boardId},'${b.memberId }','${b.boardSecret}')">

@@ -87,8 +87,9 @@
 						class="fa fa-fw fa-search text-dark mr-2"></i>
 					</a>
 					-->
+							
 					
-
+	
 					<!--장바구니-->
 					<a class="nav-icon position-relative text-decoration-none"
 						href="cartList.do"> <i

@@ -53,6 +53,10 @@
   ::placeholder {
     font-size: 15px;
   }
+  .pagination .page-link:hover, .pagination .page-link.active {
+    background-color: rgb(243, 243, 243);
+    color: #000;
+}
 </style>
 </head>
 <body>
@@ -64,16 +68,16 @@
 				<ul class="list-unstyled templatemo-accordion">
 					<li class="pb-3"><a
 						class="collapsed d-flex justify-content-between h3 text-decoration-none"
-						href="productList.do?productKind=전체">전체 상품</a></li>
+						href="productList.do?productKind=전체&state=0&page=1">전체 상품</a></li>
 					<li class="pb-3"><a
 						class="collapsed d-flex justify-content-between h3 text-decoration-none"
-						href="productList.do?productKind=와인">와인</a></li>
+						href="productList.do?productKind=와인&state=0&page=1">와인</a></li>
 					<li class="pb-3"><a
 						class="collapsed d-flex justify-content-between h3 text-decoration-none"
-						href="productList.do?productKind=전통주">전통주</a></li>
+						href="productList.do?productKind=전통주&state=0&page=1">전통주</a></li>
 					<li class="pb-3"><a
 						class="collapsed d-flex justify-content-between h3 text-decoration-none"
-						href="productList.do?productKind=맥주">맥주</a></li>
+						href="productList.do?productKind=맥주&state=0&page=1">맥주</a></li>
 				</ul>
 			</div>
 
@@ -86,17 +90,6 @@
 							</li>
 						</ul>
 					</div>
-					<!-- 
-					<div class="col-md-6 pb-4">
-						<div class="d-flex">
-							<select class="form-control">
-								<option>최신순</option>
-								<option>높은 가격순</option>
-								<option>낮은 가격순</option>
-							</select>
-						</div>
-					</div>
-					 -->
 					<div class="col-md-6 pb-4">
 						<form action="searchProduct.do" method="GET">
 							<input type="text" name="product_name" placeholder="전체 상품 검색" />
@@ -118,21 +111,7 @@
 									</div>
 									<div class="card-body">
 										<a href="#" class="h3 text-decoration-none">${p.productName}</a>
-										<ul
-											class="w-100 list-unstyled d-flex justify-content-between mb-0">
-											<li>${p.productKind}</li>
-											<li class="pt-2"><span
-												class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
-												<span
-												class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
-												<span
-												class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
-												<span
-												class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
-												<span
-												class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
-											</li>
-										</ul>
+										<p>${p.productKind }</p>
 										<p class="text-center mb-0">
 											가격:
 											<fmt:formatNumber value="${p.productPrice}" pattern="#,###원" />
@@ -141,26 +120,15 @@
 								</div>
 							</div>
 						</c:forEach>
-					</div>
-					<div div="row">
-						<ul class="pagination pagination-lg justify-content-end">
-							<li class="page-item disabled"><a
-								class="page-link active rounded-0 mr-3 shadow-sm border-top-0 border-left-0"
-								href="#" tabindex="-1">1</a></li>
-							<li class="page-item"><a
-								class="page-link rounded-0 mr-3 shadow-sm border-top-0 border-left-0 text-dark"
-								href="#">2</a></li>
-							<li class="page-item"><a
-								class="page-link rounded-0 shadow-sm border-top-0 border-left-0 text-dark"
-								href="#">3</a></li>
-						</ul>
+						<c:if test="${empty searchResults}">
+						    <div class="col-md-12">
+						        <p>해당하는 상품이 없습니다.</p>
+						    </div>
+						</c:if>
 					</div>
 				</div>
-
 			</div>
 		</div>
-		<%-- 검색 결과가 없는 경우 --%>
-		
 		
 </body>
 </html>

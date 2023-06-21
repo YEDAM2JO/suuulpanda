@@ -1,6 +1,8 @@
 package co.shop.product.command;
 
+
 import java.util.List;
+
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -29,7 +31,11 @@ public class ProductSelect implements Command {
 		ReviewVO voo = new ReviewVO();
 		voo.setProductId(request.getParameter("productId"));
 		List<ReviewVO> reviews = rs.reviewSelectList(voo);
+		
+		
+		
 	
+		
 		request.setAttribute("reviews",	reviews);
 		return "product/productSelect";
 	}

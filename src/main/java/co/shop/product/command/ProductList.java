@@ -1,18 +1,17 @@
 package co.shop.product.command;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.shop.common.Command;
-import co.shop.member.service.MemberService;
-import co.shop.member.service.MemberVO;
-import co.shop.member.service.Impl.MemberServiceImpl;
 import co.shop.product.service.ProductService;
 import co.shop.product.service.ProductVO;
 import co.shop.product.service.Impl.ProductServiceImpl;
+import co.shop.review.service.ReviewService;
+import co.shop.review.service.ReviewVO;
+import co.shop.review.service.Impl.ReviewServiceImpl;
 
 public class ProductList implements Command {
 
@@ -39,6 +38,15 @@ public class ProductList implements Command {
         	vo.setProductPrice(0);
         }
         List<ProductVO> products = ps.getProducts(vo);
+        
+        ReviewService rs = new ReviewServiceImpl();
+        ReviewVO voo = new ReviewVO();
+        double avg = 0;
+        for(int i=0; i<products.size(); i++) {
+        	voo.setProductId(products.get(i).getProductId());
+        	avg = rs.reviewAvg(voo);
+        	products.get(i).setAvgScore(avg);
+        }
         request.setAttribute("products", products);
         int maxNum = ps.productSelectMax(vo);
         

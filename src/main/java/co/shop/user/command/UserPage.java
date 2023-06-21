@@ -1,5 +1,6 @@
 package co.shop.user.command;
 
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -24,6 +25,8 @@ public class UserPage implements Command {
 		
 		request.setAttribute("orderNum", orderNum);
 		request.setAttribute("orderMoney", orderMoney);
+		
+
 		
 		return "mypage/userpage";
 	}

@@ -138,44 +138,40 @@
 			<tr>
 				<td align = "center">${o.productName }</td>
 				<td align = "center">${o.productCount }</td>
-				<td align = "center"><div class="modal">
-      <div class="modal_body">
-      <form class="mb-3" name="myform" id="myform" method="post" action="reviewInsert.do">
-	<fieldset>
-		
-		<span class="text-bold">별점을 선택해주세요</span>
-		<input type="radio" name="reviewStar" value="5" id="rate1"><label
-			for="rate1">★</label>
-		<input type="radio" name="reviewStar" value="4" id="rate2"><label
-			for="rate2">★</label>
-		<input type="radio" name="reviewStar" value="3" id="rate3"><label
-			for="rate3">★</label>
-		<input type="radio" name="reviewStar" value="2" id="rate4"><label
-			for="rate4">★</label>
-		<input type="radio" name="reviewStar" value="1" id="rate5"><label
-			for="rate5">★</label>
-	</fieldset>
-	<div>
-		<textarea class="col-auto form-control" type="text" id="reviewContents" name="reviewContent"
-				  placeholder="리뷰를 적어주세요"></textarea>
-	</div>
-	<div>
-		<input type="hidden" id="productName" name="productName" value="${o.productName}">
-		<input type="hidden" id="reviewScore" name="reviewScore" value="">
-		<input type="hidden" id="orderId" name="orderId" value="${o.orderId }">
-	</div>
-	<button type="button" onclick="reviewInsert()">등록</button>
-	<button type="button" value="reset" onclick="closeModal()">취소</button>
-	</form>			
-      </div></div>
-    <button type="button" class="btn-open-popup btn-3">리뷰달기</button>
-    </td>
-     
-			</tr>
+				<td align = "center">
+					
+    					<button type="button" class="btn-open-popup btn-3" onclick="modalOn('${o.productName }','${o.orderId }')">리뷰달기</button>
+    				</td>
+				</tr>
 		</c:forEach>
 	</tbody>
 	</table>
 	</div>
+	<div class="modal">
+      					<div class="modal_body">
+      						<form class="mb-3" name="myform" id="myform" method="post" action="reviewInsert.do">
+								<fieldset>
+		
+									<span class="text-bold">별점을 선택해주세요</span>
+									<input type="radio" name="reviewStar" value="5" id="rate1"><label for="rate1">★</label>
+									<input type="radio" name="reviewStar" value="4" id="rate2"><label for="rate2">★</label>
+									<input type="radio" name="reviewStar" value="3" id="rate3"><label for="rate3">★</label>
+									<input type="radio" name="reviewStar" value="2" id="rate4"><label for="rate4">★</label>
+									<input type="radio" name="reviewStar" value="1" id="rate5"><label for="rate5">★</label>
+								</fieldset>
+							<div>
+								<textarea class="col-auto form-control" type="text" id="reviewContents" name="reviewContent"
+				  				placeholder="리뷰를 적어주세요"></textarea>
+							</div>
+							<div>
+								<input type="hidden" id="productName" name="productName" value="">
+								<input type="hidden" id="reviewScore" name="reviewScore" value="">
+								<input type="hidden" id="orderId" name="orderId" value="">
+							</div>
+							<button type="button" onclick="reviewInsert()">등록</button>
+							<button type="button" value="reset" onclick="closeModal()">취소</button>
+						</form>			
+      					</div></div>
 	<script>
 	const body = document.querySelector('body');
     const modal = document.querySelector('.modal');
@@ -208,10 +204,18 @@
     	let frm = document.getElementById("myform");
     	frm.submit();
     }
-    
+    function modalOn(name, id){
+    	let productName = document.getElementById("productName");
+    	productName.value = name;
+    	let orderId = document.getElementById("orderId");
+    	orderId.value = id;
+    	modal.style.display = "flex"
+    }
     function closeModal(){
     	modal.style.display = "none"
     }
+    
+    
 	</script>
 </body>
 </html>

@@ -139,9 +139,7 @@
 						</td>
 						<td align="center"><input type="text" value="${c.productName}" readonly class="input__readonly"></td>
 						<td align="center" class="cart__list__buttons">
-							<input type='button' onclick='minus(${c.cartId}, ${c.productFee }, event)' value='-'/>
-							<input value="${c.productCount}" readonly class="cart__list__count">
-							<input type='button' onclick='plus(${c.cartId}, ${c.productFee }, event)' value='+'/>
+							<input type='button' onclick='minus(${c.cartId}, ${c.productFee }, event)' value='-'/><input value="${c.productCount}" class="cart__list__count" readonly/><input type='button' onclick='plus(${c.cartId}, ${c.productFee }, event)' value='+'/>
 						</td>
 						<td align="center" style="font-size: 18px;">
 							<fmt:formatNumber value="${c.productFee}" pattern="#,###원" />
@@ -160,7 +158,7 @@
 			<tr>
 				<td>
 					<div class="cart__list__total" align="center">
-						<button class="cart__list__optionbtn" onclick="deleteItem()">선택상품 삭제</button>
+						<button type="button" class="cart__list__optionbtn" onclick="deleteItem()">선택상품 삭제</button>
 					</div>
 				</td>
 				<td colspan="5">
@@ -212,7 +210,8 @@
     	
     	function plus(id, price, event){
     		//앞단(수량, 총가격)
-    		let num = parseInt(event.target.previousSibling.value)+1;
+    		let num = parseInt(event.target.previousElementSibling.value)+1;
+			
 			
 			event.target.parentNode.nextSibling.nextSibling.nextSibling.nextSibling.textContent = price * num;
     		event.target.previousSibling.value = num;
@@ -230,32 +229,36 @@
     	}
     	
     	 function deleteItem(){
-             let ckb = document.querySelectorAll('input[type=checkbox]:checked');
+             let ckb = document.querySelectorAll('tbody input[type=checkbox]:checked');
           
              //기본 반복문
              for(var b of ckb){
+            	 let check =b;
             	 let id = b.value;
 				let url = "ajaxCartDelete.do?id=" + id;
                  
                  fetch(url)
                  	.then(response => response.text())
-                  	.then(text=>htmlProcess(text));
+                  	.then(text=>{
+                  		
+                  		check.parentNode.parentNode.remove();
+                  	 });
                  
                  
            
              }
              
              
-             for(var b of ckb){
+           //  for(var b= ckb.length-1; b>=0; b--){
                  
-                 b.parentNode.remove();
-             }
+           //      ckb[b].parentNode.parentNode.remove();
+           //  }
              
             
          }
     	 
     	 function checkAll(event){
-    		 let ckb = document.querySelectorAll('input[type=checkbox]');
+    		 let ckb = document.querySelectorAll('tbody input[type=checkbox]');
     		 
     		 for(let i = 0; i<ckb.length; i++){
     			 ckb[i].checked = event.target.checked;

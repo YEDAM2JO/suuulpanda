@@ -19,9 +19,7 @@ public class ReviewInsert implements Command {
 		ProductService ps = new ProductServiceImpl();
 		ProductVO vo = new ProductVO();
 		vo.setProductName(request.getParameter("productName"));
-		System.out.println(request.getParameter("productName"));
 		String productId = ps.productIdSelect(vo);
-		System.out.println(productId);
 		ReviewVO voo = new ReviewVO();
 		voo.setProductId(productId);
 		HttpSession session = request.getSession();

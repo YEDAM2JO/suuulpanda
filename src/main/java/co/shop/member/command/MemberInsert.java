@@ -25,7 +25,7 @@ public class MemberInsert implements Command {
 		String detailaddr=request.getParameter("sample6_detailAddress");
 		String extraaddr=request.getParameter("sample6_extraAddress");
 		vo.setMemberAddr("("+postcode+")"+addr+" "+detailaddr+extraaddr);
-		vo.setMemberGrade("1레벨");
+		vo.setMemberGrade("Y");
 		
 		int n = ms.memberInsert(vo);
 		

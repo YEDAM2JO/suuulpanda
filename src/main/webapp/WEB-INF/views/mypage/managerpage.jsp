@@ -1,13 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 	<style>
-	.container {
-		display: flex;
-		justify-content: center;
-	}
-
 	.container img {
 		flex: 1;
 		max-width:200px;
@@ -25,20 +21,24 @@
 </head>
 <body>
 
-<tiles:insertAttribute name="header"/>
+
 <section><br>
-	<div class="container">
+	<div class="container" align="center">
 		<a  href="productListMng.do"><img src="assets/img/005.png"></a>
 		<a  href="managerUpdateMember.do?page=1"><img src="assets/img/004.png"></a>
 		<a  href="managerBoard.do?page=1"><img src="assets/img/006.png"></a>
+
 			<a  href="productSaleMng.do"><img src="assets/img/매출.png"></a>
-</div><br><br><p>
+
+
+</div><br><br><h2 align = "center">
+오늘의 판매 금액 : 
+				<fmt:formatNumber value="${totalMoney }" pattern="#,###원" /></h2>
 
 	<br><br>
 
 </section>
 
-<tiles:insertAttribute name="footer"/>
 
 </body>
 </html>

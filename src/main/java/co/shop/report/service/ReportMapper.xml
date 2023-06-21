@@ -5,7 +5,7 @@
 	<select id="getAllReports" resultType="co.shop.report.service.ReportVO">
 	   	SELECT *
 		FROM (SELECT ROWNUM rn, b.*
-			FROM(SELECT * FROM reports) b )
+			FROM(SELECT * FROM reports ORDER BY report_date) b )
 		WHERE rn BETWEEN ((#{page}-1) * 5) + 1
 			AND (#{page} * 5)
 	</select>

@@ -187,9 +187,10 @@
 						style="max-width: 100%; height: 300px;">
 					</a>
 				</div>
-				<h2 class="h5 text-center mt-3 mb-3">전통주</h2>
+				<h2 class="h5 text-center mt-3 mb-3" >전통주</h2>
 				<p class="text-center" style="color:#000;">
 				    <a href="productList.do?productKind=전통주&state=0&page=1" class="btn btn-success" style="color: black;">구매하기</a>
+
 				</p>
 			</div>
 

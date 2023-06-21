@@ -40,4 +40,15 @@
 	</selectKey>
 	INSERT INTO ordert VALUES(#{orderId}, #{memberId}, sysdate, #{orderTotalPrice})
 </insert>
+<!--  회원별매출 조회-->
+	<select id="getAllSalesMng" resultType="co.shop.order.service.OrderVO2">
+ SELECT member_id  ,SUM(order_price) as order_price
+FROM orders
+GROUP BY member_id
+order by 2 desc 
+
+<!-- select member_id, order_price
+from orders
+order by member_id -->
+	</select>
 </mapper>

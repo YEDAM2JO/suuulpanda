@@ -27,9 +27,14 @@
 		<a  href="productListMng.do"><img src="assets/img/005.png"></a>
 		<a  href="managerUpdateMember.do?page=1"><img src="assets/img/004.png"></a>
 		<a  href="managerBoard.do?page=1"><img src="assets/img/006.png"></a>
+
+			<a  href="productSaleMng.do"><img src="assets/img/매출.png"></a>
+
+
 </div><br><br><h2 align = "center">
 오늘의 판매 금액 : 
 				<fmt:formatNumber value="${totalMoney }" pattern="#,###원" /></h2>
+
 	<br><br>
 
 </section>

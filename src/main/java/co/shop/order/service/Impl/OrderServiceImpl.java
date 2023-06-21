@@ -67,4 +67,10 @@ public class OrderServiceImpl implements OrderService{
 		// TODO Auto-generated method stub
 		return map.orderMemberMoney2(vo);
 	}
+	
+	@Override
+	   public List<OrderVO2> getAllSalesMng() {
+	      // TODO Auto-generated method stub
+	      return map.getAllSalesMng();
+	   }
 }

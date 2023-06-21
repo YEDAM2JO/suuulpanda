@@ -386,23 +386,23 @@ body {
               <form id="frm" action="memberInsert.do" onsubmit = "return formCheck()" method="post">
                 <div class="input-group">
                   <i class='bx bxs-user'></i>
-                  <input type="text" id="memberId" name="memberId" placeholder="Username">
+                  <input type="text" id="memberId" name="memberId" placeholder="Username" required>
                   <span class='button'>
                   
-					<button type="button" id="checkId" value="No" onclick="idCheck()">중복체크</button>
+					<button type="button" id="checkId" value="No" onclick="idCheck()" required>중복체크</button>
 				  </span>
                 </div>
                 <div class="input-group">
                   <i class='bx bxs-lock-alt'></i>
-                  <input type="password" id="memberPassword" name="memberPassword" placeholder="Password">
+                  <input type="password" id="memberPassword" name="memberPassword" placeholder="Password" required>
                 </div>
                 <div class="input-group">
                   <i class='bx bxs-lock-alt'></i>
-                  <input type="password" id="passwordCheck" name="passwordCheck" placeholder="Confirm password">
+                  <input type="password" id="passwordCheck" name="passwordCheck" placeholder="Confirm password" required>
                 </div>
                 <div class="input-group">
                     <i class='bx bxs-name'></i>
-                    <input type="text" id="memberName" name="memberName" placeholder="Name">
+                    <input type="text" id="memberName" name="memberName" placeholder="Name" required>
                 </div>
                 <div class="input-group">
                     <i class='bx bxs-tel'></i>

@@ -28,7 +28,7 @@
 	
 	<insert id="memberInsert">
 		INSERT INTO member
-		VALUES(#{memberId}, #{memberPw}, #{memberName}, #{memberAddr}, #{memberTel}, '1레벨')
+		VALUES(#{memberId}, #{memberPw}, #{memberName}, #{memberAddr}, #{memberTel}, 'Y')
 	</insert>
 	
 	<update id = "memberUpdate" parameterType = "co.shop.member.service.MemberVO"> <!-- 구현체가 이거 -->
@@ -44,20 +44,17 @@
 		
 		WHERE member_id = #{memberId}
 	</update>
-	
-
-	<!--회원 탈퇴
-	<delete id="memberDelete" parameterType="co.shop.member.service.MemberVO">
-	  DELETE FROM member
-	  WHERE member_id = #{memberId}
-	</delete> -->
 
 	<!-- 회원 탈퇴 -->
-	<delete id="memberDelete" parameterType="java.lang.String">
-	  DELETE FROM member
-	   WHERE member_id = #{memberId} 
-	     and member_pw =#{memberPw}
-	</delete>
+	<update id="memberDelete" parameterType="java.lang.String">
+	  UPDATE member
+		  SET member_pw = NULL,
+		      member_name = NULL,
+		      member_addr = NULL,
+		      member_tel = NULL,
+		      member_grade = 'N'
+		WHERE member_id = #{memberId}
+	</update>
 		
 	
 	<!-- 비밀번호 일치 여부 확인 -->

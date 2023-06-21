@@ -27,7 +27,8 @@
 		<a  href="productListMng.do"><img src="assets/img/005.png"></a>
 		<a  href="managerUpdateMember.do?page=1"><img src="assets/img/004.png"></a>
 		<a  href="managerBoard.do?page=1"><img src="assets/img/006.png"></a>
-		<a  href="productSaleMng.do"><img src="assets/img/매출.png"></a>
+
+			<a  href="productSaleMng.do"><img src="assets/img/매출관리1.jpg"></a>
 
 
 </div><br><br><h2 align = "center">

@@ -88,6 +88,46 @@
 					</div>
 				</div>
 			</div>
+
+		<!-- 	<div class="carousel-item">
+				<div class="">
+					<div class="">
+						<div
+							class="order-lg d-flex justify-content-center align-items-center">
+							<img class="mx-auto" src="./assets/img/스타워즈탁주.png" alt=""
+								style="object-fit: contain; width:100%; height: 600px;">
+						</div>
+						<div class="col-lg-12 mb-0 d-flex align-items-center">
+							<div class="text-align-left"></div>
+						</div>
+					</div>
+				</div>
+			</div> -->
+			<!-- <div class="carousel-item">
+				<div class="">
+					<div class="">
+
+						<div
+							class="order-lg d-flex justify-content-center align-items-center">
+							<img class="mx-auto" src="./assets/img/와인.jpeg" alt=""
+								style="object-fit: contain; width: 1000px; height:600px;">
+
+						</div>
+						<div class="col-lg-12 mb-0 d-flex align-items-center">
+							<div class="text-align-left"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+                                <h1 class="h1">Repr in voluptate</h1>
+                                <h3 class="h2">Ullamco laboris nisi ut </h3>
+                                <p>
+                                    We bring you 100% free CSS templates for your websites.
+                                    If you wish to support TemplateMo, please make a small contribution via PayPal or tell your friends about our website. Thank you.
+                                </p>
+                                -->
+
 		</div>
 	</div>
 	</div>

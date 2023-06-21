@@ -292,22 +292,22 @@
                 <tbody>
                 
 		       <c:forEach items="${boards }" var="b" varStatus="status">
-    <c:choose>
-        <c:when test="${b.memberId == 'manager'}">
-            <tr onmouseover='this.style.background="#dadada";'
-                onmouseleave='this.style.background="#FFFFFF";' onclick="boardChois(${b.boardId},'${b.memberId }','${b.boardSecret}')">
-                <td>${b.boardId }</td>
-                 <td><h5 style="text-decoration: underline;">${b.boardTitle }</h5></td>
-                <td>${b.memberId }</td>
-                <td>${b.boardDate }</td>
-                <td>${b.boardHit }</td>
-            </tr>
-        </c:when>
-        <c:otherwise>
-            <!-- 'manager'가 아닌 회원의 글은 이 부분에서 처리 -->
-        </c:otherwise>
-    </c:choose>
-</c:forEach>
+				    <c:choose>
+				        <c:when test="${b.memberId == 'manager'}">
+				            <tr onmouseover='this.style.background="#dadada";'
+				                onmouseleave='this.style.background="#FFFFFF";' onclick="boardChois(${b.boardId},'${b.memberId }','${b.boardSecret}')">
+				                <td>${b.boardId }</td>
+				                 <td><h5 style="text-decoration: underline;">${b.boardTitle }</h5></td>
+				                <td>${b.memberId }</td>
+				                <td>${b.boardDate }</td>
+				                <td>${b.boardHit }</td>
+				            </tr>
+				        </c:when>
+				        <c:otherwise>
+				            <!-- 'manager'가 아닌 회원의 글은 이 부분에서 처리 -->
+				        </c:otherwise>
+				    </c:choose>
+				</c:forEach>
                 
                 <c:forEach items="${boards }" var="b">
                 	<tr onmouseover='this.style.background="#dadada";'

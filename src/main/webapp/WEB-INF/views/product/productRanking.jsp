@@ -11,7 +11,6 @@
 <link rel="stylesheet" href="assets/css/fontawesome.min.css">
 <link rel="stylesheet" href="assets/css/cart.css">
 
-
 <style>
     .hover-row:nth-child(1) {
         background-color: red;
@@ -43,53 +42,41 @@
 </style>
 </head>
 <body>
-
 <jsp:include page="productmenu1.jsp" />
 
-<div align="center">
+<!--제품 판매 순위  -->
 
-	<div>
-		<h1>회원별 구입 총액 순위</h1>
-	</div>
-	<div>
-		<table border="1">
-			<thead>
-				<tr>
-					<th width="100">순위</th>
-					<th width="100">회원아이디</th>
-					<th width="200">구입총액</th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach items="${orders}" var="o" varStatus="status">
-					  <tr onmouseover="this.classList.add('hover-row');" 
+ <div align="center">
+<br>
+   <div>
+      <h1>제품별 판매 순위</h1>
+   </div>
+   <div>
+      <table border="1">
+         <thead>
+            <tr>
+               <th width="100">순위</th>
+               <th width="100">제품명</th>
+               <th width="200">총 매출</th>
+            </tr>
+         </thead>
+         <tbody>
+            <c:forEach items="${orders}" var="o" varStatus="status">
+               <tr onmouseover="this.classList.add('hover-row');" 
                   onmouseleave="this.classList.remove('hover-row');" 
-						onclick="orderChois('${o.memberId}')" >
-						<td align="center">${status.index + 1}</td>
-						<td align="center">${o.memberId}</td>
-						<td align="center">${o.orderPrice}</td>
-					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
-	</div>
-	<br>
+                  onclick="orderChois('${o.productName}')" >
+                  <td align="center">${status.index + 1}</td>
+                  <td align="center">${o.productName}</td>
+                  <td align="center">${o.productCount}</td>
+               </tr>
+            </c:forEach>
+         </tbody>
+      </table>
+   </div>
+   <br>
 </div>
 
-<!-- <script type="text/javascript">
- 	function orderChois(id) {
-		let frm = document.createElement("form");
-		frm.action = "productSelectMng.do";
-		frm.method = "post";
-		let productId = document.createElement("input");
-		productId.type = "hidden";
-		productId.name = "productId";
-		productId.value = id;
-		frm.appendChild(productId);
-		document.body.appendChild(frm);
-		frm.submit();
-	} 
-</script> -->
+
 
 
 </body>

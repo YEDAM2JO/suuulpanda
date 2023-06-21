@@ -42,6 +42,7 @@ import co.shop.order.command.AjaxOrderInsert;
 import co.shop.order.command.OrderPage;
 import co.shop.order.command.ProductSaleMng;
 import co.shop.orderDetail.command.AjaxOrderDetailInsert;
+import co.shop.orderDetail.command.ProductRanking;
 import co.shop.payment.command.DepositMessage;
 import co.shop.payment.command.paymentOrder;
 import co.shop.member.command.AjaxSearchPw;
@@ -179,6 +180,7 @@ public class FrontController extends HttpServlet {
 		map.put("/productUpdate.do", new ProductUpdate());
 		map.put("/productDelete.do", new ProductDelete());
 		map.put("/productSaleMng.do", new ProductSaleMng());// 고객별 매출
+		map.put("/productRanking.do", new ProductRanking());//제품별 매출
 		//map.put("/productSaleList.do", new ProductSaleList());// 특가상품 리스트 조회
 		
 
@@ -228,6 +230,7 @@ public class FrontController extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		String uri= request.getRequestURI();
 		String contextPath = request.getContextPath();
+		System.out.println(contextPath+"------------------------");
 		String page = uri.substring(contextPath.length());
 		Command command = map.get(page);
 		String viewPage = command.exec(request, response);

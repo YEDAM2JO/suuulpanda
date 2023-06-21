@@ -40,6 +40,7 @@ import co.shop.member.command.AjaxMemberDelete;
 import co.shop.member.command.MemberUpdate;
 import co.shop.order.command.AjaxOrderInsert;
 import co.shop.order.command.OrderPage;
+import co.shop.order.command.ProductSaleMng;
 import co.shop.orderDetail.command.AjaxOrderDetailInsert;
 import co.shop.payment.command.DepositMessage;
 import co.shop.payment.command.paymentOrder;
@@ -177,6 +178,7 @@ public class FrontController extends HttpServlet {
 		map.put("/productEdit.do", new ProductEdit());
 		map.put("/productUpdate.do", new ProductUpdate());
 		map.put("/productDelete.do", new ProductDelete());
+		map.put("/productSaleMng.do", new ProductSaleMng());// 고객별 매출
 		//map.put("/productSaleList.do", new ProductSaleList());// 특가상품 리스트 조회
 		
 

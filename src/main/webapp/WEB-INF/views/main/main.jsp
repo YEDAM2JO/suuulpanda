@@ -166,7 +166,7 @@
 				class="col-12 col-md-4 p-5 mt-3 d-flex flex-column justify-content-between">
 				<div class="text-center">
 					<a
-						href="http://localhost/meddle/productList.do?productKind=%EC%99%80%EC%9D%B8">
+						href="http://localhost/meddle/productList.do?productKind=%EC%99%80%EC%9D%B8&state=0&page=1">
 						<img src="./assets/img/다나 에스테이트 바소 카베르네 소비뇽.png"
 						class="rounded-circle img-fluid border"
 						style="max-width: 100%; height: 300px;">
@@ -174,7 +174,7 @@
 				</div>
 				<h5 class="text-center mt-3 mb-3">와인</h5>
 				<p class="text-center" style="color:#000;">
-				    <a class="btn btn-success" style="color: black;">구매하기</a>
+				    <a class="btn btn-success" style="color: black;" href="http://localhost/meddle/productList.do?productKind=%EC%99%80%EC%9D%B8&state=0&page=1">구매하기</a>
 				</p>
 			</div>
 
@@ -182,15 +182,15 @@
 				class="col-12 col-md-4 p-5 mt-3 d-flex flex-column justify-content-between">
 				<div class="text-center">
 					<a
-						href="http://localhost/meddle/productList.do?productKind=%EC%A0%84%ED%86%B5%EC%A3%BC">
+						href="http://localhost/meddle/productList.do?productKind=%EC%A0%84%ED%86%B5%EC%A3%BC&state=0&page=1">
 						<img src="./assets/img/조선3대명주 감홍로.png"
 						class="rounded-circle img-fluid border"
 						style="max-width: 100%; height: 300px;">
 					</a>
 				</div>
-				<h2 class="h5 text-center mt-3 mb-3">전통주</h2>
+				<h2 class="h5 text-center mt-3 mb-3" >전통주</h2>
 				<p class="text-center" style="color:#000;">
-				    <a class="btn btn-success" style="color: black;">구매하기</a>
+				    <a class="btn btn-success" style="color: black;" href="http://localhost/meddle/productList.do?productKind=%EC%A0%84%ED%86%B5%EC%A3%BC&state=0&page=1"  >구매하기</a>
 				</p>
 			</div>
 
@@ -198,7 +198,7 @@
 				class="col-12 col-md-4 p-5 mt-3 d-flex flex-column justify-content-between">
 				<div class="text-center">
 					<a
-						href="http://localhost/meddle/productList.do?productKind=%EB%A7%A5%EC%A3%BC">
+						href="http://localhost/meddle/productList.do?productKind=%EC%A0%84%ED%86%B5%EC%A3%BC&state=0&page=1">
 
 						<img src="./assets/img/아사히맥주.png"
 						class="rounded-circle img-fluid border"
@@ -209,7 +209,7 @@
 				</div>
 				<h2 class="h5 text-center mt-3 mb-3">맥주</h2>
 				<p class="text-center" style="color:#000;">
-				    <a class="btn btn-success" style="color: black; ">구매하기</a>
+				    <a class="btn btn-success" style="color: black; " href="http://localhost/meddle/productList.do?productKind=%EB%A7%A5%EC%A3%BC&state=0&page=1">구매하기</a>
 				</p>
 			</div>
 		</div>

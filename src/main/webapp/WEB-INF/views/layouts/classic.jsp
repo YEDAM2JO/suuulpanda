@@ -19,7 +19,7 @@
 <tiles:insertAttribute name="header"/>
 <body>
 	
-	<div style="min-height: 400px">
+	<div class="container" style="min-height: 400px">
 		<tiles:insertAttribute name="body"/>
 	</div>
 	

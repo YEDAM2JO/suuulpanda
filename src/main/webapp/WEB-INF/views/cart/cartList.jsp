@@ -145,9 +145,7 @@
 							<fmt:formatNumber value="${c.productFee}" pattern="#,###원" />
 						</td>
 						<c:set var= "gob" value="${c.productCount * c.productFee}"/>
-						<td align="center" style="font-size: 18px;">
-							<fmt:formatNumber value="${gob }" pattern="#,###원" />
-						</td>
+						<td align="center" style="font-size: 18px;"><fmt:formatNumber value="${gob }" pattern="#,###원" /></td>
 					</tr>
 					<c:set var= "sum" value="${sum + c.productCount * c.productFee}"/>
 				</c:forEach>
@@ -230,13 +228,14 @@
     	
     	 function deleteItem(){
              let ckb = document.querySelectorAll('tbody input[type=checkbox]:checked');
-          
+             let sum2 = document.getElementById("sum2");
+             
              //기본 반복문
              for(var b of ckb){
             	 let check =b;
             	 let id = b.value;
 				let url = "ajaxCartDelete.do?id=" + id;
-                 
+				sum2.textContent = sum2.textContent - b.parentNode.lastElementChild.firstElementChild;
                  fetch(url)
                  	.then(response => response.text())
                   	.then(text=>{

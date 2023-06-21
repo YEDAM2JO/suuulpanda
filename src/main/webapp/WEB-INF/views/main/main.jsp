@@ -21,6 +21,7 @@
 <link rel="stylesheet" href="assets/css/custom.css">
 <link rel="stylesheet" href="assets/css/main-timer.css">
 
+
 <!-- Load fonts style after rendering the layout styles -->
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
@@ -66,21 +67,18 @@
 		<ol class="carousel-indicators">
 			<li data-bs-target="#template-mo-zay-hero-carousel"
 				data-bs-slide-to="0" class="active"></li>
-			<li data-bs-target="#template-mo-zay-hero-carousel"
-				data-bs-slide-to="1"></li>
-			<li data-bs-target="#template-mo-zay-hero-carousel"
-				data-bs-slide-to="2"></li>
+		
 		</ol>
 		<div class="carousel-inner">
 
 
 			<div class="carousel-item active">
-				<div class="container">
+				<div class="">
 					<div class="">
 						<div
 							class="order-lg d-flex justify-content-center align-items-center">
 							<img class="mx-auto" src="./assets/img/우주맥주.jpg" alt=""
-								style="object-fit: cover; width: 100%; height: 500px;">
+								style="object-fit: cover; width: 100%; height: 600px;">
 						</div>
 						<div class="col-lg-12 mb-0 d-flex align-items-center">
 							<div class="text-align-left align-self-center">
@@ -90,58 +88,13 @@
 					</div>
 				</div>
 			</div>
-			<div class="carousel-item">
-				<div class="container">
-					<div class="">
-						<div
-							class="order-lg d-flex justify-content-center align-items-center">
-							<img class="mx-auto" src="./assets/img/스타워즈탁주.png" alt=""
-								style="object-fit: contain; width: auto; height: 500px;">
-						</div>
-						<div class="col-lg-12 mb-0 d-flex align-items-center">
-							<div class="text-align-left"></div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="carousel-item">
-				<div class="container">
-					<div class="">
-
-						<div
-							class="order-lg d-flex justify-content-center align-items-center">
-							<img class="mx-auto" src="./assets/img/와인.jpeg" alt=""
-								style="object-fit: contain; width: auto; height: 500px;">
-
-						</div>
-						<div class="col-lg-12 mb-0 d-flex align-items-center">
-							<div class="text-align-left"></div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!--  
-                                <h1 class="h1">Repr in voluptate</h1>
-                                <h3 class="h2">Ullamco laboris nisi ut </h3>
-                                <p>
-                                    We bring you 100% free CSS templates for your websites. 
-                                    If you wish to support TemplateMo, please make a small contribution via PayPal or tell your friends about our website. Thank you.
-                                </p>
-                                -->
 		</div>
 	</div>
 	</div>
 	</div>
 	</div>
 	</div>
-	<a class="carousel-control-prev text-decoration-none w-auto ps-3"
-		href="#template-mo-zay-hero-carousel" role="button"
-		data-bs-slide="prev"> <i class="fas fa-chevron-left"></i>
-	</a>
-	<a class="carousel-control-next text-decoration-none w-auto pe-3"
-		href="#template-mo-zay-hero-carousel" role="button"
-		data-bs-slide="next"> <i class="fas fa-chevron-right"></i>
-	</a>
+	
 	</div>
 	<!-- End Banner Hero -->
 
@@ -150,11 +103,6 @@
 	<section class="container py-5">
 		<div class="row text-center pt-3">
 			<div class="col-lg-6 m-auto">
-
-
-
-
-
 				</p>
 				<h1 class="h1">카테고리</h1>
 
@@ -338,16 +286,16 @@
 	
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=fc7464d2a4e6a63b76c439cbe264d159"></script>
 	<script>
-	var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-    mapOption = { 
+	var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+    mapOption = {
         center: new kakao.maps.LatLng(35.86906775230762, 128.59328274668462), // 지도의 중심좌표
         level: 3 // 지도의 확대 레벨
     };
 
 var map = new kakao.maps.Map(mapContainer, mapOption);
 
-// 마커가 표시될 위치입니다 
-var markerPosition  = new kakao.maps.LatLng(35.86906775230762, 128.59328274668462); 
+// 마커가 표시될 위치입니다
+var markerPosition  = new kakao.maps.LatLng(35.86906775230762, 128.59328274668462);
 
 // 마커를 생성합니다
 var marker = new kakao.maps.Marker({
@@ -361,12 +309,12 @@ var iwContent = '<div style="padding:5px;">술판다 동성로점<br><a href="ht
 
 // 인포윈도우를 생성합니다
 var infowindow = new kakao.maps.InfoWindow({
-    position : iwPosition, 
-    content : iwContent 
+    position : iwPosition,
+    content : iwContent
 });
-  
+ 
 // 마커 위에 인포윈도우를 표시합니다. 두번째 파라미터인 marker를 넣어주지 않으면 지도 위에 표시됩니다
-infowindow.open(map, marker); 
+infowindow.open(map, marker);
 	</script>
 	</div><br>
 	
@@ -382,7 +330,7 @@ infowindow.open(map, marker);
 		</script>
 
 	</div>
-	 
+	
 
 </body>
 

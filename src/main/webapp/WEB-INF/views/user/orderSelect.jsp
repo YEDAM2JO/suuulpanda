@@ -83,6 +83,48 @@
     font-size: 16px;
     resize: none;
 }
+#tableStyle body {
+  color: #666;
+  font: 14px/24px "Open Sans", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", Sans-Serif;
+}
+#tableStyle table {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 70%;
+}
+#tableStyle th,
+#tableStyle td {
+  padding: 6px 15px;
+}
+#tableStyle th {
+  background: #42444e;
+  color: #fff;
+  text-align: left;
+}
+#tableStyle tr:first-child th:first-child {
+  border-top-left-radius: 6px;
+}
+#tableStyle tr:first-child th:last-child {
+  border-top-right-radius: 6px;
+}
+#tableStyle td {
+  border-right: 1px solid #c6c9cc;
+  border-bottom: 1px solid #c6c9cc;
+}
+#tableStyle td:first-child {
+  border-left: 1px solid #c6c9cc;
+}
+#tableStyle tr:nth-child(even) td {
+  background: #eaeaed;
+}
+#tableStyle tr:last-child td:first-child {
+  border-bottom-left-radius: 6px;
+}
+#tableStyle tr:last-child td:last-child {
+  border-bottom-right-radius: 6px;
+}
+
+
 </style>
 <title>Insert title here</title>
 <link rel="apple-touch-icon" href="assets/img/apple-icon.png">
@@ -95,14 +137,14 @@
     <link rel="stylesheet" href="assets/css/fontawesome.min.css">
 </head>
 <body>
-	<div align = "center">
+	<div id="tableStyle" align = "center">
 	<div><h1>고객 주문 상세 페이지</h1></div>
 	<table border="1">
 	<thead>
 		<tr>
 			<th width="150">제품명</th>
 			<th width="150">수량</th>
-			<th width="150">버튼</th>
+			<th width="150">리뷰</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -137,10 +179,10 @@
 		<input type="hidden" id="orderId" name="orderId" value="${o.orderId }">
 	</div>
 	<button type="button" onclick="reviewInsert()">등록</button>
-	<button type="button" value="reset">취소</button>
+	<button type="button" value="reset" onclick="closeModal()">취소</button>
 	</form>			
       </div></div>
-    <button type="button" class="btn-open-popup">리뷰달기</button>
+    <button type="button" class="btn-open-popup btn-3">리뷰달기</button>
     </td>
      
 			</tr>
@@ -179,6 +221,10 @@
     	
     	let frm = document.getElementById("myform");
     	frm.submit();
+    }
+    
+    function closeModal(){
+    	modal.style.display = "none"
     }
 	</script>
 </body>

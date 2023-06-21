@@ -37,6 +37,73 @@
         tr:hover {
             background-color: #dfdfdf;
         }
+        .page-nation li{ 
+
+    list-style: none;
+
+} 
+
+ 
+
+.page-wrap {
+
+    text-align:center;
+
+    font-size:0;
+
+ }
+
+.page-nation  {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    margin-top:20px;
+
+}
+
+ 
+
+.page-nation a {
+
+    display:block;
+
+    margin:0 3px;
+
+    float:left;
+
+    border:1px solid #e6e6e6;
+
+    width:28px;
+
+    height:28px;
+
+    line-height:28px;
+
+    text-align:center;
+
+    background-color:#fff;
+
+    font-size:13px;
+
+    color:black;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+}
+
+.page-nation a:hover{
+
+    background-color:gray;
+
+    color:white;
+
+}
     </style>
 </head>
 <body>
@@ -67,23 +134,25 @@
                         <c:if test="${r.reportStatus == 'Y' }">
                             확인
                         </c:if>                    
-                    </td>
-                </tr>
-            </c:forEach>
-        </tbody>
-    </table><br>
-    <div style="text-align: center; margin-top: 10px;">
-        <c:forEach var="num" begin="${startPage}" end="${endPage}" >
-            <a href="reportList.do?page=${num}" style="display: inline-block; padding: 6px 12px; background-color: #525252; color: white; text-decoration: none; border: none; border-radius: 4px; margin-right: 5px;">${num}</a>
-        </c:forEach>
-    </div><br>
 
-    <form id="frm" action="reportSelect.do" method="post">
-        <input type="hidden" id="boardId" name="boardId" value="">
-        <input type="hidden" id="reportId" name="reportId" value="">
-        <input type="hidden" id="memberId" name="memberId" value="">
-    </form>
-</div>
+                        </tr>
+                </c:forEach>
+            </tbody>
+        </table>
+        <div class="page-wrap">
+			<ul class="page-nation">
+        		<c:forEach var="num" begin="${startPage }" end="${endPage }">
+	      			<li><a href="reportList.do?page=${num }">${num }</a></li>
+    			</c:forEach>
+    		</ul>
+    	</div>
+    
+        <form id="frm" action="reportSelect.do" method="post">
+            <input type="hidden" id="boardId" name="boardId" value="">
+            <input type="hidden" id="reportId" name="reportId" value="">
+            <input type="hidden" id="memberId" name="memberId" value="">
+        </form>
+    </div>
 
     
 

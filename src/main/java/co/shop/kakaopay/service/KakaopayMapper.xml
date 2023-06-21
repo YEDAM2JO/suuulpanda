@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.shop.kakaopay.service.KakaopayMapper">
+	<select id="todayMoney">
+		SELECT sum(order_price) FROM orders WHERE SUBSTR(order_date, 0,10) = TO_CHAR(sysdate, 'YYYY-MM-DD')
+	</select>
+	
 	<insert id="kakaopayInsert">
 		INSERT INTO orders (order_id, member_id, member_addr, member_tel, delivery_message, payment_type, order_price, aid, tid, cid, order_type, order_date)
 		VALUES (#{orderId}, #{memberId}, #{memberAddr}, #{memberTel}, #{deliveryMessage}, #{paymentType}, #{orderPrice}, #{aid}, #{tid}, #{cid}, 'kakaopay', #{orderDate})
@@ -9,4 +13,5 @@
 		INSERT INTO orders (order_id, member_id, member_addr, member_tel, delivery_message, order_price, order_type, order_date)
 		VALUES (#{orderId}, #{memberId}, #{memberAddr}, #{memberTel}, #{deliveryMessage}, #{orderPrice}, 'deposit', #{orderDate})
 	</insert>
+	
 </mapper>

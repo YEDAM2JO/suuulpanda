@@ -149,7 +149,7 @@ table {
         </c:if>
         
         <!-- 신고하기 -->
-        <c:if test="${id != board.memberId && id != 'manager'}">
+        <c:if test="${id != board.memberId && id != 'manager' && board.memberId != 'manager'}">
         <form id="reportForm" action="reportAction.do" method="post" class="report-form">
             <input type="hidden" id="memberId" name="memberId" value="${board.memberId}">
             <label for="reportContent">신고 내용을 선택하세요 : </label>

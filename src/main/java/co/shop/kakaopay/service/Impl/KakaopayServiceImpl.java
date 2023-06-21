@@ -23,5 +23,11 @@ public class KakaopayServiceImpl implements KakaopayService{
 		return map.depositInsert(vo);
 	}
 
+	@Override
+	public int todayMoney() {
+		// TODO Auto-generated method stub
+		return map.todayMoney();
+	}
+
 	
 }

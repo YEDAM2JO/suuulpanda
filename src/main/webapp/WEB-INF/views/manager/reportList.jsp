@@ -39,6 +39,73 @@
         tr:hover {
             background-color: #9fff80;
         }
+        .page-nation li{ 
+
+    list-style: none;
+
+} 
+
+ 
+
+.page-wrap {
+
+    text-align:center;
+
+    font-size:0;
+
+ }
+
+.page-nation  {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    margin-top:20px;
+
+}
+
+ 
+
+.page-nation a {
+
+    display:block;
+
+    margin:0 3px;
+
+    float:left;
+
+    border:1px solid #e6e6e6;
+
+    width:28px;
+
+    height:28px;
+
+    line-height:28px;
+
+    text-align:center;
+
+    background-color:#fff;
+
+    font-size:13px;
+
+    color:black;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+}
+
+.page-nation a:hover{
+
+    background-color:gray;
+
+    color:white;
+
+}
     </style>
 <tiles:insertAttribute name="header"/>
 
@@ -74,9 +141,14 @@
                 </c:forEach>
             </tbody>
         </table>
-        <c:forEach var="num" begin="${startPage }" end="${endPage }">
-	      <a href="reportList.do?page=${num }">${num }</a>
-    </c:forEach>
+        <div class="page-wrap">
+			<ul class="page-nation">
+        		<c:forEach var="num" begin="${startPage }" end="${endPage }">
+	      			<li><a href="reportList.do?page=${num }">${num }</a></li>
+    			</c:forEach>
+    		</ul>
+    	</div>
+    
         <form id="frm" action="reportSelect.do" method="post">
             <input type="hidden" id="boardId" name="boardId" value="">
             <input type="hidden" id="reportId" name="reportId" value="">

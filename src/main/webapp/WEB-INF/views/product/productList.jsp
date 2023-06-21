@@ -82,6 +82,20 @@ input[type="image"] {
 	font-size: 15px;
 }
 
+.hover10 figure img {
+  -webkit-filter: grayscale(0) blur(0);
+  filter: grayscale(0) blur(0);
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+}
+.hover10 figure{
+	margin : 0;
+	padding: 0;
+}
+.hover10 figure:hover img {
+  -webkit-filter: grayscale(100%) blur(3px);
+  filter: grayscale(100%) blur(3px);
+}
 </style>
 </head>
 <body>
@@ -136,11 +150,11 @@ input[type="image"] {
 						<div class="col-md-4">
 							<div class="card mb-4 product-wap rounded-0">
 
-								<div class="card rounded-0">
-									<a href="productSelect.do?productId=${p.productId}"> <img
+								<div class="card rounded-0 hover10 column">
+									<a href="productSelect.do?productId=${p.productId}"><figure><img
 										style="height: 370px; width: 303px;"
 										src="${pageContext.request.contextPath}/upload/${p.productImg}"
-										alt="상품이미지">
+										alt="상품이미지"></figure>
 									</a>
 								</div>
 
@@ -172,7 +186,7 @@ input[type="image"] {
 					<div class="row">
 					<ul class="pagination pagination-lg justify-content-end">
 						<c:forEach var="num" begin="1" end="${realEnd }">
-	      				<li class="page-item"><a onclick="pageGo('${num }')" class="page-link active rounded-0 mr-3 shadow-sm border-top-0 border-left-0">${num }</a></li>
+	      				<li class="page-item" style="cursor:pointer;"><a onclick="pageGo('${num }')" class="page-link active rounded-0 mr-3 shadow-sm border-top-0 border-left-0">${num }</a></li>
     					</c:forEach>
 					</ul>
 					

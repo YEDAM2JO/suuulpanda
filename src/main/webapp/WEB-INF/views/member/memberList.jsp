@@ -9,49 +9,10 @@
 <style>
 	input[type=text]{
 		display: inline-block;
-		width:300px;
+		
 		border: none;
 	}
-	#tableStyle {
-  color: #666;
-  font: 14px/24px "Open Sans", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", Sans-Serif;
-}
-#tableStyle table {
-  border-collapse: separate;
-  border-spacing: 0;
-  width: 70%;
-}
-#tableStyle th,
-#tableStyle td {
-  padding: 6px 15px;
-}
-#tableStyle th {
-  background: #42444e;
-  color: #fff;
-  text-align: left;
-}
-#tableStyle tr:first-child th:first-child {
-  border-top-left-radius: 6px;
-}
-#tableStyle tr:first-child th:last-child {
-  border-top-right-radius: 6px;
-}
-#tableStyle td {
-  border-right: 1px solid #c6c9cc;
-  border-bottom: 1px solid #c6c9cc;
-}
-#tableStyle td:first-child {
-  border-left: 1px solid #c6c9cc;
-}
-#tableStyle tr:nth-child(even) #tableStyle td {
-  background: #eaeaed;
-}
-#tableStyle tr:last-child #tableStyle td:first-child {
-  border-bottom-left-radius: 6px;
-}
-#tableStyle tr:last-child #tableStyle td:last-child {
-  border-bottom-right-radius: 6px;
-}
+
 .page-nation li{ 
 
     list-style: none;
@@ -125,31 +86,31 @@
 <body>
 	<div align = "center"><h1>회원 목록 보기</h1></div>
 	<div align = "center" id="tableStyle">
-	<table border="1">
+	<table border="1" class="table">
 	<thead>
 		<tr>
-			<th width="30">아이디</th>
-			<th width="30">비밀번호</th>
-			<th width="30">이름</th>
-			<th width="300">주소</th>
-			<th width="30">전화번호</th>
-			<th width="30">수정</th>
-			<th width="50">삭제</th>
+			<th>아이디</th>
+			<th>비밀번호</th>
+			<th>이름</th>
+			<th>주소</th>
+			<th>전화번호</th>
+			<th>수정</th>
+			<th>삭제</th>
 		</tr>
 	</thead>
 	<tbody>
 		<c:forEach items = "${members }" var="m">
-			<tr>
 			<form action ="memberUpdate.do" method="post">
+			<tr>
 				<td align = "center"><input id="memberId" name = "memberId" type="text" value="${m.memberId }" readonly></td>
 				<td align = "center"><input id="memberPw" name = "memberPw" type="text" value="${m.memberPw }"></td>
 				<td align = "center"><input id="memberName" name = "memberName" type="text" value="${m.memberName }"></td>
 				<td align = "center"><input id="memberAddr" name = "memberAddr" type="text" value="${m.memberAddr }"></td>
 				<td align = "center"><input id="memberTel" name = "memberTel" type="text" value="${m.memberTel }"></td>
 				<td align = "center"><input type="submit" value="수정"></td>
-				<td align = "center"><button type="button" onclick="deleteM('${m.memberId}', event)">삭제</button></td>
-			</form>
+				<td align = "center"><button class="btn btn-success" type="button" onclick="deleteM('${m.memberId}', event)">삭제</button></td>
 			</tr>
+			</form>
 		</c:forEach>
 	</tbody>
 	</table>

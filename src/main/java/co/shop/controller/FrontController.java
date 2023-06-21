@@ -232,7 +232,7 @@ public class FrontController extends HttpServlet {
 		Command command = map.get(page);
 		String viewPage = command.exec(request, response);
 		
-		if(!viewPage.startsWith("orderSelect.do?orderId=") && !viewPage.equals("boardList.do?page=1") && !viewPage.endsWith(".do") && !viewPage.contains("naver") && !viewPage.contains("socialLogin.do") && !viewPage.contains("online-pay.kakao.com") && !viewPage.contains("kakaopayMessage.do")) {
+		if(!viewPage.startsWith("orderSelect.do?orderId=") && !viewPage.equals("boardList.do?page=1") && !viewPage.equals("managerUpdateMember.do?page=1") && !viewPage.endsWith(".do") && !viewPage.contains("naver") && !viewPage.contains("socialLogin.do") && !viewPage.contains("online-pay.kakao.com") && !viewPage.contains("kakaopayMessage.do")) {
 			if(viewPage.startsWith("Ajax:")) {
 				response.setContentType("text/html; charset = UTF-8");
 				response.getWriter().append(viewPage.substring(5));

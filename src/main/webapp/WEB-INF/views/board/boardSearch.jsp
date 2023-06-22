@@ -300,23 +300,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>2</td>
-                    <th>
-                      <a href="#!">[공지사항] 개인정보 처리방침 변경안내처리방침</a>
-                      <p>테스트</p>
-                    </th>
-                    <td>관리자</td>
-                    <td>2017.07.13</td>
-                    <td>1021</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <th><a href="#!">공지사항 안내입니다. 이용해주셔서 감사합니다</a></th>
-                    <td>관리자</td>
-                    <td>2017.06.15</td>
-                    <td>764</td>
-                </tr>
+                
                 <c:forEach items="${boards }" var="b">
                 	<tr onmouseover='this.style.background="#9fff80";'
 						onmouseleave='this.style.background="#FFFFFF";' onclick="boardChois(${b.boardId},'${b.memberId }','${b.boardSecret}')">

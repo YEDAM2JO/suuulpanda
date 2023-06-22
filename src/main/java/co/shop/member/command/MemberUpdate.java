@@ -20,9 +20,9 @@ public class MemberUpdate implements Command {
 		vo.setMemberAddr(request.getParameter("memberAddr"));
 		vo.setMemberTel(request.getParameter("memberTel"));
 		int i = ms.memberUpdate(vo);
-		System.out.println(i);
 		
-		return "managerUpdateMember.do?page=1";
+		
+		return "userpage.do";
 	}
 
 }

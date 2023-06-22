@@ -24,6 +24,17 @@ public class ManagerUpdateMember implements Command {
 		
 		
 		MemberVO vo = new MemberVO();
+		
+		
+		vo.setMemberId(request.getParameter("memberId"));
+		vo.setMemberPw(request.getParameter("memberPw"));
+		vo.setMemberName(request.getParameter("memberName"));
+		vo.setMemberAddr(request.getParameter("memberAddr"));
+		vo.setMemberTel(request.getParameter("memberTel"));
+		int i = ms.memberUpdate(vo);
+		
+		
+		
 		vo.setPage(Integer.valueOf(request.getParameter("page")));
 		List<MemberVO> members = ms.memberSelectList(vo);
 		

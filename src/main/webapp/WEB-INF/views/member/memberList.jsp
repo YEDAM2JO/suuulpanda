@@ -100,7 +100,7 @@
 	</thead>
 	<tbody>
 		<c:forEach items = "${members }" var="m">
-			<form action ="memberUpdate.do" method="post">
+			<form action ="managerUpdateMember.do?page=1" method="post">
 			<tr>
 				<td align = "center"><input id="memberId" name = "memberId" type="text" value="${m.memberId }" readonly></td>
 				<td align = "center"><input id="memberPw" name = "memberPw" type="text" value="${m.memberPw }"></td>

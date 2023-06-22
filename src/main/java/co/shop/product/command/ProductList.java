@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import co.shop.common.Command;
 import co.shop.product.service.ProductService;
@@ -59,6 +60,10 @@ public class ProductList implements Command {
 		}
 		request.setAttribute("endPage", endPage);
 		request.setAttribute("realEnd", realEnd);
+		
+		HttpSession session = request.getSession();
+		List<ProductVO> recentProducts = (List<ProductVO>) session.getAttribute("recentProducts");
+		request.setAttribute("recentProduct", recentProducts);
 		
 		
         return "product/productList";

@@ -232,10 +232,14 @@
              
              //기본 반복문
              for(var b of ckb){
-            	 let check =b;
-            	 let id = b.value;
+            	let check =b;
+            	let id = b.value;
 				let url = "ajaxCartDelete.do?id=" + id;
-				sum2.textContent = sum2.textContent - b.parentNode.lastElementChild.firstElementChild;
+				alert(b.parentNode.lastElementChild.firstElementChild.value);
+				sum2.textContent = sum2.textContent - b.parentNode.lastElementChild.firstElementChild.value;
+				
+				
+				
                  fetch(url)
                  	.then(response => response.text())
                   	.then(text=>{

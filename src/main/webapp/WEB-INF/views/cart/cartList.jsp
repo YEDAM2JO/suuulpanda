@@ -235,8 +235,8 @@
             	let check =b;
             	let id = b.value;
 				let url = "ajaxCartDelete.do?id=" + id;
-				alert(b.parentNode.lastElementChild.firstElementChild.value);
-				sum2.textContent = sum2.textContent - b.parentNode.lastElementChild.firstElementChild.value;
+				
+				sum2.textContent = Number(sum2.textContent) - parseInt(b.parentNode.parentNode.lastElementChild.innerHTML.replace(",", ""));
 				
 				
 				

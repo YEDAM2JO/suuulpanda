@@ -53,7 +53,7 @@
         background-color: #45a049;
     }
 
-
+	
 </style>
 
 <meta charset="UTF-8">
@@ -245,6 +245,8 @@
 		</c:forEach>
 			</table><br><br>
 		</div>
+		
+		
 	</section>
 
 	<script>

@@ -104,6 +104,29 @@ input[type="image"] {
   -webkit-transform: scale(1.3);
   transform: scale(1.3);
 }
+
+#ddara {
+     position: fixed; 
+  right: 40%; 
+  top: 50px; 
+  margin-right: -720px;
+  text-align:center;
+  width: 120px;
+}
+#smallImage{
+		 width: auto; height: auto;
+    max-width: 100px;
+    max-height: 100px;
+	}
+	
+	#recentProduct{
+		list-style : none;
+		
+	}
+	
+	#recentProduct li{
+		display: inline-block;
+	}
 .rate{background: url(https://aldo814.github.io/jobcloud/html/images/user/star_bg02.png) no-repeat;width: 121px;height: 20px;position: relative;}
 .rate span{position: absolute;background: url(https://aldo814.github.io/jobcloud/html/images/user/star02.png);width: auto;height: 20px;}
 </style>
@@ -196,6 +219,23 @@ input[type="image"] {
 
 		</div>
 
+	</div>
+	<div id="ddara">
+		<p>최근 본 상품</p>
+		<c:if test="${recentProduct == null }">
+			<p>최근 본 상품이 없습니다.</p>
+		</c:if>
+		<c:if test="${recentProduct != null }">
+		<ul id="recentProduct">
+			<c:forEach items="${recentProduct }" var="rp">
+				<li><img class="smallImage"
+							src="${pageContext.request.contextPath}/upload/${rp.productImg}"
+							alt="상품 이미지"></li>
+				<li>${rp.productName }</li>
+				<li>${rp.productPrice }원</li>
+			</c:forEach>
+		</ul>
+		</c:if>
 	</div>
 	<script>
 		function changeOptionSelect() {
